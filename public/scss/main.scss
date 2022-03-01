@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+//ベース
+
+@import "./base/variables";
+@import "./base/mixin"; 
+@import "./base/reset";
+
+// ===============アイテム、パーツ=================
+
+// ヘッダー
+@import "./header";
+
+// ジュエリー一覧
+@import "./jewelry_list";
+
+// ===============ページ毎=================
+
+// index.php の編集
+@import "./index";
