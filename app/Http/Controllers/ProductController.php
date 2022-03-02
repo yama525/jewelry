@@ -41,7 +41,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create([
+            'name' => $request->name,
+            'image' => $request->image,
+        ]);
+        
+        return redirect()->route('product.index');
+        // $product = product::create([
+        //     'name' => $request->name,
+        //     // 'image' => $request->image,
+        //     'user_id' => auth()->user()->id // 追記
+        // ]);
+        // // $product->tags()->attach($request->tags); // 追記
+        // return redirect()->route('products.index');
     }
 
     /**

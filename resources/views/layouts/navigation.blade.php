@@ -5,16 +5,19 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('lp.index') }}">
+                    <a href="{{ route('product.index') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('lp.index')" :active="request()->routeIs('lp.index')">
-                        {{ __('lp.index') }}
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                        {{ __('あああ') }}
                     </x-nav-link>
+                    {{-- <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+                        {{ __('いいい') }}
+                    </x-nav-link> --}}
                 </div>
             </div>
 
@@ -63,8 +66,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('lp.index')" :active="request()->routeIs('lp.index')">
-                {{ __('lp.index') }}
+            <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                {{ __('ああああ') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+                {{ __('いいいい') }}
             </x-responsive-nav-link>
         </div>
 

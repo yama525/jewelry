@@ -22,7 +22,8 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function() {
     // よくわからないけど、ログイン後も LP のページが表示される。
-    Route::get('/lp', [ProductController::class, 'index'])->name('lp.index');
+    Route::get('/lp', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/lp', [ProductController::class, 'store'])->name('product.store');
 
     // とりあえず mypage 表示させたい場合はこっち。
     // Route::get('/', function () {
