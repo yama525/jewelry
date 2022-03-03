@@ -15,7 +15,9 @@ class ProductController extends Controller
     public function index()
     {
         
-            $products = Product::all();
+            // $products = Product::all();
+            $products = Product::with('lender_user')->get();
+
         
             // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
                 return view('lp',[
@@ -44,6 +46,7 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->name,
             'image' => $request->image,
+            'lender_user_id' => auth()->user()->id,
         ]);
         
         return redirect()->route('product.index');

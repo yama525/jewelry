@@ -42,7 +42,9 @@
             <ul>
                 @foreach($products as $product)
                     <li>
-                        <img src="dummy_img/{{ $product->image }}" alt="">
+                        <a href="#"><img src="dummy_img/{{ $product->image }}" alt=""></a>
+                        <p>{{ $product->name }}</p>
+                        <p>{{ $product->lender_user->name }}</p>
                     </li>
                 @endforeach
             </ul>
@@ -53,7 +55,6 @@
     <form action="/lp" method="POST" class="card card-body shadow-2 mb-3">
         @csrf
         <div class="mb-2">
-            <p class="mb-1 text-gray-400 font-weight-bold" style="font-size: 0.8rem;">ぼやいったー</p>
             <div class="form-outline">
                 {{-- <textarea class="form-control" id="text-area" rows="3" name="name" placeholder="ぼやきを入力"></textarea> --}}
                 <input type="text" name="name" placeholder="ジュエリーの名前">
@@ -65,7 +66,7 @@
             type="submit"
             class="btn btn-primary btn-lg btn-block shadow-0 font-weight-bold"
         >
-            ぼやきを投稿
+            投稿
         </button>
     </form>
     </x-app-layout>
