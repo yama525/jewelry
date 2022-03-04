@@ -45,6 +45,18 @@
                         <a href="#"><img src="dummy_img/{{ $product->image }}" alt=""></a>
                         <p>{{ $product->name }}</p>
                         <p>{{ $product->lender_user->name }}</p>
+                        <div class="d-flex" style="z-index:2">
+                            <a href="/lp/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
+                                <i class="fas fa-edit fa-lg"></i>
+                            </a>
+                            <form action="/lp/{{$product->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-floating shadow-0">
+                                    <i class="fas fa-trash fa-lg"></i>
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 @endforeach
             </ul>
