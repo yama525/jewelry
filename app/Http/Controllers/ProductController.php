@@ -23,7 +23,11 @@ class ProductController extends Controller
                 return view('lp',[
                     'products' => $products
                 ]);
+                // return view('top',[
+                //     'products' => $products
+                // ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,6 +38,12 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function post()
+    {
+        return view('product_register_request');
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -48,6 +58,7 @@ class ProductController extends Controller
             'image' => $request->image,
             'lender_user_id' => auth()->user()->id,
         ]);
+       
         
         return redirect()->route('product.index');
         // $product = product::create([

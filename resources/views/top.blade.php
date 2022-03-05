@@ -54,5 +54,74 @@
             </div>
         </div>
     </div>
+
+    <x-app-layout>
+
+        <!-- メインビジュアル -->
+        <div class="main_visual">
+            <img src="dummy_img/main_visual.jpg" alt="">
+        </div>
+    
+        <!-- メッセージ -->
+        <div class="message_wrapper">
+            <h1>Message</h1>
+            <p>（仮）ジュエリーを愛しジュエリーに愛された皆さんに送る最高の体験（笑）。つけてみたいあのジュエリーをつけてみませんか。</p>
+        </div>
+    
+        <!-- サービス紹介 -->
+        <div class="service_wrapper">
+            <h1>Service</h1>
+            <p>（仮）憧れのあのハイジュエリーをレンタルできます。大切な時間を過ごしていただくためにハイジュエリーのプロが相談いたします。また、ハイジュエリーは日常生活で使用しない方は家にあるジュエリーを信頼できる人に貸して、お持ちのジュエリーの魅力をたくさんの人に知ってもらうこともできます。（⇦これは Message の内容ですね、サービスは図とか入れて作る方がいいかも）</p>
+        </div>
+    
+        <!-- レンタル可能なジュエリー -->
+        <div class="jewelry_wrapper">
+            <h1>Jewelry</h1>
+            <div class="rentable_jewelries">
+                <ul>
+                    @foreach($products as $product)
+                        <li>
+                            <a href="#"><img src="dummy_img/{{ $product->image }}" alt=""></a>
+                            <p>{{ $product->name }}</p>
+                            <p>{{ $product->lender_user->name }}</p>
+                            <div class="d-flex" style="z-index:2">
+                                <a href="/lp/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
+                                    <i class="fas fa-edit fa-lg"></i>
+                                </a>
+                                <form action="/lp/{{$product->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-floating shadow-0">
+                                        <i class="fas fa-trash fa-lg"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    
+        {{-- 仮で投稿フォームをこちらに書く --}}
+        <form action="/lp" method="POST" class="card card-body shadow-2 mb-3">
+            @csrf
+            <div class="mb-2">
+                <div class="form-outline">
+                    {{-- <textarea class="form-control" id="text-area" rows="3" name="name" placeholder="ぼやきを入力"></textarea> --}}
+                    <input type="text" name="name" placeholder="ジュエリーの名前">
+                    <input type="text" name="image" placeholder="ファイル名">
+    
+                </div>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-primary btn-lg btn-block shadow-0 font-weight-bold"
+            >
+                投稿
+            </button>
+        </form>
+        </x-app-layout>
 </body>
 </html>
+
+

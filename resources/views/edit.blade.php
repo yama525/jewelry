@@ -5,7 +5,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-outline mb-2">
-                    <textarea class="form-control" id="text-area" rows="4" name="name">{{ $product->name }}</textarea>
+                    <input type="text" name="image" value="{{ $product->name }}">
                     {{-- <img src="dummy_img/{{ $product->image }}" alt=""> --}}
                     <input type="text" name="image" value="{{ $product->image }}">
                     {{-- <input type="text" name='' placeholder="{{ $product->lender_user->name }}"> --}}
