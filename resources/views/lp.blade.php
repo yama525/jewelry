@@ -22,7 +22,7 @@
     <div class="jewelry_wrapper">
         <h1>Jewelry</h1>
         <div class="rentable_jewelries">
-            <ul>
+            <ul class="jewelry_list">
                 @foreach($products as $product)
                     <li>
                         <a href="/product_detail/{{ $product->id }}"><img src="dummy_img/{{ $product->image }}" alt=""></a>
