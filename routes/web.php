@@ -19,6 +19,7 @@ use App\Http\Controllers\ProductController;
 //     return view('top');
 // });
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product_detail/{product}', [ProductController::class, 'show'])->name('product.show');
 
 
 Route::group(['middleware' => ['auth']], function() {

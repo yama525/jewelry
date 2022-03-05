@@ -42,7 +42,7 @@
             <ul>
                 @foreach($products as $product)
                     <li>
-                        <a href="#"><img src="dummy_img/{{ $product->image }}" alt=""></a>
+                        <a href="/product_detail/{{ $product->id }}"><img src="dummy_img/{{ $product->image }}" alt=""></a>
                         <p>{{ $product->name }}</p>
                         <p>{{ $product->lender_user->name }}</p>
                         <div class="d-flex" style="z-index:2">
