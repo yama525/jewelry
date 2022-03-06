@@ -14,7 +14,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
             // $products = Product::all();
             $products = Product::with('lender_user')->get();
 
@@ -23,9 +22,6 @@ class ProductController extends Controller
                 return view('lp',[
                     'products' => $products
                 ]);
-                // return view('top',[
-                //     'products' => $products
-                // ]);
     }
 
 
