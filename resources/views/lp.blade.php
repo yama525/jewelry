@@ -25,8 +25,10 @@
             <ul class="jewelry_list">
                 @foreach($products as $product)
                     <li>
-                        <a href="/product_detail/{{ $product->id }}"><img src="dummy_img/{{ $product->image }}" alt=""></a>
-                        <p>{{ $product->name }}</p>
+                        <a href="/product_detail/{{ $product->id }}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
+
+                        {{-- 以下は勉強用 --}}
+                        {{-- <p>{{ $product->name }}</p>
                         <p>{{ $product->lender_user->name }}</p>
                         <div class="d-flex" style="z-index:2">
                             <a href="/lp/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
@@ -39,11 +41,15 @@
                                     <i class="fas fa-trash fa-lg"></i>
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
+                        
                     </li>
                 @endforeach
             </ul>
         </div>
+       
+
+
     </div>
     </x-app-layout>
 

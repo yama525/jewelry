@@ -55,10 +55,9 @@ class ProductController extends Controller
     {
         $product = Product::create([
             'name' => $request->name,
-            'image' => $request->image,
+            'image' => $request->image->store('', 'public'),
             'lender_user_id' => auth()->user()->id,
         ]);
-       
         
         return redirect()->route('product.index');
         // $product = product::create([
