@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rentaling_user_id');
-            $table->foreignId('lender_user_id');
-            $table->foreignId('product_id');
+            $table->foreignId('rentaling_user_id')->constraint();
+            $table->foreignId('lender_user_id')->constraint();
+            $table->foreignId('product_id')->constraint();
             $table->enum('on_where', ['lender', 'us', 'renter']);
             $table->boolean('is_cleaning');
             $table->boolean('is_fixing');

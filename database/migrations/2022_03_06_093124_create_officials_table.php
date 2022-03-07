@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('officials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('brand_id');
+            $table->foreignId('brand_id')->constraint();
             $table->string('name');
             $table->text('description');
             $table->string('size')->nullable();
-            $table->foreignId('motif_id')->nullable();
+            $table->foreignId('motif_id')->constraint()->nullable();
             $table->string('charm_length')->nullable();
             $table->timestamps();
         });

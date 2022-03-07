@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Rental-invoice extends Model
 {
     use HasFactory;
-
-    public function reviewed_user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
-

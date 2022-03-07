@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('rental_invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('product_id');
+            $table->foreignId('user_id')->constraint();
+            $table->foreignId('product_id')->constraint();
             $table->string('product_name');
             $table->integer('total_price');
             $table->float('tax');

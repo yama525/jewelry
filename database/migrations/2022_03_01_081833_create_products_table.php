@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lender_user_id');
+            $table->foreignId('lender_user_id')->constraint();
 
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('image');
 
-            $table->foreignId('store_id')->nullable();
-            $table->foreignId('official_product_id');
+            $table->foreignId('store_id')->constraint()->nullable();
+            $table->foreignId('official_product_id')->constraint();
             $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();

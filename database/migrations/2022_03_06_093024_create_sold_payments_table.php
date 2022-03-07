@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('sold_payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('product_id');
+            $table->foreignId('user_id')->constraint();
+            $table->foreignId('product_id')->constraint();
             $table->string('payment_info');
             $table->integer('price');
             $table->boolean('is_success');

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('solds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->foreignId('purchased_user_id');
+            $table->foreignId('product_id')->constraint();
+            $table->foreignId('purchased_user_id')->constraint();
             $table->boolean('is_sold');
             $table->integer('sold_price');
             $table->timestamp('sold_at');
