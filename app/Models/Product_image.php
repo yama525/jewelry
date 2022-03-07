@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product_image extends Model
 {
     use HasFactory;
+
+    // 商品テーブルとのリレーション
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

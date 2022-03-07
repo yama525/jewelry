@@ -28,7 +28,7 @@
                         <a href="/product_detail/{{ $product->id }}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
 
                         {{-- 以下は勉強用 --}}
-                        {{-- <p>{{ $product->name }}</p>
+                        <p>{{ $product->name }}</p>
                         <p>{{ $product->lender_user->name }}</p>
                         <div class="d-flex" style="z-index:2">
                             <a href="/lp/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
@@ -41,7 +41,8 @@
                                     <i class="fas fa-trash fa-lg"></i>
                                 </button>
                             </form>
-                        </div> --}}
+                        </div>
+                        {{-- <img src="{{ asset('storage/'.$product->product->image) }}" alt=""> --}}
                         
                     </li>
                 @endforeach
