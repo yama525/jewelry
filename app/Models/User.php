@@ -52,4 +52,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    public function retals()
+    {
+        return $this->hasMany(Rental::class);
+    }
+
+    public function solds()
+    {
+        return $this->hasMany(Sold::class);
+    }
+
+    public function rental_invoices()
+    {
+        return $this->hasMany(Rental_invoice::class);
+    }
+
+    public function sold_invoices()
+    {
+        return $this->hasMany(Sold_invoice::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

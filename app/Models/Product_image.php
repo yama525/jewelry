@@ -9,6 +9,14 @@ class Product_image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'image',
+        'product_id',
+    ];
+
+    //timestamps利用しない
+    // public $timestamps = false;
+
     // 商品テーブルとのリレーション
     public function product()
     {

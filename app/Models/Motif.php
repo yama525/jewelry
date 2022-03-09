@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Motif extends Model
 {
     use HasFactory;
+
+    public function officials()
+    {
+        return $this->hasMany(Official::class);
+    }
 }

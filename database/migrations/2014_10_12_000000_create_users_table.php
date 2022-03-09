@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('insta_id')->nullable();
-            $table->boolean('lender_flg');
+            // $table->boolean('lender_flg');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

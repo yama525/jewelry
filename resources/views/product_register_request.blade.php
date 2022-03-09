@@ -7,6 +7,7 @@
                 <input type="text" name="name" placeholder="ジュエリーの名前">
                 <label for="file_upload" class="cms-thumb" >
                     <input type="file" id="file_upload" name="image" accept="image/*" required>
+                    {{-- <input type="text" name='image'> --}}
                     <img class="art_register_img" src="dummy_img/dummy_image.jpeg" style="width:100px">
                 </label>
             </div>

@@ -35,7 +35,15 @@ class ProductImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        // $product_image = Product_image::create([
+        //     'product_id' => $product->id,
+        //     // 'image' => $request->product->image->store('', 'public'),
+        //     'image' => $request->Product->image,
+        // ]);
+     
+        
+        // return redirect()->route('product.index');
     }
 
     /**

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Product_image;
+use DB;
+
 
 class ProductController extends Controller
 {
@@ -14,13 +17,26 @@ class ProductController extends Controller
      */
     public function index()
     {
-            // $products = Product::all();
-            $products = Product::with('lender_user')->get();
+        $products = Product::with('lender_user')->join('product_images', 'product_images.product_id','=', 'products.id')->get();
+        // $products = Product::with('lender_user')->where('product_images.product_id', 'products.id')->get();
+
+            // $products = Product::all()->join('products', 'product.id','=', 'product_images.product_id');
+            // $products = DB::table('products')->join('products', 'product.id','=', 'product_images.product_id');
+            // $products = Product::select()->join('products', 'product_images.product_id','=', 'products.product_id')->get();
+            // dd($products);
+            // select * from `products` inner join `product_images` on `products_images`.`product_id` = `product`.`id`
+            // $product_images = Product_image::all()->where('product_id', );
+            // $product_images = Product_image::find($products->id);
+            // $product_images = Product_image::with('product')->where('product_images.product_id', 'products.id')->get();
+            // $product_images = Product_image::with('product')->get();
+            // $product_images = Product_image::with('product')->get();
+            // dd($product_images);
 
         
             // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
                 return view('lp',[
-                    'products' => $products
+                    'products' => $products,
+                    // 'product_images' => $product_images,
                 ]);
     }
 
@@ -49,20 +65,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $product = Product::create([
             'name' => $request->name,
-            'image' => $request->image->store('', 'public'),
+            // 'image' => $request->product_images()->image,
             'lender_user_id' => auth()->user()->id,
+            // 'official_product_id' => 3,
         ]);
+
+        $product_image = Product_image::create([
+            'product_id' => $product->id,
+            'image' => $request->image->store('', 'public'),
+        ]);
+     
         
         return redirect()->route('product.index');
-        // $product = product::create([
-        //     'name' => $request->name,
-        //     // 'image' => $request->image,
-        //     'user_id' => auth()->user()->id // 追記
-        // ]);
-        // // $product->tags()->attach($request->tags); // 追記
-        // return redirect()->route('products.index');
     }
 
     /**
@@ -73,9 +90,14 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        // dd($product);
+        $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
+        // dd($product_images);
         return view('product_detail', [
             'product' => $product,
+            'product_images' => $product_images,
         ]);
+
     }
 
     /**

@@ -26,6 +26,57 @@ class Product extends Model
     {
         return $this->hasMany(Product_image::class);
     }
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function official_product()
+    {
+        return $this->belongsTo(Official::class);
+    }
+
+    public function sold()
+    {
+        return $this->hasOne(Sold::class);
+    }
+
+    // 一対一の場合はよくわからない。
+    public function ring()
+    {
+        return $this->hasOne(Ring::class);
+    }
+
+    public function necklace()
+    {
+        return $this->hasOne(Necklace::class);
+    }
+
+    public function bracelet()
+    {
+        return $this->hasOne(Bracelet::class);
+    }
+
+    public function earing()
+    {
+        return $this->hasOne(Earing::class);
+    }
+
+    public function other_jewelrie()
+    {
+        return $this->hasOne(Other_jewelry::class);
+    }
 }
 
 
