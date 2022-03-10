@@ -23,22 +23,18 @@
         <h1>Jewelry</h1>
         <div class="rentable_jewelries">
             <ul class="jewelry_list">
-                {{-- @dd($products->image); --}}
                 @foreach($products as $product)
                     <li>
-                        {{-- @if($product_image->product_id > $product->id) --}}
-                        {{-- @dump($product_image->product_id) --}}
                         <a href="/product_detail/{{ $product->id }}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
 
-                        {{-- @endif --}}
                         {{-- 以下は勉強用 --}}
                         {{-- <p>{{ $product->name }}</p>
                         <p>{{ $product->lender_user->name }}</p>
                         <div class="d-flex" style="z-index:2">
-                            <a href="/lp/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
+                            <a href="/{{$product->id}}/edit"  class="btn btn-floating shadow-0" >
                                 <i class="fas fa-edit fa-lg"></i>
                             </a>
-                            <form action="/lp/{{$product->id}}" method="POST">
+                            <form action="/{{$product->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-floating shadow-0">
@@ -46,7 +42,6 @@
                                 </button>
                             </form>
                         </div> --}}
-                        {{-- <img src="{{ asset('storage/'.$product->product->image) }}" alt=""> --}}
                         
                     </li>
                 @endforeach

@@ -22,6 +22,11 @@
             </div>
 
         @auth
+            {{-- マイページ --}}
+            <div>
+                    <a href="{{ route('mypage') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">マイページ</a>
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">

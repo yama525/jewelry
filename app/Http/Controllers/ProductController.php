@@ -17,8 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('lender_user')->join('product_images', 'product_images.product_id','=', 'products.id')->get();
-        // $products = Product::with('lender_user')->where('product_images.product_id', 'products.id')->get();
+        $products = Product::with('lender_user')
+            ->join('product_images', 'product_images.product_id','=', 'products.id')
+            ->get();
+        // $products = Product::with('lender_user')->where('products.id', 'product_images.product_id')->get();
 
             // $products = Product::all()->join('products', 'product.id','=', 'product_images.product_id');
             // $products = DB::table('products')->join('products', 'product.id','=', 'product_images.product_id');
@@ -32,7 +34,6 @@ class ProductController extends Controller
             // $product_images = Product_image::with('product')->get();
             // dd($product_images);
 
-        
             // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
                 return view('lp',[
                     'products' => $products,
@@ -98,6 +99,28 @@ class ProductController extends Controller
             'product_images' => $product_images,
         ]);
 
+        // return view('mypage');
+    }
+
+    public function mine()
+    {
+        $products = Product::with('lender_user')
+            ->join('product_images', 'product_images.product_id','=', 'products.id')
+            ->where('lender_user_id', auth()->user()->id)
+            ->get();
+        // $product_images = Product_image::with('product')->where('product_id', $products->id)->get();
+        
+
+        // dd($products);
+        // $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
+        // dd($product_images);
+
+        return view('mypage',[
+            'products' => $products,
+            // 'product_images' => $product_images,
+        ]);
+
+        // return view('mypage');
     }
 
     /**
