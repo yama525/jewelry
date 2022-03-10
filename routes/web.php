@@ -15,6 +15,12 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
+
+// 貸し手用のLP一旦 Controller を経由せずに書いている。
+Route::get('/lender', function () {
+    return view('lender');
+})->name('lender.index');
+
 Route::get('/product_detail/{product}', [ProductController::class, 'show'])->name('product.show');
 
 
