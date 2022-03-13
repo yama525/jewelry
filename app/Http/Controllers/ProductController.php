@@ -22,10 +22,12 @@ class ProductController extends Controller
             ->get();
         // $products = Product::with('lender_user')->where('products.id', 'product_images.product_id')->get();
 
+        // 下記でもリレーションの中で値がとれた
+        // $products = Product::with('product_images')->get();
             // $products = Product::all()->join('products', 'product.id','=', 'product_images.product_id');
             // $products = DB::table('products')->join('products', 'product.id','=', 'product_images.product_id');
             // $products = Product::select()->join('products', 'product_images.product_id','=', 'products.product_id')->get();
-            // dd($products);
+        // dd($products->product_images()->get('image'));
             // select * from `products` inner join `product_images` on `products_images`.`product_id` = `product`.`id`
             // $product_images = Product_image::all()->where('product_id', );
             // $product_images = Product_image::find($products->id);
@@ -35,7 +37,7 @@ class ProductController extends Controller
             // dd($product_images);
 
             // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
-                return view('lp',[
+                return view('/renter/lp',[
                     'products' => $products,
                     // 'product_images' => $product_images,
                 ]);
@@ -54,7 +56,7 @@ class ProductController extends Controller
 
     public function post()
     {
-        return view('product_register_request');
+        return view('/lender/product_register_request');
     }
 
 
@@ -69,9 +71,7 @@ class ProductController extends Controller
         // dd($request);
         $product = Product::create([
             'name' => $request->name,
-            // 'image' => $request->product_images()->image,
             'lender_user_id' => auth()->user()->id,
-            // 'official_product_id' => 3,
         ]);
 
         $product_image = Product_image::create([
@@ -94,7 +94,7 @@ class ProductController extends Controller
         // dd($product);
         $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
         // dd($product_images);
-        return view('product_detail', [
+        return view('/renter/product_detail', [
             'product' => $product,
             'product_images' => $product_images,
         ]);
@@ -115,7 +115,7 @@ class ProductController extends Controller
         // $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
         // dd($product_images);
 
-        return view('mypage',[
+        return view('/renter/mypage',[
             'products' => $products,
             // 'product_images' => $product_images,
         ]);

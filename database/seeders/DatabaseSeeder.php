@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Product_image;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,20 +20,28 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::create([
-            'name' => 'たけし',
+            'name' => '飯田武',
+            'furigana' => 'いいだたけし',
             'email' => 'test@a.com',
             'password'=> bcrypt('password'),
-            // 'lender_flg' => 0,
+            'phone' => '090-1111-1111',
+            'birthday' => '1999/01/01',
+            'address' => '東京都中央区1-1-1',
+            'lender_flg' => 0,
         ]);
         User::create([
-            'name' => 'かすみ',
+            'name' => '岡島香澄',
+            'furigana' => 'おかじまかすみ',
             'email' => 'test2@a.com',
             'password'=> bcrypt('password'),
-            // 'lender_flg' => 0,
+            'phone' => '090-2222-2222',
+            'birthday' => '1999/02/02',
+            'address' => '東京都中央区2-2-2',
+            'lender_flg' => 0,
         ]);
-        // Product::create([
-        //     'name' => 'シンプルリングA',
-        //     'lender_user_id' => '1',
+        Product::create([
+            'name' => 'シンプルリングA',
+            'lender_user_id' => '1',
         //     'image' => 'jewelry1.jpg',
         //     'official_product_id' => 1,
         //     'type' => 'ring',
@@ -51,10 +61,10 @@ class DatabaseSeeder extends Seeder
         //     'is_purchasable' => 1,
         //     'favorite_count' => 0,
 
-        // ]);
-        // Product::create([
-        //     'name' => 'ネックレス',
-        //     'lender_user_id' => '2',
+        ]);
+        Product::create([
+            'name' => 'ネックレス',
+            'lender_user_id' => '2',
         //     'image' => 'jewelry2.jpg',
         //     'official_product_id' => 2,
         //     'type' => 'necklace',
@@ -73,6 +83,21 @@ class DatabaseSeeder extends Seeder
         //     'is_guarantee' => 0,
         //     'is_purchasable' => 0,
         //     'favorite_count' => 0,
-        // ]);
+        ]);
+
+        Product_image::create([
+            'product_id' => 1,
+            'image' => 'jewelry1.jpg', 
+        ]);
+        Product_image::create([
+            'product_id' => 1,
+            'image' => 'jewelry2.jpg', 
+        ]);
+        Product_image::create([
+            'product_id' => 2,
+            'image' => 'jewelry3.jpg', 
+        ]);
+
+
     }
 }

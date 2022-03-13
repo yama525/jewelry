@@ -22,10 +22,14 @@
             </div>
 
         @auth
-            {{-- マイページ --}}
+            
+            <div>
+                <a href="{{ route('renter_request') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">借りれるようになるフォーム</a>
+            </div>
             <div>
                 <a href="{{ route('lender.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">貸し手ページ</a>
             </div>
+            {{-- マイページ --}}
             <div>
                     <a href="{{ route('mypage') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">マイページ</a>
             </div>

@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Favorite::class);
     }
+
+    public function rental_requests()
+    {
+        return $this->hasMany(Rental_request::class);
+    }
 }
