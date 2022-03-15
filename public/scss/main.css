@@ -3,8 +3,8 @@ body {
 }
 
 body h1 {
-  font-size: 85px;
-  margin-top: 20px;
+  font-size: 72px;
+  font-family: 'Playfair Display', serif;
 }
 
 body h2 {
@@ -13,6 +13,7 @@ body h2 {
 
 body p {
   font-size: 18px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 /*! sanitize.css v3.2.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
@@ -336,30 +337,11 @@ a {
   text-decoration: none;
 }
 
-.jewelry_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.css_message {
+  width: 90%;
 }
 
-.jewelry_list img {
-  padding: 10px;
-  width: 330px;
-  height: 330px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-main .main_visual img {
-  width: 100%;
-}
-
-main .rentable_jewelries img {
-  width: 400px;
+.css_message__img {
+  width: 70%;
 }
 /*# sourceMappingURL=main.css.map */

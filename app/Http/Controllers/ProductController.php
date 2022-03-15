@@ -17,9 +17,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('lender_user')
-            ->join('product_images', 'product_images.product_id','=', 'products.id')
+        // $products = Product::with(['lender_user', 'product_images'])
+        //     ->join('product_images', 'product_images.product_id','=', 'products.id')
+        //     ->get();
+        
+        $products = Product::with('product_images')
             ->get();
+            // dd($products);
         // $products = Product::with('lender_user')->where('products.id', 'product_images.product_id')->get();
 
         // 下記でもリレーションの中で値がとれた

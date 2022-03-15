@@ -26,6 +26,10 @@ class Product extends Model
     {
         return $this->hasMany(Product_image::class);
     }
+    public function get_thumbnail() {
+        # productに紐づく写真（配列）の一番最初の要素を取得する
+        return $this->product_images[0]->image;
+    }
 
     public function rentals()
     {

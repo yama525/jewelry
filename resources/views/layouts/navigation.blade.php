@@ -1,25 +1,10 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-image:url('dummy_img/marble.jpg');">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('product.index') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
+    <div class="max-w-7xl mx-auto ">
+        <div class="flex justify-end h-12">
+            
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
-                        {{ __('あああ') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
-                        {{ __('ジュエリーを出品する') }}
-                    </x-nav-link>
-                </div>
-            </div>
+                
 
         @auth
             
@@ -65,10 +50,10 @@
             </div>
 
         @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <a href="{{ route('login') }}" class="text-xl text-white bg-green-800 hover:bg-green-900 py-2 px-4 ">Log in</a>
 
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <a href="{{ route('register') }}" class="text-xl text-white bg-gray-800 hover:bg-black py-2 px-4">Register</a>
             @endif
         @endauth
 
@@ -88,10 +73,10 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
-                {{ __('ああああ') }}
+                {{ __('Home') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
-                {{ __('ジュエリーを出品する') }}
+                {{ __('出品する') }}
             </x-responsive-nav-link>
         </div>
 
@@ -124,5 +109,24 @@
                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
             @endif
         @endauth
+    </div>
+
+        <!-- Logo -->
+    <div class="flex justify-center my-12">
+        <div class="shrink-0 flex items-center justify-center">
+            <a href="{{ route('product.index') }}">
+                <img src="dummy_img/logo2.png" class="w-60" alt="">
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="hidden sm:-my-px sm:flex flex justify-center">
+        <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+            <p class="text-2xl text-gray-500 ">{{ __('Home') }}</p>
+        </x-nav-link>
+        <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+            <p class="text-2xl text-gray-500">{{ __('出品する') }}</p>
+        </x-nav-link>
     </div>
 </nav>
