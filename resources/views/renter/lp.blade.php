@@ -176,7 +176,6 @@
         </div>
     </section>
 
-
     <section class="bg-white py-8">
         <h1 class="text-gray-800 text-center">Lent</h1>
         <div class="h-screen bg-contain" style="background-image: url(dummy_img/woman.jpeg)">
@@ -185,8 +184,6 @@
             </div>
         </div>
     </section>
-
-
 
     </div>
     </x-app-layout>
