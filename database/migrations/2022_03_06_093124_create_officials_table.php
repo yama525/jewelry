@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('officials', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->string('id', 30)->primary();
             $table->foreignId('brand_id')->constraint();
             $table->string('name');
             $table->text('description');

@@ -21,7 +21,7 @@ return new class extends Migration
             // $table->string('image');
 
             $table->foreignId('store_id')->constraint()->nullable();
-            // $table->foreignId('official_product_id')->constraint();
+            // $table->foreignId('official_id')->constraint();
             // $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();

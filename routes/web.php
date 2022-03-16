@@ -19,6 +19,8 @@ use App\Http\Controllers\RenterRequestController;
 
 // 商品一覧画面（メインのインデックスページ）表示
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/ring', [ProductController::class, 'ring'])->name('ring');
+
 
 // 貸し手用のLP一旦 Controller を経由せずに書いている。
 Route::get('/lender', function () {
