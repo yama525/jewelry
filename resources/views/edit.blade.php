@@ -30,6 +30,8 @@
                     <a href="/lp" class="btn btn-dark btn-block shadow-0">キャンセル</a>
                     <button type="submit" class="btn btn-primary btn-block shadow-0">更新</button>
                 </div>
+
+                
             </form>
         </div>
     </div>
