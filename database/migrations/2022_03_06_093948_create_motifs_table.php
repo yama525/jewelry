@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('motifs', function (Blueprint $table) {
             $table->id();
             $table->string('motif_type');
+            $table->timestamps();
         });
     }
 

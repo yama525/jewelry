@@ -9,6 +9,11 @@ class Brand extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'brand_name',
+        'brand_detail',
+    ];
+
     public function officials()
     {
         return $this->hasMany(Official::class);

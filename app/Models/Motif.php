@@ -9,6 +9,10 @@ class Motif extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'motif_type',
+    ];
+
     public function officials()
     {
         return $this->hasMany(Official::class);

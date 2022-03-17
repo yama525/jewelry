@@ -15,7 +15,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function ring()
     {
         // $products = Product::with(['lender_user', 'product_images'])
         //     ->join('product_images', 'product_images.product_id','=', 'products.id')
@@ -41,10 +41,14 @@ class ProductController extends Controller
             // dd($product_images);
 
             // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
-                return view('/renter/lp',[
+                return view('/renter/ring',[
                     'products' => $products,
-                    // 'product_images' => $product_images,
                 ]);
+    }
+
+    public function index()
+    {
+                return view('/renter/lp');
     }
 
 
