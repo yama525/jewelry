@@ -14,7 +14,7 @@ class MotifController extends Controller
      */
     public function index()
     {
-        //
+        return view('/admin/motif_register');
     }
 
     /**
@@ -35,7 +35,12 @@ class MotifController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  dd($request);
+         $motif = Motif::create([
+            'motif_type' => $request->motif_type,
+        ]);
+            
+        return redirect()->route('admin.motif_register');
     }
 
     /**

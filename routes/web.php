@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RenterRequestController;
+use App\Http\Controllers\OfficialController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\MotifController;
+
+
 
 
 /*
@@ -19,6 +24,8 @@ use App\Http\Controllers\RenterRequestController;
 
 // 商品一覧画面（メインのインデックスページ）表示
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/ring', [ProductController::class, 'ring'])->name('ring');
+
 
 // 貸し手用のLP一旦 Controller を経由せずに書いている。
 Route::get('/lender', function () {
@@ -50,6 +57,15 @@ Route::group(['middleware' => ['auth']], function() {
     // Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
     // Route::put('/{product}', [ProductController::class, 'update'])->name('product.update');
     // Route::delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+    // 以下は管理者用ページ
+    Route::get('/admin/official_register', [OfficialController::class, 'index'])->name('admin.official_register');
+    Route::post('/admin/official_register', [OfficialController::class, 'store'])->name('admin.official_register.store');
+    Route::get('/admin/brand_register', [BrandController::class, 'index'])->name('admin.brand_register');
+    Route::post('/admin/brand_register', [BrandController::class, 'store'])->name('admin.brand_register.store');
+    Route::get('/admin/motif_register', [MotifController::class, 'index'])->name('admin.motif_register');
+    Route::post('/admin/motif_register', [MotifController::class, 'store'])->name('admin.motif_register.store');
+
 
 });
 
