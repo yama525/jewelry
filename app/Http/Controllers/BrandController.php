@@ -14,7 +14,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('/admin/brand_register');
     }
 
     /**
@@ -35,7 +35,13 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $brand = Brand::create([
+            'brand_name' => $request->brand_name,
+            'brand_detail' => $request->brand_detail,
+        ]);
+
+        return redirect()->route('admin.brand_register');
     }
 
     /**

@@ -14,7 +14,7 @@ class OfficialController extends Controller
      */
     public function index()
     {
-        //
+        return view('/admin/official_register');
     }
 
     /**
@@ -35,7 +35,18 @@ class OfficialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $official = Official::create([
+            'official_product_id' => $request->official_product_id,
+            'brand_id' => $request->brand_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'size' => $request->size,
+            'motif_id' => $request->motif_id,
+            'charm_length' => $request->charm_length,          
+        ]);
+
+        return redirect()->route('admin.official_register');
     }
 
     /**

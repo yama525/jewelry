@@ -9,6 +9,16 @@ class Official extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'official_product_id',
+        'brand_id',
+        'name',
+        'description',
+        'size',
+        'motif_id',
+        'charm_length',
+    ];
+
     public function products()
     {
         return $this->hasMany(Product::class);
