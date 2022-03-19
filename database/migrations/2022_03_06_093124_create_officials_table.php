@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('officials', function (Blueprint $table) {
             $table->id();
-            $table->string('official_product_id', 30);
+            $table->string('official_product_id');
             $table->foreignId('brand_id')->constraint();
             $table->string('name');
             $table->text('description');

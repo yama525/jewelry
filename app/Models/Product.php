@@ -26,7 +26,7 @@ class Product extends Model
     {
         return $this->hasMany(Product_image::class);
     }
-    public function get_thumbnail() {
+    public function getThumbnail() {
         # productに紐づく写真（配列）の一番最初の要素を取得する
         return $this->product_images[0]->image;
     }
@@ -48,7 +48,13 @@ class Product extends Model
 
     public function official_product()
     {
-        return $this->belongsTo(Official::class);
+        return $this->belongsTo(Official::class, 'official_product_id', 'official_product_id');
+    }
+    public function getOfficialName(){
+        return $this->official_product->name;
+    }
+    public function getBrandName(){
+        return $this->official_product->brand->brand_name;
     }
 
     public function sold()
@@ -56,7 +62,6 @@ class Product extends Model
         return $this->hasOne(Sold::class);
     }
 
-    // 一対一の場合はよくわからない。
     public function ring()
     {
         return $this->hasOne(Ring::class);

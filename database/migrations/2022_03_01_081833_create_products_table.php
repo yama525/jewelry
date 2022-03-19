@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Official;
+
 
 return new class extends Migration
 {
@@ -21,7 +23,9 @@ return new class extends Migration
             // $table->string('image');
 
             $table->foreignId('store_id')->constraint()->nullable();
-            // $table->foreignId('official_product_id')->constraint();
+            // $table->foreignIdFor(Official::class)->official_product_id();
+            $table->string('official_product_id');
+
             // $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();
