@@ -18,12 +18,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lender_user_id')->constraint();
-
             $table->string('name')->nullable();
-            // $table->string('image');
-
             $table->foreignId('store_id')->constraint()->nullable();
-            // $table->foreignIdFor(Official::class)->official_product_id();
             $table->string('official_product_id');
 
             // $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);

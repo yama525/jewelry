@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('with_identification_image');
             $table->string('enrollment_certificate_image1');
             $table->string('enrollment_certificate_image2');
-            $table->boolean('confirmed_flg');
+            // $table->boolean('confirmed_flg');
             $table->timestamps();
         });
     }

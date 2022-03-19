@@ -9,6 +9,8 @@ use App\Models\Product;
 use App\Models\Product_image;
 use App\Models\Official;
 use App\Models\Brand;
+use App\Models\Renter_request;
+
 
 
 
@@ -131,6 +133,45 @@ class DatabaseSeeder extends Seeder
             'brand_detail' => 'メゾンのインスピレーションとスタイルの核心に迫る「L’Odyssée de Cartier（オディセ ドゥ カルティエ）」。自由な精神の象徴であるパンテールは、カルティエの創造性のみならず、サヴォアフェールや社会的取り組み、そしてメゾンの多様な伝統に、その息吹を吹き込みます。こうした豊かさがメゾン カルティエらしさを生み出しているのです。 ',
         ]);
 
+        Renter_request::create([
+            'user_id' => 1,
+            'has_spouse' => 'あり',
+            'family_count' => 3,
+            'house_type' => '持ち家',
+            'annual_income' => '401 万円 〜 500 万円',
+            'has_loan' => '住宅ローンあり',
+            // 'loan_price' => '',
+            'receive_place' => '自宅受け取り',
+            'purpose' => 'レンタルしてみたいジュエリーがあるから',
+            'purpose_detail' => '',
+            'identification' => '運転免許証',
+            'identification_image1' => 'jewelry1.jpg',
+            'identification_image2' => 'jewelry1.jpg',
+            'identification_image3' => '',
+            'with_identification_image' => 'jewelry1.jpg',
+            'enrollment_certificate_image1' => 'jewelry1.jpg',
+            'enrollment_certificate_image2' => 'jewelry1.jpg',
+        ]);
+
+        Renter_request::create([
+            'user_id' => 2,
+            'has_spouse' => 'なし',
+            'family_count' => 4,
+            'house_type' => '持ち家',
+            'annual_income' => '401 万円 〜 500 万円',
+            'has_loan' => 'その他カードローン等あり',
+            'loan_price' => '20 万円 〜 50 万円',
+            'receive_place' => '自宅受け取り',
+            'purpose' => 'その他',
+            'purpose_detail' => '興味があるから。',
+            'identification' => 'パスポート',
+            'identification_image1' => 'jewelry2.jpg',
+            'identification_image2' => 'jewelry2.jpg',
+            'identification_image3' => '',
+            'with_identification_image' => 'jewelry2.jpg',
+            'enrollment_certificate_image1' => 'jewelry2.jpg',
+            'enrollment_certificate_image2' => 'jewelry2.jpg',
+        ]);
 
 
     }
