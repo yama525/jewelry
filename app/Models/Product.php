@@ -16,22 +16,27 @@ class Product extends Model
         
     ];
 
-    // 商品の貸し手ユーザーとのリレーション
+// 商品の貸し手ユーザーとのリレーション
     public function lender_user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // 商品写真とのリレーション
+// 商品写真とのリレーション
     public function product_images()
     {
         return $this->hasMany(Product_image::class);
     }
+# productに紐づく写真（配列）の一番最初の要素を取得する
     public function getThumbnail() {
-        # productに紐づく写真（配列）の一番最初の要素を取得する
         return $this->product_images[0]->image;
     }
+// # productに紐づく全ての商品写真を取得 → 一旦これは必要なし
+//     public function getAllProductImages() {
+//         return $this->product_images->image;
+//     }
 
+// rentals テーブルとのリレーション
     public function rentals()
     {
         return $this->hasMany(Rental::class);

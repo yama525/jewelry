@@ -130,7 +130,20 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // dd($product);
+        $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
+
+        $product = Product::with('product_images', 'official_product', 'official_product.brand', )
+        ->where('id', $product->id)
+        ->get();
+
+        $product_detail = $product[0];
+        dd($product_detail);
+
+        return view('/renter/product_detail', [
+            'product_detail' => $product_detail,
+            'product_images' => $product_images,
+        ]);
     }
 
     public function mine()

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('earings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constraint();
             $table->string('earing_type');
         });
     }

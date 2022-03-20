@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('other_jewelries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constraint();
             $table->string('type');
             $table->integer('size')->nullable();
         });
