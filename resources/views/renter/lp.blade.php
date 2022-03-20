@@ -71,7 +71,7 @@
         <h1 class="text-gray-800 text-center">Jewelries</h1>
         <div class="flex flex-wrap justify-center px-8 css_img_list">
             <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
-                <a href="ring">
+                <a href="/category/ring">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-700 flex ">Rings</p>

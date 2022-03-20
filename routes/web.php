@@ -24,7 +24,7 @@ use App\Http\Controllers\MotifController;
 
 // 商品一覧画面（メインのインデックスページ）表示
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
-Route::get('/ring', [ProductController::class, 'ring'])->name('ring');
+Route::get('/category/ring', [ProductController::class, 'ring'])->name('ring');
 
 
 // 貸し手用のLP一旦 Controller を経由せずに書いている。

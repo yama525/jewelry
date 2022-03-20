@@ -20,10 +20,23 @@ class ProductController extends Controller
     public function ring()
     {
         $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'ring')
         ->get();
         // dd($products);
 
-        return view('/renter/ring',[
+        return view('/renter/category/ring',[
+            'products' => $products,
+        ]);
+    }
+
+    public function bracelet()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'bracelet')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/bracelet',[
             'products' => $products,
         ]);
     }

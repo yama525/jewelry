@@ -13,6 +13,7 @@ class Product extends Model
         'name',
         'image',
         'lender_user_id',
+        
     ];
 
     // 商品の貸し手ユーザーとのリレーション
