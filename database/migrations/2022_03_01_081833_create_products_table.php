@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('store_id')->constraint()->nullable();
             $table->string('official_product_id');
 
-            $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);
+            $table->enum('type', ['ring', 'necklace', 'bracelet', 'earing', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();
             $table->text('recommended_matches')->nullable();

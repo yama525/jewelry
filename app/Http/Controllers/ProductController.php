@@ -29,6 +29,18 @@ class ProductController extends Controller
         ]);
     }
 
+    public function necklace()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'necklace')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/necklace',[
+            'products' => $products,
+        ]);
+    }
+
     public function bracelet()
     {
         $products = Product::with('product_images', 'official_product', 'official_product.brand')
@@ -37,6 +49,30 @@ class ProductController extends Controller
         // dd($products);
 
         return view('/renter/category/bracelet',[
+            'products' => $products,
+        ]);
+    }
+
+    public function earing()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'earing')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/earing',[
+            'products' => $products,
+        ]);
+    }
+
+    public function other()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'other')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/other',[
             'products' => $products,
         ]);
     }

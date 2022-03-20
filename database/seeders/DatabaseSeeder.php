@@ -67,16 +67,83 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
 
         ]);
+
         Product::create([
             // 'name' => 'ネックレス',
             'lender_user_id' => '2',
             'official_product_id' => '123B',
-            'type' => 'Bracelet',
+            'type' => 'necklace',
             'detail' => '合計 30 個のダイヤモンドがついたネックレスです。結婚式などの特別な日に最適です。',
             'recommended_situation' => '特別な日に最適です。',
             'recommended_matches' => 'シンプルリングA',
             'color' => 'シルバー',
             'material' => 'プラチナ',
+            'weight' => '42',
+            'length' => '50',
+            'serial_number' => 'S2JFUNBFU2',
+            'rental_price' => 32000,
+            'scratch_level' => 1,
+            'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'is_case' => 1,
+            'is_guarantee' => 0,
+            'is_purchasable' => 0,
+            'favorite_count' => 0,
+        ]);
+
+        Product::create([
+            // 'name' => 'ネックレス',
+            'lender_user_id' => '2',
+            'official_product_id' => '123C',
+            'type' => 'Bracelet',
+            'detail' => '合計 30 個のダイヤモンドがついたブレスレットです。結婚式などの特別な日に最適です。',
+            'recommended_situation' => '特別な日に最適です。',
+            'recommended_matches' => 'シンプルリングA',
+            'color' => 'ゴールド',
+            'material' => '18K イエローゴールド',
+            'weight' => '42',
+            'length' => '50',
+            'serial_number' => 'S2JFUNBFU2',
+            'rental_price' => 32000,
+            'scratch_level' => 1,
+            'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'is_case' => 1,
+            'is_guarantee' => 0,
+            'is_purchasable' => 0,
+            'favorite_count' => 0,
+        ]);
+
+        Product::create([
+            // 'name' => 'ネックレス',
+            'lender_user_id' => '1',
+            'official_product_id' => '123D',
+            'type' => 'earing',
+            'detail' => 'シンプルでありながら存在感のあるピアスです。普段使いにも◎',
+            'recommended_situation' => '特別な日に最適です。',
+            'recommended_matches' => 'シンプルリングA',
+            'color' => 'シルバー',
+            'material' => 'プラチナ',
+            'weight' => '42',
+            'length' => '50',
+            'serial_number' => 'S2JFUNBFU2',
+            'rental_price' => 32000,
+            'scratch_level' => 1,
+            'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'is_case' => 1,
+            'is_guarantee' => 0,
+            'is_purchasable' => 0,
+            'favorite_count' => 0,
+        ]);
+
+        Product::create([
+            // 'name' => 'ネックレス',
+            'lender_user_id' => '2',
+            'official_product_id' => '123E',
+            'type' => 'other',
+            'detail' => 'さりげない優しいゴールドがどんな服装にもマッチします。',
+            'recommended_situation' => '結婚式の二次会などにおすすめです。',
+            'recommended_matches' => 'シンプルリングA',
+            'color' => 'ピンクゴールド',
+            'material' => '18K ピンクゴールド、パール',
             'weight' => '42',
             'length' => '50',
             'serial_number' => 'S2JFUNBFU2',
@@ -99,14 +166,26 @@ class DatabaseSeeder extends Seeder
         ]);
         Product_image::create([
             'product_id' => 2,
+            'image' => 'necklace.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 3,
             'image' => 'jewelry3.jpg', 
+        ]);
+        Product_image::create([
+            'product_id' => 4,
+            'image' => 'earing.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 5,
+            'image' => 'brooch.jpeg', 
         ]);
 
 
         Official::create([
             'official_product_id' => '123A',
             'brand_id' => 1,
-            'name' => 'オフィシャルネーム1',
+            'name' => 'オフィシャルリング',
             'description' => '当ブランドを代表するモチーフであるスターをメインにしたリングです。',
             'size' => '1.2 x 3.6 cm',
             'motif_id' => 1,
@@ -116,9 +195,39 @@ class DatabaseSeeder extends Seeder
         Official::create([
             'official_product_id' => '123B',
             'brand_id' => 2,
-            'name' => 'オフィシャルネーム2',
+            'name' => 'オフィシャルネックレス',
             'description' => '当ブランドを代表するモチーフであるスターをメインにしたネックレスです。',
             'size' => '1.2 x 3.6 cm',
+            'motif_id' => 2,
+            'charm_length' => '2.2 x 3.0 cm',
+        ]);
+
+        Official::create([
+            'official_product_id' => '123C',
+            'brand_id' => 2,
+            'name' => 'オフィシャルブレスレット',
+            'description' => 'メインに1.2 カラットのダイヤモンドがついたブレスレットです。',
+            'size' => '20 cm',
+            'motif_id' => 2,
+            'charm_length' => '2.2 x 3.0 cm',
+        ]);
+
+        Official::create([
+            'official_product_id' => '123D',
+            'brand_id' => 1,
+            'name' => 'オフィシャルピアス',
+            'description' => 'シンプルですが、存在感のあるダイヤモンドのピアスです。',
+            'size' => '0.7 cm',
+            'motif_id' => 1,
+            'charm_length' => '0.7 cm',
+        ]);
+
+        Official::create([
+            'official_product_id' => '123E',
+            'brand_id' => 2,
+            'name' => 'オフィシャルブローチ',
+            'description' => '温かみのあるブローチです。',
+            'size' => '5.5 x 3.6 cm',
             'motif_id' => 2,
             'charm_length' => '2.2 x 3.0 cm',
         ]);

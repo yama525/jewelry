@@ -79,7 +79,7 @@
                 </a>
             </div>
             <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
-                <a href="">
+                <a href="/category/necklace">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-700 flex ">Necklaces</p>
@@ -87,7 +87,7 @@
                 </a>
             </div>
             <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
-                <a href="">
+                <a href="/category/bracelet">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-700 flex ">Bracelets</p>
@@ -95,7 +95,7 @@
                 </a>
             </div>
             <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
-                <a href="">
+                <a href="/category/earing">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/earing.jpeg">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-700 flex ">Earings</p>
@@ -103,7 +103,7 @@
                 </a>
             </div>
             <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
-                <a href="">
+                <a href="/category/other">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-700 flex ">Others</p>
