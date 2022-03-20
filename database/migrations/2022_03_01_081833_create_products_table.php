@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Official;
+
 
 return new class extends Migration
 {
@@ -16,13 +18,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lender_user_id')->constraint();
-
-            $table->string('name')->nullable();
-            // $table->string('image');
-
+            // $table->string('name')->nullable();
             $table->foreignId('store_id')->constraint()->nullable();
-            // $table->foreignId('official_product_id')->constraint();
-            // $table->enum('type', ['ring', 'necklace', 'bracelet', 'earring', 'other']);
+            $table->string('official_product_id');
+
+            $table->enum('type', ['ring', 'necklace', 'bracelet', 'earing', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();
             $table->text('recommended_matches')->nullable();
@@ -30,17 +30,17 @@ return new class extends Migration
             $table->string('material', 30)->nullable();
             $table->float('weight')->nullable();
             $table->float('length')->nullable();
-            // $table->string('serial_number');
+            $table->string('serial_number');
             $table->integer('rental_price')->nullable();
             $table->integer('scratch_level')->nullable();
             $table->text('scratch_detail')->nullable();
-            // $table->boolean('is_case');
-            // $table->boolean('is_guarantee');
-            // $table->boolean('is_purchasable');
+            $table->boolean('is_case');
+            $table->boolean('is_guarantee');
+            $table->boolean('is_purchasable');
             $table->integer('soldable_price')->nullable();
-            // $table->integer('favorite_count');
+            $table->integer('favorite_count');
             $table->timestamps();
-            // $table->softDeletes();
+            $table->softDeletes();
         
         });
     }

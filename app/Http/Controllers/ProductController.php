@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Product_image;
+use App\Models\Official;
+
 use DB;
 
 
@@ -17,33 +19,62 @@ class ProductController extends Controller
      */
     public function ring()
     {
-        // $products = Product::with(['lender_user', 'product_images'])
-        //     ->join('product_images', 'product_images.product_id','=', 'products.id')
-        //     ->get();
-        
-        $products = Product::with('product_images')
-            ->get();
-            // dd($products);
-        // $products = Product::with('lender_user')->where('products.id', 'product_images.product_id')->get();
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'ring')
+        ->get();
+        // dd($products);
 
-        // 下記でもリレーションの中で値がとれた
-        // $products = Product::with('product_images')->get();
-            // $products = Product::all()->join('products', 'product.id','=', 'product_images.product_id');
-            // $products = DB::table('products')->join('products', 'product.id','=', 'product_images.product_id');
-            // $products = Product::select()->join('products', 'product_images.product_id','=', 'products.product_id')->get();
-        // dd($products->product_images()->get('image'));
-            // select * from `products` inner join `product_images` on `products_images`.`product_id` = `product`.`id`
-            // $product_images = Product_image::all()->where('product_id', );
-            // $product_images = Product_image::find($products->id);
-            // $product_images = Product_image::with('product')->where('product_images.product_id', 'products.id')->get();
-            // $product_images = Product_image::with('product')->get();
-            // $product_images = Product_image::with('product')->get();
-            // dd($product_images);
+        return view('/renter/category/ring',[
+            'products' => $products,
+        ]);
+    }
 
-            // 下記の連想配列のKey である 'products' は lp.blade.php の $products と紐づいている。だから変更するとエラーになる。
-                return view('/renter/ring',[
-                    'products' => $products,
-                ]);
+    public function necklace()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'necklace')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/necklace',[
+            'products' => $products,
+        ]);
+    }
+
+    public function bracelet()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'bracelet')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/bracelet',[
+            'products' => $products,
+        ]);
+    }
+
+    public function earing()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'earing')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/earing',[
+            'products' => $products,
+        ]);
+    }
+
+    public function other()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->where('type', 'other')
+        ->get();
+        // dd($products);
+
+        return view('/renter/category/other',[
+            'products' => $products,
+        ]);
     }
 
     public function index()
@@ -99,15 +130,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // dd($product);
-        $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
-        // dd($product_images);
-        return view('/renter/product_detail', [
-            'product' => $product,
-            'product_images' => $product_images,
-        ]);
-
-        // return view('mypage');
+        //
     }
 
     public function mine()

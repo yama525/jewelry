@@ -28,6 +28,10 @@ class Official extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+    // public function getBrand()
+    // {
+    //     return $this->brand->brand_name;
+    // }
 
     public function motif()
     {

@@ -57,7 +57,7 @@ class OfficialController extends Controller
      */
     public function show(Official $official)
     {
-        //
+        // dd($official);
     }
 
     /**
