@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-image:url('dummy_img/marble.jpg');">
+<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-image:url('/dummy_img/marble.jpg');">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto ">
         <div class="flex justify-end h-12">
@@ -112,10 +112,10 @@
     </div>
 
         <!-- Logo -->
-    <div class="flex justify-center my-8">
+    <div class="flex justify-center my-4">
         <div class="shrink-0 flex items-center justify-center">
             <a href="{{ route('product.index') }}">
-                <img src="dummy_img/logo2.png" class="w-60" alt="">
+                <img src="/dummy_img/logo2.png" class="w-60" alt="">
             </a>
         </div>
     </div>

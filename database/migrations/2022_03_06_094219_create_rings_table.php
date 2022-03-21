@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('rings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constraint();
             $table->integer('ring_size');
         });
     }

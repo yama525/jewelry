@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Ring extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
 
     public function product()
     {

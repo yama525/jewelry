@@ -10,6 +10,12 @@ use App\Models\Product_image;
 use App\Models\Official;
 use App\Models\Brand;
 use App\Models\Renter_request;
+use App\Models\Ring;
+use App\Models\Necklace;
+use App\Models\Bracelet;
+use App\Models\Earing;
+use App\Models\Other_jewelry;
+
 
 
 
@@ -45,6 +51,8 @@ class DatabaseSeeder extends Seeder
             'address' => '東京都中央区2-2-2',
             'lender_flg' => 0,
         ]);
+
+        // 指輪A
         Product::create([
             // 'name' => 'シンプルリングA',
             'lender_user_id' => '1',
@@ -58,18 +66,17 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 9800,
+            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
             'favorite_count' => 0,
-
         ]);
 
+        // ネックレスA
         Product::create([
-            // 'name' => 'ネックレス',
             'lender_user_id' => '2',
             'official_product_id' => '123B',
             'type' => 'necklace',
@@ -81,7 +88,7 @@ class DatabaseSeeder extends Seeder
             'weight' => '42',
             'length' => '50',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 32000,
+            'rental_price' => 36000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -90,8 +97,8 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
         ]);
 
+        // ブレスレットA
         Product::create([
-            // 'name' => 'ネックレス',
             'lender_user_id' => '2',
             'official_product_id' => '123C',
             'type' => 'Bracelet',
@@ -100,10 +107,10 @@ class DatabaseSeeder extends Seeder
             'recommended_matches' => 'シンプルリングA',
             'color' => 'ゴールド',
             'material' => '18K イエローゴールド',
-            'weight' => '42',
-            'length' => '50',
+            'weight' => '30',
+            'length' => '20',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 32000,
+            'rental_price' => 24000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -112,8 +119,8 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
         ]);
 
+        // イヤリングA
         Product::create([
-            // 'name' => 'ネックレス',
             'lender_user_id' => '1',
             'official_product_id' => '123D',
             'type' => 'earing',
@@ -122,10 +129,10 @@ class DatabaseSeeder extends Seeder
             'recommended_matches' => 'シンプルリングA',
             'color' => 'シルバー',
             'material' => 'プラチナ',
-            'weight' => '42',
-            'length' => '50',
+            'weight' => '3',
+            'length' => '0.8',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 32000,
+            'rental_price' => 36000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -134,8 +141,8 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
         ]);
 
+        // ブローチA
         Product::create([
-            // 'name' => 'ネックレス',
             'lender_user_id' => '2',
             'official_product_id' => '123E',
             'type' => 'other',
@@ -145,9 +152,9 @@ class DatabaseSeeder extends Seeder
             'color' => 'ピンクゴールド',
             'material' => '18K ピンクゴールド、パール',
             'weight' => '42',
-            'length' => '50',
+            'length' => '5',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 32000,
+            'rental_price' => 12000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -156,13 +163,79 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
         ]);
 
+        // 指輪B
+        Product::create([
+            'lender_user_id' => '1',
+            'official_product_id' => '123A',
+            'type' => 'ring',
+            'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
+            'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
+            'recommended_matches' => 'シンプルネックレスB',
+            'color' => 'シルバー',
+            'material' => 'プラチナ',
+            'weight' => '5.2',
+            'length' => '',
+            'serial_number' => 'S2JFUNBFU1',
+            'rental_price' => 12000,
+            'scratch_level' => 2,
+            'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'favorite_count' => 0,
+        ]);
+
+        // 指輪C
+        Product::create([
+            'lender_user_id' => '1',
+            'official_product_id' => '123A',
+            'type' => 'ring',
+            'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
+            'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
+            'recommended_matches' => 'シンプルネックレスB',
+            'color' => 'シルバー',
+            'material' => 'プラチナ',
+            'weight' => '5.2',
+            'length' => '',
+            'serial_number' => 'S2JFUNBFU1',
+            'rental_price' => 12000,
+            'scratch_level' => 2,
+            'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'favorite_count' => 0,
+        ]);
+
+        // 指輪D
+        Product::create([
+            'lender_user_id' => '1',
+            'official_product_id' => '123A',
+            'type' => 'ring',
+            'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
+            'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
+            'recommended_matches' => 'シンプルネックレスB',
+            'color' => 'シルバー',
+            'material' => 'プラチナ',
+            'weight' => '5.2',
+            'length' => '',
+            'serial_number' => 'S2JFUNBFU1',
+            'rental_price' => 12000,
+            'scratch_level' => 2,
+            'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'favorite_count' => 0,
+        ]);
+
         Product_image::create([
             'product_id' => 1,
-            'image' => 'jewelry1.jpg', 
+            'image' => 'ringa.jpeg', 
         ]);
         Product_image::create([
             'product_id' => 1,
-            'image' => 'jewelry2.jpg', 
+            'image' => 'jewelry1.jpg', 
         ]);
         Product_image::create([
             'product_id' => 2,
@@ -179,6 +252,19 @@ class DatabaseSeeder extends Seeder
         Product_image::create([
             'product_id' => 5,
             'image' => 'brooch.jpeg', 
+        ]);
+
+        Product_image::create([
+            'product_id' => 6,
+            'image' => 'ringb.jpeg', 
+        ]);
+        Product_image::create([
+            'product_id' => 7,
+            'image' => 'ringc.jpeg', 
+        ]);
+        Product_image::create([
+            'product_id' => 8,
+            'image' => 'ringd.jpeg', 
         ]);
 
 
@@ -240,6 +326,46 @@ class DatabaseSeeder extends Seeder
         Brand::create([
             'brand_name' => 'Cartier',
             'brand_detail' => 'メゾンのインスピレーションとスタイルの核心に迫る「L’Odyssée de Cartier（オディセ ドゥ カルティエ）」。自由な精神の象徴であるパンテールは、カルティエの創造性のみならず、サヴォアフェールや社会的取り組み、そしてメゾンの多様な伝統に、その息吹を吹き込みます。こうした豊かさがメゾン カルティエらしさを生み出しているのです。 ',
+        ]);
+
+        Ring::create([
+            'product_id' => 1,
+            'ring_size' => 9,
+        ]);
+        Ring::create([
+            'product_id' => 6,
+            'ring_size' => 9,
+        ]);
+        Ring::create([
+            'product_id' => 7,
+            'ring_size' => 9,
+        ]);
+        Ring::create([
+            'product_id' => 8,
+            'ring_size' => 9,
+        ]);
+
+        Necklace::create([
+            'product_id' => 2,
+            'necklace_type' => '',
+            'length' => 50,
+        ]);
+
+        Bracelet::create([
+            'product_id' => '3',
+            'bracelet_type' => 'バングル',
+            'length' => 22,
+        ]);
+
+        Earing::create([
+            'product_id' => '4',
+            'earing_type' => 'ピアス',
+        ]);
+
+        Other_jewelry::create([
+            'product_id' => '5',
+            'type' => 'ブローチ',
+            'size' => '',
         ]);
 
         Renter_request::create([
