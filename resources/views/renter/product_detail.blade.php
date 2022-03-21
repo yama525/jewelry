@@ -63,21 +63,41 @@
                         <p>{{ $product_detail->material}}</p>
                     </div>
                 </div>
-                <div class="flex mt-6 items-center mb-5">
-                    <div class="flex">
-                        <span class="mr-3">Length</span>
-                        <p>{{$product_detail->length}} cm</p>
-                    </div>
-                    <div class="flex ml-6 items-center">
-                        <span class="mr-3">Weight</span>
-                        <p>{{ $product_detail->weight}} g</p>
-                    </div>
+                <div class="flex items-center">
+                    <span class="mr-3">Weight</span>
+                    <p>{{ $product_detail->weight}} g</p>
                 </div>
+                
                 @if($product_detail->type === 'ring')
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                         <span class="mr-3">指輪サイズ</span>
-                        <p>{{$product_detail->length}} 号</p>
+                        <p>{{$product_detail->getRingData()}} 号</p>
                     </div>
+                @elseif($product_detail->type === 'necklace')
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                        <span class="mr-3">チェーンの長さ</span>
+                        <p>{{$product_detail->getNecklaceData()}} cm</p>
+                    </div>
+                @elseif($product_detail->type === 'bracelet')
+                    <div class="flex mt-6 items-center">
+                        <span class="mr-3">タイプ</span>
+                        <p>{{$product_detail->getBraceletData()->bracelet_type}}</p>
+                    </div>
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                        <span class="mr-3">長さ</span>
+                        <p>{{$product_detail->getBraceletData()->length}} cm</p>
+                    </div>
+                @elseif($product_detail->type === 'earing')
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                        <span class="mr-3">タイプ</span>
+                        <p>{{$product_detail->getEaringData()}}</p>
+                    </div>
+                @elseif($product_detail->type === 'other')
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                        <span class="mr-3">タイプ</span>
+                        <p>{{$product_detail->getOtherData()->type}}</p>
+                    </div>
+                
                 @endif
                 <div class="flex">
                     <span class="title-font font-medium text-2xl text-gray-900">{{ $product_detail->rental_price }} 円  </span>

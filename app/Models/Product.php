@@ -72,25 +72,45 @@ class Product extends Model
     {
         return $this->hasOne(Ring::class);
     }
+    public function getRingData()
+    {
+        return $this->ring->ring_size;
+    }
 
     public function necklace()
     {
         return $this->hasOne(Necklace::class);
+    }
+    public function getNecklaceData()
+    {
+        return $this->necklace->length;
     }
 
     public function bracelet()
     {
         return $this->hasOne(Bracelet::class);
     }
+    public function getBraceletData()
+    {
+        return $this->bracelet;
+    }
 
     public function earing()
     {
         return $this->hasOne(Earing::class);
     }
+    public function getEaringData()
+    {
+        return $this->earing->earing_type;
+    }
 
-    public function other_jewelrie()
+    public function other_jewelry()
     {
         return $this->hasOne(Other_jewelry::class);
+    }
+    public function getOtherData()
+    {
+        return $this->other_jewelry;
     }
 }
 

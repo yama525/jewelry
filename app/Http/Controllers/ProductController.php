@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Product_image;
 use App\Models\Official;
+use App\Models\Ring;
+use App\Models\Necklace;
+use App\Models\Bracelet;
+use App\Models\Earing;
+use App\Models\Other_jewelry;
+
 
 use DB;
 
@@ -133,12 +139,31 @@ class ProductController extends Controller
         // dd($product);
         $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
 
-        $product = Product::with('product_images', 'official_product', 'official_product.brand', )
-        ->where('id', $product->id)
-        ->get();
+        if($product->type === 'ring'){
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','ring')
+            ->where('id', $product->id)
+            ->get();
+        }elseif($product->type === 'necklace'){
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','necklace')
+            ->where('id', $product->id)
+            ->get();
+        }elseif($product->type === 'bracelet'){
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','bracelet')
+            ->where('id', $product->id)
+            ->get();
+        }elseif($product->type === 'earing'){
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','earing')
+            ->where('id', $product->id)
+            ->get();
+        }elseif($product->type === 'other'){
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','other_jewelry')
+            ->where('id', $product->id)
+            ->get();
+        }
+        
 
-        $product_detail = $product[0];
-        dd($product_detail);
+        $product_detail = $product_datas[0];
+        // dd($product_detail);
 
         return view('/renter/product_detail', [
             'product_detail' => $product_detail,
