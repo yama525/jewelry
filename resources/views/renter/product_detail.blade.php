@@ -4,13 +4,51 @@
     <section class="text-gray-700 body-font overflow-hidden bg-white">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
+
+
+                {{-- <div class="wrapper">
+                    
+                    <ul class="gallery">
+                        @foreach($product_images as $product_image)
+                            <li>
+                                <img src="{{ asset('storage/'.$product_image->image) }}" alt="">
+                            </li>
+                        @endforeach
+                    </ul>
+                    <ul class="choice-btn">
+                        @foreach($product_images as $product_image)
+                            <li>
+                                <img src="{{ asset('storage/'.$product_image->image) }}" alt="">
+                            </li>
+                        @endforeach
+                    </ul>
+                  
+                </div> --}}
+                  
+
+
+
                 <div class="w-1/2 ">
+                    <div class="gallery">
+                        @foreach($product_images as $product_image)
+                                <img class="" src="{{ asset('storage/'.$product_image->image) }}" alt="">
+                        @endforeach
+                    </div>
+
+                    <div class="choice-btn">
+                        @foreach($product_images as $product_image)
+                            <div class="inline-flex m-2 justify-left">
+                                <img class="w-24 h-16 object-cover" src="{{ asset('storage/'.$product_image->image) }}" alt="">
+                            </div>
+                        @endforeach
+                    </div>
+{{-- 
                     <img alt="ecommerce" class=" w-full object-cover object-center rounded border border-gray-200" src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg">
                     <div class="flex">
                         @foreach($product_images as $product_image)
                             <img src="{{ asset('storage/'.$product_image->image) }}" alt="" class="w-24 h-16 object-cover my-4 mr-2">
                         @endforeach
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$product_detail->getBrandName()}}</h2>
@@ -109,7 +147,36 @@
                     </button>
                 </div>
                 </div>
-        </div>
+            </div>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-4/js/6-2-4.js"></script></body>
+                  <script>
+                      //上部画像の設定
+                  $('.gallery').slick({
+                    infinite: true, //スライドをループさせるかどうか。初期値はtrue。
+                    fade: true, //フェードの有効化
+                    arrows: true,//左右の矢印あり
+                    prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
+                    nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+                  });
+                  
+                  //選択画像の設定
+                  $('.choice-btn').slick({
+                    infinite: true, //スライドをループさせるかどうか。初期値はtrue。
+                    slidesToShow: 8, //表示させるスライドの数
+                    focusOnSelect: true, //フォーカスの有効化
+                    asNavFor: '.gallery', //連動させるスライドショーのクラス名
+                  });
+                    
+                  //下の選択画像をスライドさせずに連動して変更させる設定。
+                  $('.gallery').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                    var index = nextSlide; //次のスライド番号
+                    //サムネイルのslick-currentを削除し次のスライド要素にslick-currentを追加
+                    $(".choice-btn .slick-slide").removeClass("slick-current").eq(index).addClass("slick-current");
+                  });
+                  </script>
 </x-app-layout>
