@@ -187,7 +187,7 @@ class DatabaseSeeder extends Seeder
 
         // 指輪C
         Product::create([
-            'lender_user_id' => '1',
+            'lender_user_id' => '2',
             'official_product_id' => '123A',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
@@ -229,6 +229,31 @@ class DatabaseSeeder extends Seeder
             'favorite_count' => 0,
         ]);
 
+        // 指輪E
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => '123A',
+            'type' => 'ring',
+            'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
+            'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
+            'recommended_matches' => 'シンプルネックレスB',
+            'color' => 'シルバー',
+            'material' => 'プラチナ',
+            'weight' => '5.2',
+            'length' => '',
+            'serial_number' => 'S2JFUNBFU1',
+            'rental_price' => 12000,
+            'scratch_level' => 2,
+            'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'favorite_count' => 0,
+        ]);
+
+
+
+
         Product_image::create([
             'product_id' => 1,
             'image' => 'ringa.jpeg', 
@@ -265,6 +290,10 @@ class DatabaseSeeder extends Seeder
         Product_image::create([
             'product_id' => 8,
             'image' => 'ringd.jpeg', 
+        ]);
+        Product_image::create([
+            'product_id' => 9,
+            'image' => 'ringe.jpg', 
         ]);
 
 
@@ -343,6 +372,10 @@ class DatabaseSeeder extends Seeder
         Ring::create([
             'product_id' => 8,
             'ring_size' => 9,
+        ]);
+        Ring::create([
+            'product_id' => 9,
+            'ring_size' => 11,
         ]);
 
         Necklace::create([

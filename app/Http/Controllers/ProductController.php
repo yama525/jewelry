@@ -23,6 +23,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function all()
+    {
+        $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        ->get();
+        // dd($products);
+
+        return view('/renter/all_product',[
+            'products' => $products,
+        ]);
+    }
+
     public function ring()
     {
         $products = Product::with('product_images', 'official_product', 'official_product.brand')

@@ -24,6 +24,7 @@
         </div>
     </section>
 
+
     <!-- サービス紹介 -->
     <section class="py-8">
         <div class="service_wrapper">
@@ -65,12 +66,12 @@
             </div>
     </section>
 
-
+    
     <!-- レンタル可能なジュエリー -->
     <section class="bg-white py-8">
         <h1 class="text-gray-800 text-center">Jewelries</h1>
         <div class="flex flex-wrap justify-center px-8 css_img_list">
-            <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
+            <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 py-6 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/ring">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
                     <div class="pt-3 flex items-center">
@@ -78,7 +79,7 @@
                     </div>
                 </a>
             </div>
-            <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
+            <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 py-6 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/necklace">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
                     <div class="pt-3 flex items-center">
@@ -86,7 +87,7 @@
                     </div>
                 </a>
             </div>
-            <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
+            <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 py-6 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/bracelet">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
                     <div class="pt-3 flex items-center">
@@ -94,7 +95,7 @@
                     </div>
                 </a>
             </div>
-            <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
+            <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 py-6 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/earing">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/earing.jpeg">
                     <div class="pt-3 flex items-center">
@@ -102,7 +103,7 @@
                     </div>
                 </a>
             </div>
-            <div class="hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 p-2 m-4 flex justify-center">
+            <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 py-6 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/other">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
                     <div class="pt-3 flex items-center">
@@ -112,6 +113,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- プラン -->
     <section class="py-8">
@@ -160,8 +162,8 @@
 
     <section class="bg-white py-8">
         <h1 class="text-gray-800 text-center">Lent</h1>
-        <div class="h-screen bg-contain" style="background-image: url(dummy_img/woman.jpeg)">
-            <div class="items-center justify-center">
+        <div class="flex items-end h-screen bg-contain" style="background-image: url(dummy_img/woman.jpeg)">
+            <div class="flex-auto mb-32">
                 <button class="w-1/2 px-2 py-8 text-2xl text-white bg-gray-800 hover:bg-black rounded">ジュエリーを貸し出す</button>
             </div>
         </div>

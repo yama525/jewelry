@@ -17,6 +17,11 @@ body p {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+body input {
+  font-size: 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 /*! sanitize.css v3.2.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
 /*
  * Normalization
