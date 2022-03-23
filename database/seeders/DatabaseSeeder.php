@@ -15,6 +15,8 @@ use App\Models\Necklace;
 use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
+use App\Models\Subscription_plan;
+
 
 
 
@@ -57,6 +59,7 @@ class DatabaseSeeder extends Seeder
             // 'name' => 'シンプルリングA',
             'lender_user_id' => '1',
             'official_product_id' => '123A',
+            'subscription_plan_id' => '2',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
@@ -66,7 +69,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
@@ -79,6 +81,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '2',
             'official_product_id' => '123B',
+            'subscription_plan_id' => '1',
             'type' => 'necklace',
             'detail' => '合計 30 個のダイヤモンドがついたネックレスです。結婚式などの特別な日に最適です。',
             'recommended_situation' => '特別な日に最適です。',
@@ -88,7 +91,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '42',
             'length' => '50',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 36000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -101,6 +103,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '2',
             'official_product_id' => '123C',
+            'subscription_plan_id' => '3',
             'type' => 'Bracelet',
             'detail' => '合計 30 個のダイヤモンドがついたブレスレットです。結婚式などの特別な日に最適です。',
             'recommended_situation' => '特別な日に最適です。',
@@ -110,7 +113,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '30',
             'length' => '20',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 24000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -123,6 +125,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '1',
             'official_product_id' => '123D',
+            'subscription_plan_id' => '2',
             'type' => 'earing',
             'detail' => 'シンプルでありながら存在感のあるピアスです。普段使いにも◎',
             'recommended_situation' => '特別な日に最適です。',
@@ -132,7 +135,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '3',
             'length' => '0.8',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 36000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -145,6 +147,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '2',
             'official_product_id' => '123E',
+            'subscription_plan_id' => '1',
             'type' => 'other',
             'detail' => 'さりげない優しいゴールドがどんな服装にもマッチします。',
             'recommended_situation' => '結婚式の二次会などにおすすめです。',
@@ -154,7 +157,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '42',
             'length' => '5',
             'serial_number' => 'S2JFUNBFU2',
-            'rental_price' => 12000,
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
             'is_case' => 1,
@@ -167,6 +169,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '1',
             'official_product_id' => '123A',
+            'subscription_plan_id' => '3',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
@@ -176,7 +179,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
@@ -189,6 +191,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '2',
             'official_product_id' => '123A',
+            'subscription_plan_id' => '1',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
@@ -198,7 +201,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
@@ -211,6 +213,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '1',
             'official_product_id' => '123A',
+            'subscription_plan_id' => '2',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
@@ -220,7 +223,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
@@ -233,6 +235,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'lender_user_id' => '2',
             'official_product_id' => '123A',
+            'subscription_plan_id' => '1',
             'type' => 'ring',
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
@@ -242,7 +245,6 @@ class DatabaseSeeder extends Seeder
             'weight' => '5.2',
             'length' => '',
             'serial_number' => 'S2JFUNBFU1',
-            'rental_price' => 12000,
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
             'is_case' => 1,
@@ -443,6 +445,20 @@ class DatabaseSeeder extends Seeder
             'confirmed_flg' => '0',
         ]);
 
+        Subscription_plan::create([
+            'name' => 'Standard',
+            'price' => 12000,
+        ]);
+
+        Subscription_plan::create([
+            'name' => 'Premium',
+            'price' => 24000,
+        ]);
+
+        Subscription_plan::create([
+            'name' => 'Luxury',
+            'price' => 36000,
+        ]);
 
     }
 }

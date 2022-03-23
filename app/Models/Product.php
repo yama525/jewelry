@@ -42,72 +42,94 @@ class Product extends Model
         return $this->hasMany(Rental::class);
     }
 
+// レビューテーブルとのリレーション
     public function reviews()
     {
         return $this->hasMany(Review::class);
     }
 
+// お気に入りテーブルとのリレーション
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
     }
 
+// オフィシャルテーブルとのリレーション
     public function official_product()
     {
         return $this->belongsTo(Official::class, 'official_product_id', 'official_product_id');
     }
+    // オフィシャルの商品名取得
     public function getOfficialName(){
         return $this->official_product->name;
     }
+    // ブランド名取得
     public function getBrandName(){
         return $this->official_product->brand->brand_name;
     }
 
+// サブスクプランテーブルとのリレーション
+    public function subscription_plan()
+    {
+        return $this->belongsTo(Subscription_plan::class);
+    }
+
+// ソールドテーブルとのリレーション
     public function sold()
     {
         return $this->hasOne(Sold::class);
     }
 
+// リングテーブルとのリレーション
     public function ring()
     {
         return $this->hasOne(Ring::class);
     }
+    // リングテーブルから情報取得
     public function getRingData()
     {
         return $this->ring->ring_size;
     }
 
+// ネックレステーブルとのリレーション
     public function necklace()
     {
         return $this->hasOne(Necklace::class);
     }
+    // ネックレステーブルから情報取得
     public function getNecklaceData()
     {
         return $this->necklace->length;
     }
 
+// ブレスレットテーブルとのリレーション
     public function bracelet()
     {
         return $this->hasOne(Bracelet::class);
     }
+    // ブレスレットテーブルから情報取得
     public function getBraceletData()
     {
         return $this->bracelet;
     }
 
+// イヤリングテーブルとのリレーション
     public function earing()
     {
         return $this->hasOne(Earing::class);
     }
+    // イヤリングテーブルから情報取得
     public function getEaringData()
     {
         return $this->earing->earing_type;
     }
 
+// その他ジュエリーテーブルとのリレーション
     public function other_jewelry()
     {
         return $this->hasOne(Other_jewelry::class);
     }
+    // その他ジュエリーテーブルから情報取得
     public function getOtherData()
     {
         return $this->other_jewelry;
