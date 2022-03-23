@@ -18,10 +18,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lender_user_id')->constraint();
-            // $table->string('name')->nullable();
             $table->foreignId('store_id')->constraint()->nullable();
             $table->string('official_product_id');
-
+            $table->foreignId('subscription_plan_id')->constraint();
             $table->enum('type', ['ring', 'necklace', 'bracelet', 'earing', 'other']);
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();
@@ -31,7 +30,6 @@ return new class extends Migration
             $table->float('weight')->nullable();
             $table->float('length')->nullable();
             $table->string('serial_number');
-            $table->integer('rental_price')->nullable();
             $table->integer('scratch_level')->nullable();
             $table->text('scratch_detail')->nullable();
             $table->boolean('is_case');
