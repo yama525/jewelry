@@ -12,13 +12,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">                
         <!-- Styles -->
+        {{-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/scss/main.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+        <script src="https://use.fontawesome.com/3ff405cac3.js"></script>
 
         
 
