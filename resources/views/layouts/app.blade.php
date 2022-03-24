@@ -10,9 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">                
-        <!-- Styles -->
-        {{-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Noto+Sans+JP:wght@300&family=Playfair+Display&family=Sawarabi+Mincho&family=Shippori+Mincho:wght@700&display=swap" rel="stylesheet">        
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/scss/main.css') }}">
 
