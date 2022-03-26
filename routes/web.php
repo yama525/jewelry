@@ -58,6 +58,10 @@ Route::group(['middleware' => ['auth']], function() {
     // 上記のフォームページの間違いがないかの確認画面
     Route::get('/renter_request_confirm', [RenterRequestController::class, 'confirm'])->name('renter_request.confirm');
 
+    // 決済処理
+    Route::get('checkout/{product}', [ProductController::class, 'checkout'])->name('checkout');
+    Route::get('cancel/{product}', [ProductController::class, 'cancel'])->name('cancel');
+
 
     // 以下はテスト用
     // Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');

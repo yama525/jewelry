@@ -50,7 +50,7 @@
                     </div>
                     <p class="pt-1 text-gray-500 text-sm text-left">{{ $product->getBrandName() }}</p>
     
-                    <p class="pt-1 text-gray-500 text-sm text-left">{{ $product->subscription_plan->price }} 円 / 日</p>
+                    <p class="pt-1 text-gray-500 text-sm text-left">{{ number_format($product->subscription_plan->price) }} 円 / 日</p>
                 </a>
             </div>
         @endforeach

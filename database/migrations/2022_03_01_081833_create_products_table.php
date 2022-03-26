@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('serial_number');
             $table->integer('scratch_level')->nullable();
             $table->text('scratch_detail')->nullable();
+            $table->integer('status');
             $table->boolean('is_case');
             $table->boolean('is_guarantee');
             $table->boolean('is_purchasable');

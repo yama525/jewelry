@@ -13,6 +13,7 @@ use App\Models\Earing;
 use App\Models\Other_jewelry;
 
 
+
 use DB;
 
 
@@ -173,14 +174,12 @@ class ProductController extends Controller
             ->get();
         }
         
-
+        // 2次元配列で返されるので、ここで修正
         $product_detail = $product_datas[0];
         // dd($product_detail);
 
-        return view('/renter/product_detail', [
-            'product_detail' => $product_detail,
-            'product_images' => $product_images,
-        ]);
+        return view('/renter/product_detail', compact('product_detail','product_images'));
+            
     }
 
     public function mine()
@@ -216,6 +215,75 @@ class ProductController extends Controller
             'product' => $product,
         ]);
     }
+
+
+    public function checkout(Product $product)
+    {
+        // $user = auth()->user()->id;
+        $product = $product->with('official_product')
+        ->where('id',$product->id)
+        ->get();
+
+        $product = $product[0];
+
+        // ステータスが「レンタル可能(1000)」の場合のみ決済画面に進めるようにする
+        if($product->status > 1000){
+            return redirect()->route('product.show', ['product' => $product->id]); // 仮で index に飛ばす
+        }else{
+            // カート機能とかをつけた場合は foreach で $lineItems as $lineItem で回す。
+            $lineItem = [
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'tax_behavior' => 'exclusive',
+                    'product_data' => [
+                        'name' => $product->getOfficialName(),
+                        'description' => $product->detail,
+                    ],  
+                    'unit_amount' => $product->subscription_plan->price,
+                    'recurring' => [
+                        'interval' => 'month',
+                    ],
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        // 決済中は他の人がこの商品を決済できないように「レンタル中」ステータスに変更する
+        $product_statusChange = Product::find($product->id);
+        $product_statusChange->status = 2000;
+        $product_statusChange->save();
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        // dd($product);
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => [$lineItem],
+            'mode' => 'subscription',
+            'success_url' => route('product.index'),
+            'cancel_url' => route('cancel', ['product' => $product->id]),
+            'customer_email'=> auth()->user()->email,
+            'automatic_tax' => [
+                'enabled' => true,
+            ],
+        ]);
+
+        $publicKey = env('STRIPE_PUBLIC_KEY');
+
+        return view('renter.checkout',
+            compact('session', 'publicKey', 'product'));
+    }
+
+
+    public function cancel(Product $product)
+    {
+        // dd($product);
+        $product_statusChange = Product::find($product->id);
+        $product_statusChange->status = 1000;
+        $product_statusChange->save();
+
+        return redirect()->route('product.show', ['product' => $product->id]);
+    }
+
 
     /**
      * Update the specified resource in storage.
