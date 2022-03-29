@@ -16,6 +16,7 @@ use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
 use App\Models\Subscription_plan;
+use App\Models\Rental;
 
 
 
@@ -71,6 +72,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU1',
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -93,6 +95,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 0,
             'is_purchasable' => 0,
@@ -115,6 +118,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 0,
             'is_purchasable' => 0,
@@ -137,6 +141,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 0,
             'is_purchasable' => 0,
@@ -159,6 +164,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 0,
             'is_purchasable' => 0,
@@ -181,6 +187,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU1',
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -203,6 +210,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU1',
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -225,6 +233,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU1',
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -247,6 +256,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'S2JFUNBFU1',
             'scratch_level' => 2,
             'scratch_detail' => '表面に細かい傷がありますが、それほど気になりません。',
+            'status' => '2000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -458,6 +468,53 @@ class DatabaseSeeder extends Seeder
         Subscription_plan::create([
             'name' => 'Luxury',
             'price' => 36000,
+        ]);
+
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 3,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 4,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+            // 'lost_detail' => '',
+            // 'start_rentaling_at' => '2022-03-24 07:46:50',
+            // 'user_received_at'=> '',
+            // 'send_to_us_at' => '',
+            // 'we_received_at' => '',
+            // 'send_to_lender_at' => '',
+            // 'return_complete_at' => '',
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 5,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+            'lost_detail' => '',
+            'user_received_at'=> '2022-03-24 07:46:50',
+            'send_to_us_at' => '2022-03-24 07:46:50',
+            'we_received_at' => '2022-03-24 07:46:50',
+            'send_to_lender_at' => '2022-03-24 07:46:50',
+            'return_complete_at' => '2022-03-24 07:46:50',
         ]);
 
     }

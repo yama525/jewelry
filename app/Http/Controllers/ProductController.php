@@ -11,6 +11,9 @@ use App\Models\Necklace;
 use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
+use App\Models\Rental;
+
+
 
 
 use DB;
@@ -173,17 +176,15 @@ class ProductController extends Controller
             ->get();
         }
         
-
+        // 2次元配列で返されるので、ここで修正
         $product_detail = $product_datas[0];
         // dd($product_detail);
 
-        return view('/renter/product_detail', [
-            'product_detail' => $product_detail,
-            'product_images' => $product_images,
-        ]);
+        return view('/renter/product_detail', compact('product_detail','product_images'));
+            
     }
 
-    public function mine()
+    public function mypage()
     {
         $products = Product::with('lender_user')
             ->join('product_images', 'product_images.product_id','=', 'products.id')
@@ -196,12 +197,68 @@ class ProductController extends Controller
         // $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
         // dd($product_images);
 
-        return view('/renter/mypage',[
+        return view('/renter/mypage/mypage',[
             'products' => $products,
             // 'product_images' => $product_images,
         ]);
 
         // return view('mypage');
+    }
+
+    public function mypage_rental()
+    {
+        // 現在レンタル中の商品
+        $rentaling_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // 返却が完了した商品
+        $rentaled_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNotNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $rentaling_products->pluck('product_id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_rental',[
+            'rentaling_products' => $rentaling_products,
+            'rentaled_products' => $rentaled_products,
+            'products' => $products,
+        ]);
+    }
+
+    public function mypage_rental_rentaled()
+    {
+        // 現在レンタル中の商品
+        $rentaling_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // 返却が完了した商品
+        $rentaled_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNotNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $rentaled_products->pluck('product_id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_rental',[
+            'rentaling_products' => $rentaling_products,
+            'rentaled_products' => $rentaled_products,
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -216,6 +273,75 @@ class ProductController extends Controller
             'product' => $product,
         ]);
     }
+
+
+    public function checkout(Product $product)
+    {
+        // $user = auth()->user()->id;
+        $product = $product->with('official_product')
+        ->where('id',$product->id)
+        ->get();
+
+        $product = $product[0];
+
+        // ステータスが「レンタル可能(1000)」の場合のみ決済画面に進めるようにする
+        if($product->status > 1000){
+            return redirect()->route('product.show', ['product' => $product->id]); // 仮で index に飛ばす
+        }else{
+            // カート機能とかをつけた場合は foreach で $lineItems as $lineItem で回す。
+            $lineItem = [
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'tax_behavior' => 'exclusive',
+                    'product_data' => [
+                        'name' => $product->getOfficialName(),
+                        'description' => $product->detail,
+                    ],  
+                    'unit_amount' => $product->subscription_plan->price,
+                    'recurring' => [
+                        'interval' => 'month',
+                    ],
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        // 決済中は他の人がこの商品を決済できないように「レンタル中」ステータスに変更する
+        $product_statusChange = Product::find($product->id);
+        $product_statusChange->status = 2000;
+        $product_statusChange->save();
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        // dd($product);
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => [$lineItem],
+            'mode' => 'subscription',
+            'success_url' => route('product.index'),
+            'cancel_url' => route('cancel', ['product' => $product->id]),
+            'customer_email'=> auth()->user()->email,
+            'automatic_tax' => [
+                'enabled' => true,
+            ],
+        ]);
+
+        $publicKey = env('STRIPE_PUBLIC_KEY');
+
+        return view('renter.checkout',
+            compact('session', 'publicKey', 'product'));
+    }
+
+
+    public function cancel(Product $product)
+    {
+        // dd($product);
+        $product_statusChange = Product::find($product->id);
+        $product_statusChange->status = 1000;
+        $product_statusChange->save();
+
+        return redirect()->route('product.show', ['product' => $product->id]);
+    }
+
 
     /**
      * Update the specified resource in storage.

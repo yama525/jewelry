@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Rental extends Model
 {
     use HasFactory;
+    // const CREATED_AT = 'start_rentaling_at';
+    const UPDATED_AT = NULL;
+
 // User テーブルから２つ取る？
     public function rentaling_user()
     {

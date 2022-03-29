@@ -41,6 +41,10 @@ class Product extends Model
     {
         return $this->hasMany(Rental::class);
     }
+    // public function getRentalProduct()
+    // {
+    //     return $this->$rental_products->
+    // }
 
 // レビューテーブルとのリレーション
     public function reviews()
