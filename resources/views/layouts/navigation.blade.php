@@ -34,6 +34,9 @@
                             <hr>
                         </div>
                         <x-dropdown-link>
+                            <input type="button" onclick="location.href='{{ route('product.index') }}'"value="ホーム" class="cursor-pointer">
+                        </x-dropdown-link>
+                        <x-dropdown-link>
                             <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer">
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">

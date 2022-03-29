@@ -11,6 +11,8 @@ use App\Models\Necklace;
 use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
+use App\Models\Rental;
+
 
 
 
@@ -182,7 +184,7 @@ class ProductController extends Controller
             
     }
 
-    public function mine()
+    public function mypage()
     {
         $products = Product::with('lender_user')
             ->join('product_images', 'product_images.product_id','=', 'products.id')
@@ -195,12 +197,68 @@ class ProductController extends Controller
         // $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
         // dd($product_images);
 
-        return view('/renter/mypage',[
+        return view('/renter/mypage/mypage',[
             'products' => $products,
             // 'product_images' => $product_images,
         ]);
 
         // return view('mypage');
+    }
+
+    public function mypage_rental()
+    {
+        // 現在レンタル中の商品
+        $rentaling_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // 返却が完了した商品
+        $rentaled_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNotNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $rentaling_products->pluck('product_id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_rental',[
+            'rentaling_products' => $rentaling_products,
+            'rentaled_products' => $rentaled_products,
+            'products' => $products,
+        ]);
+    }
+
+    public function mypage_rental_rentaled()
+    {
+        // 現在レンタル中の商品
+        $rentaling_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // 返却が完了した商品
+        $rentaled_products = Rental::with('product')
+        ->where('renter_user_id', auth()->user()->id)
+        ->whereNotNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $rentaled_products->pluck('product_id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_rental',[
+            'rentaling_products' => $rentaling_products,
+            'rentaled_products' => $rentaled_products,
+            'products' => $products,
+        ]);
     }
 
     /**

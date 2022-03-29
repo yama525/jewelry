@@ -26,8 +26,11 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
 
+        @if(\Route::is(['mypage', 'mypage.*']))
+            @include('layouts.mypage_navigation')
+        @else
             @include('layouts.navigation')
-
+        @endif
   
 
             <!-- Page Content -->

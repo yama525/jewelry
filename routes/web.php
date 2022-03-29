@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/product_register_request', [ProductController::class, 'store'])->name('product.store');
 
     // マイページ表示
-    Route::get('/mypage', [ProductController::class, 'mine'])->name('mypage');
+    // Route::get('/mypage', [ProductController::class, 'mine'])->name('mypage');
 
     // 商品を借りれるようになるための審査申請フォームページ表示
     Route::get('/renter_request', [RenterRequestController::class, 'index'])->name('renter_request');
@@ -79,5 +79,11 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
+Route::prefix('mypage')->middleware('auth')->group(function() {
+    Route::get('/', [ProductController::class, 'mypage'])->name('mypage');
+    Route::get('/rental', [ProductController::class, 'mypage_rental'])->name('mypage.rental');
+    Route::get('/rental/rentaled', [ProductController::class, 'mypage_rental_rentaled'])->name('mypage.rental.rentaled');
+
+});
 
 require __DIR__.'/auth.php';

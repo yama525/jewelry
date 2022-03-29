@@ -16,6 +16,7 @@ use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
 use App\Models\Subscription_plan;
+use App\Models\Rental;
 
 
 
@@ -467,6 +468,53 @@ class DatabaseSeeder extends Seeder
         Subscription_plan::create([
             'name' => 'Luxury',
             'price' => 36000,
+        ]);
+
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 3,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 4,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+            // 'lost_detail' => '',
+            // 'start_rentaling_at' => '2022-03-24 07:46:50',
+            // 'user_received_at'=> '',
+            // 'send_to_us_at' => '',
+            // 'we_received_at' => '',
+            // 'send_to_lender_at' => '',
+            // 'return_complete_at' => '',
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 1,
+            'lender_user_id' => 2,
+            'product_id' => 5,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+            'lost_detail' => '',
+            'user_received_at'=> '2022-03-24 07:46:50',
+            'send_to_us_at' => '2022-03-24 07:46:50',
+            'we_received_at' => '2022-03-24 07:46:50',
+            'send_to_lender_at' => '2022-03-24 07:46:50',
+            'return_complete_at' => '2022-03-24 07:46:50',
         ]);
 
     }
