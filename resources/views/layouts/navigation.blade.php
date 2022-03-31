@@ -120,7 +120,7 @@
     <div class="flex justify-center my-4">
         <div class="shrink-0 flex items-center justify-center">
             <a href="{{ route('product.index') }}">
-                <img src="/dummy_img/logo2.png" class="w-60" alt="">
+                <img src="/dummy_img/logo5.png" class="w-44" alt="">
             </a>
         </div>
     </div>
@@ -128,11 +128,11 @@
     <!-- Navigation Links -->
     <div class="hidden sm:-my-px sm:flex flex justify-center">
         <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
-            <p class="text-2xl text-gray-500">{{ __('Home') }}</p>
+            <p class="text-xl text-gray-400 css_fontFamily_Lora">{{ __('Home') }}</p>
         </x-nav-link>
         <x-nav-link>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                <p @click="open = !open" class="text-2xl text-gray-500">Jewelry</p>
+                <p @click="open = !open" class="text-xl text-gray-400 css_fontFamily_Lora">Jewelry</p>
                 <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
                         <input type="button" onclick="location.href='/category/ring'"value="Ring" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -145,13 +145,13 @@
             </div>
         </x-nav-link>
         <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
-            <p class="text-2xl text-gray-500">{{ __('Service') }}</p>
+            <p class="text-xl text-gray-400 css_fontFamily_Lora">{{ __('Service') }}</p>
         </x-nav-link>
         <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
-            <p class="text-2xl text-gray-500">{{ __('Plan') }}</p>
+            <p class="text-xl text-gray-400 css_fontFamily_Lora">{{ __('Plan') }}</p>
         </x-nav-link>
-        <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
-            <p class="text-2xl text-gray-500">{{ __('Lent') }}</p>
+        <x-nav-link :href="route('lender.index')" :active="request()->routeIs('lender.index')">
+            <p class="text-xl text-gray-400 css_fontFamily_Lora">{{ __('Lend') }}</p>
         </x-nav-link>
     </div>
 </nav>

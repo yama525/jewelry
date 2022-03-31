@@ -4,34 +4,61 @@ body{
     text-align: center;
 
     h1{
-        font-size: 64px;
-        color: rgb(89, 88, 88);
-        // font-family: 'Playfair Display', serif;
+        // font-size: 64px;
+        // color: rgb(89, 88, 88);
         font-family: 'Lora', serif;
+        letter-spacing: 0.05em;
     }
 
     h2{
         font-size: 22px;
-        // font-family: 'Shippori Mincho', serif;
-        // font-family: 'Sawarabi Mincho', serif;
+        letter-spacing: 0.05em;
     }
 
     p{
         font-size: 16px;
         font-family: 'Noto Sans JP', sans-serif;
+        letter-spacing: 0.05em;
+    }
+
+    a{
+        font-size: 16px;
+        font-family: 'Noto Sans JP', sans-serif;
+        letter-spacing: 0.05em;
     }
 
     input{
         font-size: 16px;
         font-family: 'Noto Sans JP', sans-serif;
+        letter-spacing: 0.05em;
     }
 
+    // color 指定
+        // main_color
+        .css_gold{
+            color: #d7bc7e;
+        }
+        // sub_color
+        .css_green{
+            color: #33442F;
+        }
+
+    // font-family 指定
+
+        // 日本語 強調したい箇所
+        .css_fontFamily_notoSerif700{
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        // 英語 Lora
+        .css_fontFamily_Lora{
+            font-family: 'Lora', serif;
+        }
 
 }
 
 
 
-// $main-color: #A71286;
-$main-color: #f162d2;
-$main-color-hover: #ac649c;
-$sub-color: rgb(199, 162, 0);
+// $main_color: #d7bc7e;
+// $main-color-hover: #ac649c;
+// $sub_color: #33442F;

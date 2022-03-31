@@ -261,6 +261,65 @@ class ProductController extends Controller
         ]);
     }
 
+
+    public function mypage_lending()
+    {
+        // 現在貸し出しているジェエリーの数
+        $lending_products = Product::with('product_images')
+        ->where('lender_user_id', auth()->user()->id)
+        ->get();
+
+        // 現在レンタルされているジェエリーの数
+        $lending_rentaling_products = Rental::with('product')
+        ->where('lender_user_id', auth()->user()->id)
+        ->whereNotNull('created_at')        
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $lending_products->pluck('id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_lending',[
+            'lending_products' => $lending_products,
+            'lending_rentaling_products' => $lending_rentaling_products,
+            'products' => $products,
+        ]);
+    }
+
+    public function mypage_lending_rentaling()
+    {
+        // 現在貸し出しているジェエリーの数
+        $lending_products = Product::with('product_images')
+        ->where('lender_user_id', auth()->user()->id)
+        ->get();
+        // dd($lending_products);
+
+        // 現在レンタルされているジェエリーの数
+        $lending_rentaling_products = Rental::with('product')
+        ->where('lender_user_id', auth()->user()->id)
+        ->whereNotNull('created_at')        
+        ->whereNull('return_complete_at')
+        ->get();
+
+        // productId だけの配列を抽出する
+        $productIds = $lending_rentaling_products->pluck('product_id');
+        $products = Product::with('product_images')
+            ->whereIn('id', $productIds)
+            ->get();
+        // dd($products);
+
+        return view('/renter/mypage/mypage_lending',[
+            'lending_products' => $lending_products,
+            'lending_rentaling_products' => $lending_rentaling_products,
+            'products' => $products,
+        ]);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *

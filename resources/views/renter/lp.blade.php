@@ -7,12 +7,12 @@
     </div>
 
     <!-- メッセージ -->
-    <section class="bg-white py-8">
+    <section class="bg-white pt-12 pb-12">
         <div class="">
-            <h1 class="mb-8">Message</h1>
+            <h1 class="text-5xl text-gray-400 mb-12">Message</h1>
                 <div class="text-left mb-8 w-1/2 ml-96">
-                    <h2 class="mb-4">『所有する』ではなく『シェアする』<br>歴史ある上質なブランドジュエリーをあなたに。</h2>
-                    <p class=" text-lg">ブランドジュエリー、それは女性の永遠の憧れ。<br>
+                    <h2 class="css_fontFamily_notoSerif700 text-gray-500 mb-4 leading-10">『所有する』ではなく『シェアする』<br>歴史ある上質なブランドジュエリーをあなたに。</h2>
+                    <p class="text-gray-500 text-lg leading-8">ブランドジュエリー、それは女性の永遠の憧れ。<br>
                     長い歴史の中で引き継がれてきたクラフツマンシップ溢れるジュエリーを、より身近に。<br>
                     「所有する」ではなく「シェアする」という賢い選択で、ハイブランドジュエリーをみんなで受け継いでいきませんか。
                     </p>
@@ -25,38 +25,38 @@
 
 
     <!-- サービス紹介 -->
-    <section class="py-8">
+    <section class="pt-12 pb-12">
         <div class="service_wrapper">
-            <h1 class="mb-4">Service</h1>
+            <h1 class="text-5xl text-gray-400 mb-12">Service</h1>
             {{-- 1 列目 --}}
-            <div class="inline-flex justify-center px-8">
+            <div class="inline-flex justify-center px-12">
                 <div class="w-full w-1/2 md:w-1/4 xl:w-1/4 p-6 flex flex-col">
-                    <h3 class="text-xl text-gray-600">Step 1</h3>
-                    <p class="text-2xl text-gray-700 py-2">ジュエリーを選ぶ</p>
+                    <h3 class="text-lg text-gray-400">Step 1</h3>
+                    <p class="text-xl text-gray-500 py-2">ジュエリーを選ぶ</p>
                     <div class="py-8 flex items-center justify-center">
                         <img class="w-24" src="dummy_img/step1.png" alt="">
                     </div>
                     <p class="pt-1 text-gray-500 text-sm text-left">商品一覧の中から色々なジュエリーを確認して、レンタルしたいジュエリーをお選びください。</p>
                 </div>
                 <div class="w-full w-1/2 md:w-1/4 xl:w-1/4 p-6 flex flex-col">
-                    <h3 class="text-xl text-gray-600">Step 2</h3>
-                    <p class="text-2xl text-gray-700 py-2">会員登録</p>
+                    <h3 class="text-lg text-gray-400">Step 2</h3>
+                    <p class="text-xl text-gray-500 py-2">会員登録</p>
                     <div class="py-8 flex items-center justify-center">
                         <img class="w-24" src="dummy_img/step2.png" alt="">
                     </div>
                     <p class="pt-1 text-gray-500 text-sm text-left">無料会員登録をすると全ての商品が閲覧できるようになります。<br>※初めてのレンタルでは別途審査が必要です</p>
                 </div>
                 <div class="w-full w-1/2 md:w-1/4 xl:w-1/4 p-6 flex flex-col">
-                    <h3 class="text-xl text-gray-600">Step 3</h3>
-                    <p class="text-2xl text-gray-700 py-2">お支払い</p>
+                    <h3 class="text-lg text-gray-400">Step 3</h3>
+                    <p class="text-xl text-gray-500 py-2">お支払い</p>
                     <div class="py-8 flex items-center justify-center">
                         <img class="w-24" src="dummy_img/step3.png" alt="">
                     </div>
                     <p class="pt-1 text-gray-500 text-sm text-left">審査が完了しているお客様は、商品ページよりお支払いいただき次第、ジュエリーをお送りいたします。</p>
                 </div>
                 <div class="w-full w-1/2 md:w-1/4 xl:w-1/4 p-6 flex flex-col">
-                    <h3 class="text-xl text-gray-600">Step 4</h3>
-                    <p class="text-2xl text-gray-700 py-2">ご自宅に届く</p>
+                    <h3 class="text-lg text-gray-400">Step 4</h3>
+                    <p class="text-xl text-gray-500 py-2">ご自宅に届く</p>
                     <div class="py-8 flex items-center justify-center">
                         <img class="w-24" src="dummy_img/step4.png" alt="">
                     </div>
@@ -67,8 +67,8 @@
 
     
     <!-- レンタル可能なジュエリー -->
-    <section class="bg-white py-8">
-        <h1 class="text-center">Jewelry</h1>
+    <section class="bg-white pt-12 pb-12">
+        <h1 class="text-5xl text-gray-400 text-center mb-12">Jewelry</h1>
         <div class="flex flex-wrap justify-center px-8 css_img_list">
             <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 pt-6 pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/ring">
@@ -115,9 +115,9 @@
 
 
     <!-- プラン -->
-    <section class="py-8">
+    <section class="pt-12 pb-12">
         <div class="service_wrapper">
-            <h1 class="mb-4"> Plans</h1>
+            <h1 class="text-5xl text-gray-400 mb-12"> Plans</h1>
             <div class="mx-12 space-y-12 lg:space-y-0 lg:flex lg:gap-4 lg:items-center lg:justify-center">
                 <div class="bg-white max-w-sm p-8 shadow-lg">
                     <h3 class="text-2xl text-center">Standard</h3>
@@ -159,11 +159,11 @@
         </div>
     </section>
 
-    <section class="bg-white py-8">
-        <h1 class="text-center">Lent</h1>
+    <section class="bg-white pt-12 pb-12">
+        <h1 class="text-5xl text-gray-400 text-center mb-12">Lend</h1>
         <div class="flex items-end h-screen bg-contain" style="background-image: url(dummy_img/woman.jpeg)">
             <div class="flex-auto mb-32">
-                <button class="w-1/2 px-2 py-8 text-2xl text-white bg-gray-800 hover:bg-black rounded">ジュエリーを貸し出す</button>
+                <button onclick="location.href='{{ route('lender.index') }}'" class="w-1/2 px-2 py-8 text-2xl text-white bg-gray-800 hover:bg-black rounded">ジュエリーを貸し出す</button>
             </div>
         </div>
     </section>

@@ -4,23 +4,47 @@ body {
 }
 
 body h1 {
-  font-size: 64px;
-  color: #595858;
   font-family: 'Lora', serif;
+  letter-spacing: 0.05em;
 }
 
 body h2 {
   font-size: 22px;
+  letter-spacing: 0.05em;
 }
 
 body p {
   font-size: 16px;
   font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+body a {
+  font-size: 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 body input {
   font-size: 16px;
   font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+body .css_gold {
+  color: #d7bc7e;
+}
+
+body .css_green {
+  color: #33442F;
+}
+
+body .css_fontFamily_notoSerif700 {
+  font-family: 'Noto Serif JP', serif;
+}
+
+body .css_fontFamily_Lora {
+  font-family: 'Lora', serif;
 }
 
 /*! sanitize.css v3.2.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
@@ -496,5 +520,14 @@ a {
 
 .css_message {
   width: 90%;
+}
+
+.css_lenderLp_aboutLend_img {
+  width: 548px;
+  position: relative;
+  top: 54px;
+  left: 724px;
+  -webkit-transform: rotate(13.4deg);
+          transform: rotate(13.4deg);
 }
 /*# sourceMappingURL=main.css.map */
