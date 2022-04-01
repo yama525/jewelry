@@ -517,5 +517,22 @@ class DatabaseSeeder extends Seeder
             'return_complete_at' => '2022-03-24 07:46:50',
         ]);
 
+        Rental::create([
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
+            'product_id' => 6,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            // 'fix_detail' => '',
+            'is_lost' => 0,
+            'lost_detail' => '',
+            'user_received_at'=> '2022-03-24 07:46:50',
+            'send_to_us_at' => '2022-03-24 07:46:50',
+            'we_received_at' => '2022-03-24 07:46:50',
+            'send_to_lender_at' => '2022-03-24 07:46:50',
+            'return_complete_at' => '2022-03-24 07:46:50',
+        ]);
+
     }
 }

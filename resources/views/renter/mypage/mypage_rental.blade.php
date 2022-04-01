@@ -87,15 +87,20 @@
                     <!--/Metric Card-->
                 </div> --}}
                 
-                {{-- @if(\Route::is('mypage/rental')) --}}
-                {{-- {{$products = $product_rentalings}} --}}
-                {{-- @dd($products) --}}
-                <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-                    @foreach($products as $product)
-                        <x-product-card :product="$product" />
-                    @endforeach
-                </div>
-                {{-- @endif --}}
+                @if($products->count() == null)   
+                    <div class="flex justify-center w-full mt-12">
+                        <img src="/dummy_img/no_data.png" alt="" class="w-1/3 ">
+                    </div>                             
+                    <div class="flex justify-center w-full">
+                        <h2 class="text-4xl font-bold text-gray-400">表示できるジュエリーがありません</h2>
+                    </div>
+                @else
+                    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+                        @foreach($products as $product)
+                            <x-product-card :product="$product" />
+                        @endforeach
+                    </div>
+                @endif
                     <!--/Metric Card-->
             </div>
         </div>

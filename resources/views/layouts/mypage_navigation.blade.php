@@ -52,7 +52,7 @@
                       @else
                         <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
                       @endif
-                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">ホーム</span>
+                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">ダッシュボード</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
@@ -65,9 +65,13 @@
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
-                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300">
-                            <i class="fas fa-gift fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">貸し出し</span>
-                        </a>
+                      @if(\Route::is(['*.lending', '*.rentaling']))
+                      <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
+                    @else
+                      <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
+                    @endif
+                          <i class="fas fa-handshake fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">貸し出し</span>
+                      </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300">

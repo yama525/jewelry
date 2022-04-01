@@ -1,0 +1,12 @@
+// Header 特定の位置で固定させる
+    #global-nav {
+        background-position: 0px -176px;
+        width: 100%;
+        background-image:url('/dummy_img/marble.jpg');
+    }
+
+    #global-nav.m_fixed {
+        left: 0;
+        position: fixed;
+        top: 0;
+    }

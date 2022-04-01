@@ -83,6 +83,8 @@ Route::prefix('mypage')->middleware('auth')->group(function() {
     Route::get('/', [ProductController::class, 'mypage'])->name('mypage');
     Route::get('/rental', [ProductController::class, 'mypage_rental'])->name('mypage.rental');
     Route::get('/rental/rentaled', [ProductController::class, 'mypage_rental_rentaled'])->name('mypage.rental.rentaled');
+    Route::get('/lending', [ProductController::class, 'mypage_lending'])->name('mypage.lending');
+    Route::get('/lending/rentaling', [ProductController::class, 'mypage_lending_rentaling'])->name('mypage.lending.rentaling');
 
 });
 

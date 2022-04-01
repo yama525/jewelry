@@ -12,7 +12,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Noto+Sans+JP:wght@300&family=Playfair+Display&family=Sawarabi+Mincho&family=Shippori+Mincho:wght@700&display=swap" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+JP&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/scss/main.css') }}">
 
@@ -41,5 +41,20 @@
             @include('layouts.footer')
 
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            var navPos = jQuery( '#global-nav' ).offset().top; // グローバルメニューの位置
+            var navHeight = jQuery( '#global-nav' ).outerHeight(); // グローバルメニューの高さ
+            jQuery( window ).on( 'scroll', function() {
+                if ( jQuery( this ).scrollTop() > navPos ) {
+                    jQuery( 'body' ).css( 'padding-top', navHeight );
+                    jQuery( '#global-nav' ).addClass( 'm_fixed' );
+                } else {
+                    jQuery( 'body' ).css( 'padding-top', 0 );
+                    jQuery( '#global-nav' ).removeClass( 'm_fixed' );
+                }
+            });
+        </script>
     </body>
 </html>
