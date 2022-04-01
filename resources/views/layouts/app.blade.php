@@ -41,5 +41,20 @@
             @include('layouts.footer')
 
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            var navPos = jQuery( '#global-nav' ).offset().top; // グローバルメニューの位置
+            var navHeight = jQuery( '#global-nav' ).outerHeight(); // グローバルメニューの高さ
+            jQuery( window ).on( 'scroll', function() {
+                if ( jQuery( this ).scrollTop() > navPos ) {
+                    jQuery( 'body' ).css( 'padding-top', navHeight );
+                    jQuery( '#global-nav' ).addClass( 'm_fixed' );
+                } else {
+                    jQuery( 'body' ).css( 'padding-top', 0 );
+                    jQuery( '#global-nav' ).removeClass( 'm_fixed' );
+                }
+            });
+        </script>
     </body>
 </html>

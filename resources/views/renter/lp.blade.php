@@ -74,7 +74,7 @@
                 <a href="/category/ring">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
                     <div class="pt-3 flex items-center">
-                        <p class="text-xl text-gray-700 flex ">Ring</p>
+                        <p class="text-xl text-gray-600 flex css_fontFamily_lora">Ring</p>
                     </div>
                 </a>
             </div>
@@ -82,7 +82,7 @@
                 <a href="/category/necklace">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
                     <div class="pt-3 flex items-center">
-                        <p class="text-xl text-gray-700 flex ">Necklace</p>
+                        <p class="text-xl text-gray-600 flex css_fontFamily_lora">Necklace</p>
                     </div>
                 </a>
             </div>
@@ -90,7 +90,7 @@
                 <a href="/category/bracelet">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
                     <div class="pt-3 flex items-center">
-                        <p class="text-xl text-gray-700 flex ">Bracelet</p>
+                        <p class="text-xl text-gray-600 flex css_fontFamily_lora">Bracelet</p>
                     </div>
                 </a>
             </div>
@@ -98,7 +98,7 @@
                 <a href="/category/earing">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/earing.jpeg">
                     <div class="pt-3 flex items-center">
-                        <p class="text-xl text-gray-700 flex ">Earing</p>
+                        <p class="text-xl text-gray-600 flex css_fontFamily_lora">Earing</p>
                     </div>
                 </a>
             </div>
@@ -106,7 +106,7 @@
                 <a href="/category/other">
                     <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
                     <div class="pt-3 flex items-center">
-                        <p class="text-xl text-gray-700 flex ">Other</p>
+                        <p class="text-xl text-gray-600 flex css_fontFamily_lora">Other</p>
                     </div>
                 </a>
             </div>
@@ -120,8 +120,8 @@
             <h1 class="text-5xl text-gray-400 mb-12"> Plans</h1>
             <div class="mx-12 space-y-12 lg:space-y-0 lg:flex lg:gap-4 lg:items-center lg:justify-center">
                 <div class="bg-white max-w-sm p-8 shadow-lg">
-                    <h3 class="text-2xl text-center">Standard</h3>
-                    <p class="text-center">12,000 円</p>
+                    <h3 class="text-2xl text-center text-gray-600">Standard</h3>
+                    <p class="text-center text-gray-500">12,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="https://www.vancleefarpels.com/content/dam/rcq/vca/21/50/89/6/2150896.png.transform.vca-w820-1x.png" alt="">
@@ -132,8 +132,8 @@
                     </div>
                 </div>
                 <div class="bg-white max-w-sm p-8 shadow-lg">
-                    <h3 class="text-2xl text-center"> Premium</h3>
-                    <p class="text-center">22,000 円</p>
+                    <h3 class="text-2xl text-center text-gray-600"> Premium</h3>
+                    <p class="text-center text-gray-500">22,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="https://www.harrywinston.com/-/media/project/harry-winston/corporate/harry-winston-int/fine-jewelry/forget-me-not-by-harry-winston/forget-me-not-sapphire-and-diamond-earrings/forget_me_not_by_harry_winston_earrings_diamond_and_sapphire_easp1mflrfmn_ee-1.png?rev=6be86a79ada54568a5106e883fe716a1" alt="">
@@ -144,8 +144,8 @@
                     </div>
                 </div>
                 <div class="bg-white max-w-sm p-8 shadow-lg">
-                    <h3 class="text-2xl text-center">Luxury</h3>
-                    <p class="text-center">36,000 円</p>
+                    <h3 class="text-2xl text-center text-gray-600">Luxury</h3>
+                    <p class="text-center text-gray-500">36,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="https://www.harrywinston.com/-/media/project/harry-winston/corporate/harry-winston-int/fine-jewelry/pirouette-by-harry-winston/pirouette-diamond-ring/pirouette_by_harry_winston_ring_diamond_frdprfprspir_e-1.png?rev=f969ffe3ac61418482059b8808f389c2" alt="">

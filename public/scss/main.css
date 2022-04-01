@@ -43,7 +43,7 @@ body .css_fontFamily_notoSerif700 {
   font-family: 'Noto Serif JP', serif;
 }
 
-body .css_fontFamily_Lora {
+body .css_fontFamily_lora {
   font-family: 'Lora', serif;
 }
 
@@ -368,6 +368,18 @@ a {
   text-decoration: none;
 }
 
+#global-nav {
+  background-position: 0px -176px;
+  width: 100%;
+  background-image: url("/dummy_img/marble.jpg");
+}
+
+#global-nav.m_fixed {
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -526,7 +538,7 @@ a {
   width: 548px;
   position: relative;
   top: 54px;
-  left: 724px;
+  left: 684px;
   -webkit-transform: rotate(13.4deg);
           transform: rotate(13.4deg);
 }

@@ -2,7 +2,7 @@
     <x-app-layout>
     
         <!-- About Lend -->
-        <div class="bg-white pt-16 pb-20">
+        <div class="bg-white pt-16 pb-20 px-8">
             <h1 class="text-5xl text-gray-400">About Lend</h1>
             <div class="">
                 <img class="css_lenderLp_aboutLend_img" src="/dummy_img/lend_image1.png" alt="">
@@ -19,7 +19,7 @@
         </div>
     
         <!-- Cash Back -->
-        <div class="pt-16 pb-20">
+        <div class="pt-16 pb-20 px-8">
             <h1 class="text-5xl text-gray-400 mb-11">Cash Back</h1>
             <div class="flex justify-center mb-20">
                 <p class="text-left text-gray-400 text-lg leading-10">お貸し頂くジュエリーによって、運用で得られるキャッシュバック金額が変わります。<br>
