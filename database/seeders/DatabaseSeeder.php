@@ -36,23 +36,23 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         User::create([
             'name' => '飯田武',
-            'furigana' => 'いいだたけし',
+            // 'furigana' => 'いいだたけし',
             'email' => 'test@a.com',
             'password'=> bcrypt('password'),
-            'phone' => '090-1111-1111',
-            'birthday' => '1999/01/01',
-            'address' => '東京都中央区1-1-1',
-            'lender_flg' => 0,
+            // 'phone' => '090-1111-1111',
+            // 'birthday' => '1999/01/01',
+            // 'address' => '東京都中央区1-1-1',
+            // 'lender_flg' => 0,
         ]);
         User::create([
             'name' => '岡島香澄',
-            'furigana' => 'おかじまかすみ',
+            // 'furigana' => 'おかじまかすみ',
             'email' => 'test2@a.com',
             'password'=> bcrypt('password'),
-            'phone' => '090-2222-2222',
-            'birthday' => '1999/02/02',
-            'address' => '東京都中央区2-2-2',
-            'lender_flg' => 0,
+            // 'phone' => '090-2222-2222',
+            // 'birthday' => '1999/02/02',
+            // 'address' => '東京都中央区2-2-2',
+            // 'lender_flg' => 0,
         ]);
 
         // 指輪A
