@@ -410,7 +410,7 @@ class DatabaseSeeder extends Seeder
         Other_jewelry::create([
             'product_id' => '5',
             'type' => 'ブローチ',
-            'size' => '',
+            // 'size' => '',
         ]);
 
         Renter_request::create([
@@ -423,11 +423,11 @@ class DatabaseSeeder extends Seeder
             // 'loan_price' => '',
             'receive_place' => '自宅受け取り',
             'purpose' => 'レンタルしてみたいジュエリーがあるから',
-            'purpose_detail' => '',
+            // 'purpose_detail' => '',
             'identification' => '運転免許証',
             'identification_image1' => 'jewelry1.jpg',
             'identification_image2' => 'jewelry1.jpg',
-            'identification_image3' => '',
+            // 'identification_image3' => '',
             'with_identification_image' => 'jewelry1.jpg',
             'enrollment_certificate_image1' => 'jewelry1.jpg',
             'enrollment_certificate_image2' => 'jewelry1.jpg',
@@ -448,7 +448,7 @@ class DatabaseSeeder extends Seeder
             'identification' => 'パスポート',
             'identification_image1' => 'jewelry2.jpg',
             'identification_image2' => 'jewelry2.jpg',
-            'identification_image3' => '',
+            // 'identification_image3' => '',
             'with_identification_image' => 'jewelry2.jpg',
             'enrollment_certificate_image1' => 'jewelry2.jpg',
             'enrollment_certificate_image2' => 'jewelry2.jpg',
@@ -509,7 +509,7 @@ class DatabaseSeeder extends Seeder
             'is_fixing' => 0,
             // 'fix_detail' => '',
             'is_lost' => 0,
-            'lost_detail' => '',
+            // 'lost_detail' => '',
             'user_received_at'=> '2022-03-24 07:46:50',
             'send_to_us_at' => '2022-03-24 07:46:50',
             'we_received_at' => '2022-03-24 07:46:50',
@@ -526,7 +526,7 @@ class DatabaseSeeder extends Seeder
             'is_fixing' => 0,
             // 'fix_detail' => '',
             'is_lost' => 0,
-            'lost_detail' => '',
+            // 'lost_detail' => '',
             'user_received_at'=> '2022-03-24 07:46:50',
             'send_to_us_at' => '2022-03-24 07:46:50',
             'we_received_at' => '2022-03-24 07:46:50',
@@ -534,5 +534,6 @@ class DatabaseSeeder extends Seeder
             'return_complete_at' => '2022-03-24 07:46:50',
         ]);
 
+        // テスト
     }
 }
