@@ -96,7 +96,7 @@
             </div>
             <div class="bg-white hover:shadow-lg w-1/3 md:w-1/3 xl:w-1/3 pt-6 pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/earing">
-                    <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/earing.jpeg">
+                    <img class="object-cover h-40 lg:h-60 lg:w-96" src="dummy_img/earing.png">
                     <div class="pt-3 flex items-center">
                         <p class="text-xl text-gray-600 flex css_fontFamily_lora">Earing</p>
                     </div>
