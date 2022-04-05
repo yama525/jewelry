@@ -46,6 +46,9 @@
                                 <x-dropdown-link>
                                     <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer">
                                 </x-dropdown-link>
+                                <x-dropdown-link>
+                                    <input type="button" onclick="location.href='{{ route('product.store') }}'"value="ジュエリーの登録依頼" class="cursor-pointer">
+                                </x-dropdown-link>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')"
