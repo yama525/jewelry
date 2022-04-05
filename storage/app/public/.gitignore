@@ -1,3 +1,5 @@
 *
 !test/
+!1
+!user_id
 !.gitignore
