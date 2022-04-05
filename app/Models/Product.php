@@ -22,6 +22,12 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
+// 商品登録リクエストテーブルとのリレーション
+    public function product_requests()
+    {
+        return $this->hasOne(Product_request::class);
+    }
+
 // 商品写真とのリレーション
     public function product_images()
     {
