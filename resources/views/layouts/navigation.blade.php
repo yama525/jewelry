@@ -47,7 +47,7 @@
                                     <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer">
                                 </x-dropdown-link>
                                 <x-dropdown-link>
-                                    <input type="button" onclick="location.href='{{ route('product.store') }}'"value="ジュエリーの登録依頼" class="cursor-pointer">
+                                    <input type="button" onclick="location.href='{{ route('product_request.post') }}'"value="ジュエリーの登録依頼" class="cursor-pointer">
                                 </x-dropdown-link>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -84,7 +84,7 @@
                         <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
                             {{ __('Home') }}
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+                        <x-responsive-nav-link :href="route('product_request.post')" :active="request()->routeIs('product_request.post')">
                             {{ __('出品する') }}
                         </x-responsive-nav-link>
                     </div>
@@ -155,10 +155,10 @@
                     </div>
                 </div>
             </x-nav-link>
-            <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+            <x-nav-link :href="route('product_request.post')" :active="request()->routeIs('product_request.post')">
                 <p class="text-xl text-gray-400 css_fontFamily_lora">{{ __('Service') }}</p>
             </x-nav-link>
-            <x-nav-link :href="route('product.store')" :active="request()->routeIs('product.store')">
+            <x-nav-link :href="route('product_request.post')" :active="request()->routeIs('product_request.post')">
                 <p class="text-xl text-gray-400 css_fontFamily_lora">{{ __('Plan') }}</p>
             </x-nav-link>
             <x-nav-link :href="route('lender.index')" :active="request()->routeIs('lender.index')">

@@ -12,6 +12,7 @@ use App\Models\Bracelet;
 use App\Models\Earing;
 use App\Models\Other_jewelry;
 use App\Models\Rental;
+use App\Models\Product_request;
 
 
 
@@ -114,11 +115,32 @@ class ProductController extends Controller
         //
     }
 
-    public function post()
+    public function search_request()
     {
-        return view('/lender/product_register_request');
+        $product_requests = Product_request::with('lender_user')
+        ->where('status', 'not_checked')
+        ->get();
+
+        // dd($product_requests);
+        return view('/admin/product_register_search', [
+            'product_requests' => $product_requests,
+        ]);
     }
 
+    public function post(Request $request)
+    {
+        $product_request = Product_request::with('lender_user')
+        ->where('id', $request->id)
+        ->get();
+
+        $product_request = $product_request[0];
+
+        // dd($product_request);
+
+        return view('/admin/product_register', [
+            'product_request' => $product_request,
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
