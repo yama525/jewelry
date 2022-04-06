@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     
     <div class="mt-16 w-11/12 block my-0 mx-auto">
         <form action="/product_register_request" method="POST" enctype="multipart/form-data" class="card card-body shadow-2 mb-3">
@@ -17,6 +15,17 @@
                         {{-- <form action="#" method="POST"> --}}
                             <div class="shadow sm:rounded-md sm:overflow-hidden">
                                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+
+                                    {{-- ユーザーID --}}
+                                    <div class="grid grid-cols-3 gap-6">
+                                        <div class="col-span-3 sm:col-span-2">
+                                            <label for="brand_name" class="block text-sm font-medium text-gray-700">*ブランド名 </label>
+                                            <div class="mt-1 flex rounded-md shadow-sm">
+                                                <input type="text" name="brand_name" id="brand_name" class="focus:ring-green-900 focus:border-green-900 flex-1 block w-full rounded-md sm:text-sm border-gray-300" placeholder="ex) Van Cleef & Arpels">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{-- ブランド名 --}}
                                     <div class="grid grid-cols-3 gap-6">
                                         <div class="col-span-3 sm:col-span-2">
@@ -165,9 +174,9 @@
 
                                             {{-- 商品とのストーリー --}}
                                             <div>
-                                                <label for="about" class="block text-sm font-medium text-gray-700">よろしければ、お貸しいただくジュエリーの思い出や歴史について教えてください。</label>
+                                                <label for="story" class="block text-sm font-medium text-gray-700">よろしければ、お貸しいただくジュエリーの思い出や歴史について教えてください。</label>
                                                 <div class="mt-1">
-                                                    <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-green-900 focus:border-green-900 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
+                                                    <textarea id="story" name="story" rows="3" class="shadow-sm focus:ring-green-900 focus:border-green-900 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
                                                 </div>
                                             </div>
                                         </div>

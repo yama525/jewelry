@@ -27,12 +27,21 @@ use App\Http\Controllers\ProductRequestController;
 // 商品一覧画面（メインのインデックスページ）表示
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 Route::get('/all-jewelries', [ProductController::class, 'all'])->name('all');
-Route::get('/category/ring', [ProductController::class, 'ring'])->name('ring');
-Route::get('/category/necklace', [ProductController::class, 'necklace'])->name('necklace');
-Route::get('/category/bracelet', [ProductController::class, 'bracelet'])->name('bracelet');
-Route::get('/category/earing', [ProductController::class, 'earing'])->name('earing');
-Route::get('/category/other', [ProductController::class, 'other'])->name('other');
 
+// 商品のカテゴリ別ページ
+Route::prefix('/category')->group(function() {
+    Route::get('/ring', [ProductController::class, 'ring'])->name('ring');
+    Route::get('/necklace', [ProductController::class, 'necklace'])->name('necklace');
+    Route::get('/bracelet', [ProductController::class, 'bracelet'])->name('bracelet');
+    Route::get('/earing', [ProductController::class, 'earing'])->name('earing');
+    Route::get('/other', [ProductController::class, 'other'])->name('other');
+});
+
+Route::prefix('/plan')->group(function() {
+    Route::get('/standard', [ProductController::class, 'standard'])->name('standard');
+    Route::get('/premium', [ProductController::class, 'premium'])->name('premium');
+    Route::get('/luxury', [ProductController::class, 'luxury'])->name('luxury');
+});
 
 
 // 貸し手用のLP一旦 Controller を経由せずに書いている。

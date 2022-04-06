@@ -69,7 +69,10 @@ class RenterRequestController extends Controller
      */
     public function confirm(Renter_request $renter_request)
     {
-        $renter_request = Renter_request::with('user')->firstWhere('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        $renter_request = Renter_request::with('user')
+        ->firstWhere('user_id', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
         //  dd($renter_request);
          return view('/renter/renter_request_confirm', [
              'renter_request' => $renter_request,

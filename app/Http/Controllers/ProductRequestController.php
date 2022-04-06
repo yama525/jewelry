@@ -47,7 +47,7 @@ class ProductRequestController extends Controller
             'brand_name' => $request->brand_name,
             'name' => $request->name,
             'type' => $request->type,
-            'image' => $request->image,
+            'image' => $request->image->store('product_request'.auth()->user()->id, 'public'),
             'story' => $request->story,
             'scratch_detail' => $request->scratch_detail,
             'material' => $request->material,

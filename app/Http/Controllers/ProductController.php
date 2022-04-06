@@ -99,6 +99,39 @@ class ProductController extends Controller
         ]);
     }
 
+    public function standard()
+    {
+        $products = Product::with('subscription_plan', 'official_product', 'official_product.brand')
+        ->where('subscription_plan_id', 1)
+        ->get();
+
+        return view('/renter/plan/standard',[
+            'products' => $products,
+        ]);
+    }
+
+    public function premium()
+    {
+        $products = Product::with('subscription_plan', 'official_product', 'official_product.brand')
+        ->where('subscription_plan_id', 2)
+        ->get();
+
+        return view('/renter/plan/premium',[
+            'products' => $products,
+        ]);
+    }
+
+    public function luxury()
+    {
+        $products = Product::with('subscription_plan', 'official_product', 'official_product.brand')
+        ->where('subscription_plan_id', 3)
+        ->get();
+
+        return view('/renter/plan/luxury',[
+            'products' => $products,
+        ]);
+    }
+
     public function index()
     {
                 return view('/renter/lp');
