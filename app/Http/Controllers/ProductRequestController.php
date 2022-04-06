@@ -27,6 +27,11 @@ class ProductRequestController extends Controller
         //
     }
 
+    public function post()
+    {
+        return view('lender/product_register_request');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +40,24 @@ class ProductRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $product = Product_request::create([
+            'lender_user_id' => auth()->user()->id,
+            'official_product_id' => $request->official_product_id,
+            'brand_name' => $request->brand_name,
+            'name' => $request->name,
+            'type' => $request->type,
+            'image' => $request->image->store('product_request'.auth()->user()->id, 'public'),
+            'story' => $request->story,
+            'scratch_detail' => $request->scratch_detail,
+            'material' => $request->material,
+            'serial_number' => $request->serial_number,
+            'is_case' => $request->is_case,
+            'is_guarantee' => $request->is_guarantee,
+            'is_purchasable' => $request->is_purchasable,
+        ]);
+        
+        return redirect()->route('product.index');
     }
 
     /**

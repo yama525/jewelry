@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('lender_user_id')->constraint();
             $table->foreignId('store_id')->constraint()->nullable();
-            $table->string('official_product_id');
+            $table->string('official_product_id')->nullable();
             $table->string('brand_name', 30);
             $table->string('name', 30);
             $table->enum('type', ['ring', 'necklace', 'bracelet', 'earing', 'other']);
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->boolean('is_case');
             $table->boolean('is_guarantee');
             $table->boolean('is_purchasable');
+            $table->enum('status', ['not_checked', 'denied', 'accepted']);
             $table->timestamps();
             $table->softDeletes();
         });
