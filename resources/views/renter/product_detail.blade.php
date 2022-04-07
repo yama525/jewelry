@@ -120,43 +120,80 @@
                 @elseif($product_detail->status === 2000)
                     <button class="cursor-default flex items-center text-gray-400 bg-gray-200 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button>
                 @endif
-                    <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                        </svg>
-                    </button>
+
+                {{-- いいねボタン --}}
+                @auth
+                    <!-- Review.phpに作ったisLikedByメソッドをここで使用 -->
+                    @if (!$product_detail->isLikedBy(Auth::user()))
+                        <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                            <i class="fas fa-heart like-toggle" data-review-id="{{ $product_detail->id }}"></i>
+                            {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                        </button><!-- /.likes -->
+                    @else
+                        <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                            <i class="fas fa-heart like-toggle liked" data-review-id="{{ $product_detail->id }}"></i>
+                            {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                        </span><!-- /.likes -->
+                    @endif
+                @endauth
+                @guest
+                    <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                        
+                        <div class="balloonoya" onclick="showBalloon()">
+                            <i class="fas fa-heart"></i>
+                            <span class="balloon1" id="makeImg">ログインしてください</span>
+                        </div>
+                        {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                    </span><!-- /.likes -->
+                @endguest
+
+
                 </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-                  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-4/js/6-2-4.js"></script></body>
-                  <script>
-                      //上部画像の設定
-                  $('.gallery').slick({
-                    infinite: true, //スライドをループさせるかどうか。初期値はtrue。
-                    fade: true, //フェードの有効化
-                    arrows: true,//左右の矢印あり
-                    prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-                    nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-                  });
-                  
-                  //選択画像の設定
-                  $('.choice-btn').slick({
-                    infinite: true, //スライドをループさせるかどうか。初期値はtrue。
-                    slidesToShow: 8, //表示させるスライドの数
-                    focusOnSelect: true, //フォーカスの有効化
-                    asNavFor: '.gallery', //連動させるスライドショーのクラス名
-                  });
-                    
-                  //下の選択画像をスライドさせずに連動して変更させる設定。
-                  $('.gallery').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                    var index = nextSlide; //次のスライド番号
-                    //サムネイルのslick-currentを削除し次のスライド要素にslick-currentを追加
-                    $(".choice-btn .slick-slide").removeClass("slick-current").eq(index).addClass("slick-current");
-                  });
-                  </script>
+
+    <style>
+        .liked {
+        color: red;
+        }
+    </style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-4/js/6-2-4.js"></script></body>
+    <script>
+
+
+
+    // =========================画像のスライド設定=========================
+        //上部画像の設定
+        $('.gallery').slick({
+            infinite: true, //スライドをループさせるかどうか。初期値はtrue。
+            fade: true, //フェードの有効化
+            arrows: true,//左右の矢印あり
+            prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
+            nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+        });
+        
+        //選択画像の設定
+        $('.choice-btn').slick({
+            infinite: true, //スライドをループさせるかどうか。初期値はtrue。
+            slidesToShow: 8, //表示させるスライドの数
+            focusOnSelect: true, //フォーカスの有効化
+            asNavFor: '.gallery', //連動させるスライドショーのクラス名
+        });
+        
+        //下の選択画像をスライドさせずに連動して変更させる設定。
+        $('.gallery').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            var index = nextSlide; //次のスライド番号
+            //サムネイルのslick-currentを削除し次のスライド要素にslick-currentを追加
+            $(".choice-btn .slick-slide").removeClass("slick-current").eq(index).addClass("slick-current");
+        });
+
+
+
+    </script>
 </x-app-layout>

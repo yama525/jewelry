@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <link rel="icon" href="/dummy_img/logo.png">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
         
         <!-- Fonts -->
@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="{{ asset('/scss/main.css') }}">
 
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>        
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/function.js') }}" defer></script>
         <script src="https://use.fontawesome.com/3ff405cac3.js"></script>
 
         
@@ -42,7 +44,6 @@
 
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script>
             var navPos = jQuery( '#global-nav' ).offset().top; // グローバルメニューの位置
             var navHeight = jQuery( '#global-nav' ).outerHeight(); // グローバルメニューの高さ

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constraint();
             $table->foreignId('product_id')->constraint();
-            $table->boolean('favorite_flg');
+            $table->timestamps();
+            $table->dropColumn('updated_at');
         });
     }
 
