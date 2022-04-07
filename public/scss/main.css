@@ -530,6 +530,16 @@ a {
   outline: 4px solid rgba(121, 121, 121, 0.4);
 }
 
+.liked {
+  color: #ef4444;
+}
+
+.css_favorite_position {
+  position: relative;
+  bottom: 24%;
+  left: 40%;
+}
+
 .balloonoya {
   position: relative;
   /* 指定した分だけ相対的に移動 */
