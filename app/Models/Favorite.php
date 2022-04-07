@@ -9,6 +9,8 @@ class Favorite extends Model
 {
     use HasFactory;
 
+    const UPDATED_AT = NULL;
+
     public function user()
     {
         return $this->belongsTo(User::class);

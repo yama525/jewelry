@@ -73,6 +73,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('checkout/{product}', [ProductController::class, 'checkout'])->name('checkout');
     Route::get('cancel/{product}', [ProductController::class, 'cancel'])->name('cancel');
 
+    // いいね機能
+    Route::post('/product_detail/{product}', [ProductController::class, 'like'])->name('product.like');
 
     // 以下はテスト用
     // Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');

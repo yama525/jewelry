@@ -1,7 +1,9 @@
 
 <div class="w-full w-1/2 md:w-1/3 xl:w-1/3 p-4">
     <a href="/product_detail/{{ $product->id }}">
-        <img class="hover:grow hover:shadow-lg object-cover w-full h-40 lg:h-60" src="{{ asset('storage/'.$product->getThumbnail()) }}">
+        <div class="overflow-hidden">
+            <img class="hover:scale-125 duration-500 hover:duration-500 object-cover w-full h-40 lg:h-60" src="{{ asset('storage/'.$product->getThumbnail()) }}">
+        </div>
         <div class="pt-3 flex items-center justify-between">
           <p class="text-gray-700">{{ $product->getOfficialName() }}</p>
           <a href="#">

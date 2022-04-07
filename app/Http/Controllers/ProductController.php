@@ -13,6 +13,8 @@ use App\Models\Earing;
 use App\Models\Other_jewelry;
 use App\Models\Rental;
 use App\Models\Product_request;
+use App\Models\Favorite;
+
 
 
 
@@ -485,4 +487,30 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.index');
     }
+
+    public function like(Request $request)
+    {
+        // dd($request);
+        $user_id = auth()->user()->id; //1.ログインユーザーのid取得
+        $product_id = $request->product_id; //2.投稿idの取得
+        $already_liked = Favorite::where('user_id', $user_id)->where('product_id', $product_id)->first(); //3.
+
+        if (!$already_liked) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
+            $like = new Favorite; //4.Likeクラスのインスタンスを作成
+            $like->product_id = $product_id; //Likeインスタンスにproduct_id,user_idをセット
+            $like->user_id = $user_id;
+            $like->save();
+        } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
+            Favorite::where('product_id', $product_id)->where('user_id', $user_id)->delete();
+        }  
+        //5.この投稿の最新の総いいね数を取得
+        $product_likes_count = Product::withCount('favorites')->findOrFail($product_id)->likes_count;
+        $param = [
+            'product_likes_count' => $product_likes_count,
+        ];
+        return response()->json($param); //6.JSONデータをjQueryに返す
+    }
+
+
+
 }

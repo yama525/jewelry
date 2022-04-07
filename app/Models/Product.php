@@ -63,6 +63,10 @@ class Product extends Model
     {
         return $this->hasMany(Favorite::class);
     }
+    //いいねされているかを判定するメソッド。
+    public function isLikedBy($user): bool {
+        return Favorite::where('user_id', $user->id)->where('product_id', $this->id)->first() !==null;
+    }
 
 // オフィシャルテーブルとのリレーション
     public function official_product()
