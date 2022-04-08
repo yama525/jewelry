@@ -141,7 +141,7 @@
             <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
                 <p class="text-xl text-gray-400 css_fontFamily_lora">{{ __('Home') }}</p>
             </x-nav-link>
-            <x-nav-link>
+            <x-nav-link :active="request()->routeIs(['all', 'ring', 'necklace', 'bracelet', 'earing', 'other', 'standard', 'premium', 'luxury'])">
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
                     <p @click="open = !open" class="text-xl text-gray-400 css_fontFamily_lora">Jewelry</p>
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
@@ -155,10 +155,10 @@
                     </div>
                 </div>
             </x-nav-link>
-            <x-nav-link :href="route('product_request.post')" :active="request()->routeIs('product_request.post')">
+            <x-nav-link :href="route('product.index')">
                 <p class="text-xl text-gray-400 css_fontFamily_lora">{{ __('Service') }}</p>
             </x-nav-link>
-            <x-nav-link :href="route('product_request.post')" :active="request()->routeIs('product_request.post')">
+            <x-nav-link :href="route('product.index')">
                 <p class="text-xl text-gray-400 css_fontFamily_lora">{{ __('Plan') }}</p>
             </x-nav-link>
             <x-nav-link :href="route('lender.index')" :active="request()->routeIs('lender.index')">

@@ -673,6 +673,30 @@ select {
 .left-0 {
   left: 0px;
 }
+.top-20 {
+  top: 5rem;
+}
+.bottom-24 {
+  bottom: 6rem;
+}
+.left-32 {
+  left: 8rem;
+}
+.bottom-3\/4 {
+  bottom: 75%;
+}
+.bottom-1\/4 {
+  bottom: 25%;
+}
+.left-3\/4 {
+  left: 75%;
+}
+.left-1\/3 {
+  left: 33.333333%;
+}
+.left-1\/4 {
+  left: 25%;
+}
 .z-0 {
   z-index: 0;
 }
@@ -752,6 +776,10 @@ select {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -875,6 +903,9 @@ select {
 }
 .mt-16 {
   margin-top: 4rem;
+}
+.box-border {
+  box-sizing: border-box;
 }
 .block {
   display: block;
@@ -1017,6 +1048,12 @@ select {
 .w-32 {
   width: 8rem;
 }
+.w-28 {
+  width: 7rem;
+}
+.w-40 {
+  width: 10rem;
+}
 .min-w-full {
   min-width: 100%;
 }
@@ -1099,6 +1136,9 @@ select {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize {
+  resize: both;
 }
 .list-inside {
   list-style-position: inside;
