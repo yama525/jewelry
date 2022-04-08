@@ -380,6 +380,11 @@ a {
   top: 0;
 }
 
+/* ヘッダーメニューにある Jewelry を押したときに表示される小ウインドウ */
+.css_header_menu_jewelry_search {
+  right: -53%;
+}
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -630,6 +635,45 @@ a {
 
 .css_productCard_height {
   height: 420px;
+}
+
+/* 検索モーダルの高さ */
+.css_product_search_modal {
+  height: 222px;
+}
+
+/* 検索モーダル内のコンテンツの位置 */
+.css_product_search_modal_inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+}
+
+/* 検索モーダルの閉じるボタンの位置 */
+.css_search_modal_close {
+  position: absolute;
+  top: 8%;
+  right: 2%;
+}
+
+/* 外側の暗い所 */
+.modal_overlay {
+  z-index: 6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+/* モーダル表示中はスクロールを無効にする */
+.css_no_scroll {
+  height: 100%;
+  overflow: hidden;
 }
 
 .css_message {
