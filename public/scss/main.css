@@ -637,6 +637,12 @@ a {
   height: 420px;
 }
 
+.css_product_status_tag {
+  position: relative;
+  top: 8%;
+  z-index: 1000;
+}
+
 /* 検索モーダルの高さ */
 .css_product_search_modal {
   height: 222px;

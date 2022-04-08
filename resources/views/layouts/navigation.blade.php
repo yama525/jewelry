@@ -220,24 +220,6 @@
 </style>
 <script>
 
-// 検索ボタンをクリック → 検索モーダル表示
-    $('#product_search').on('click', function(){
-        $('#product_search_modal').fadeIn("slow");
-        $('.modal_overlay').fadeIn("slow");
-        $('html,body').addClass('css_no_scroll');
-    });
 
-// 検索モーダル閉じるボタンクリック → 検索モーダル閉じる
-    $('#search_modal_close').on('click', function(){
-        $('#product_search_modal').fadeOut("slow");
-        $('.modal_overlay').fadeOut("slow");
-        $('html,body').removeClass('css_no_scroll');
-    });
-// 検索モーダル外側くらい部分をクリック → 検索モーダル閉じる
-    $('.modal_overlay').on('click', function(){
-        $('#product_search_modal').fadeOut("slow");
-        $('.modal_overlay').fadeOut("slow");
-        $('html,body').removeClass('css_no_scroll');
-    });
 
 </script>

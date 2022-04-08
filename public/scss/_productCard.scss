@@ -4,3 +4,10 @@
     .css_productCard_height{
         height: 420px;
     }
+
+// 商品一覧についているステータスタグの位置
+    .css_product_status_tag{
+        position: relative;
+        top: 8%;
+        z-index: 1000;
+    }

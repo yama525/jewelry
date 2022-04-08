@@ -1,6 +1,10 @@
 
 <div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4">
     <a href="/product_detail/{{ $product->id }}">
+        {{-- @dd($product) --}}
+        {{-- 商品のステータスタグ（「レンタル中」「購入済み」） --}}
+        <div class="css_product_status_tag bg-gray-800 w-20 h-4 text-white text-xs rounded-r-full">レンタル中</div>
+        
         <div class="overflow-hidden">
             <img class="hover:scale-125 duration-500 hover:duration-500 object-cover w-full h-40 lg:h-60" src="{{ asset('storage/'.$product->getThumbnail()) }}">
         </div>
