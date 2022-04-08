@@ -14,12 +14,55 @@
             </div>
 
             <div class="flex justify-end mt-4">
+                
+            {{-- ================ 検索 ================ --}}
                 {{-- 検索アイコン --}}
-                <div class="hidden flex sm:flex sm:items-end sm:ml-4 sm:mr-4">
+                <div id="product_search" class="hidden flex sm:flex sm:items-end sm:ml-4 sm:mr-4">
                     <button class="text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                         <i class="fa fa-search fa-lg" aria-hidden="true"></i>
                     </button>
                 </div>
+
+                {{-- モーダル下の暗い部分 --}}
+                <div class="modal_overlay close_modal"></div>
+                
+                {{-- 検索モーダル --}}
+                <div id="product_search_modal" class="hidden css_product_search_modal shadow-outline border-b border-gray-300 z-50 bg-white absolute top-0 left-0 w-full flex justify-center">
+                    <div id="product_search-list" class="css_product_search_modal_inside h-40 flex block w-full">
+                        <div class="w-1/3">
+                            <h3 class="text-sm text-gray-400 mb-2">カテゴリー</h3>
+                            <ul>
+                                <li><a class="text-base text-gray-500" href="{{ route('ring') }}">指輪</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('necklace') }}">ネックレス</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('bracelet') }}">ブレスレット</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('earing') }}">イヤリング</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('other') }}">その他</a></li>  
+                            </ul>
+                        </div>
+                        <div class="w-1/3">
+                            <h3 class="text-sm text-gray-400 mb-2">プラン</h3>
+                            <ul>
+                                <li><a class="text-base text-gray-500" href="{{ route('standard') }}">スタンダード</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('premium') }}">プレミアム</a></li>  
+                                <li><a class="text-base text-gray-500" href="{{ route('luxury') }}">ラグジュアリー</a></li>  
+                            </ul>
+                        </div>
+                        <div class="w-1/3">
+                            <div class="pt-2 relative mx-auto text-gray-600 mb-4">
+                                <input class="border-1 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400" type="search" name="search" placeholder="Search">
+                            </div>
+                            <ul>
+                                <li><a class="text-base text-gray-500" href="{{ route('all') }}">全てのジュエリー</a></li>    
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{-- 検索モーダル閉じるボタン --}}
+                    <div id="search_modal_close" class="css_search_modal_close cursor-pointer text-2xl text-gray-300">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+
 
                 @auth
                     <!-- Settings Dropdown -->
@@ -37,24 +80,24 @@
                             <x-slot name="content">
                                 <!-- Authentication -->
                                 <div>
-                                    <p class="py-2 font-medium">{{ Auth::user()->name }} 様</p>
+                                    <p class="py-2 font-medium text-gray-600">{{ Auth::user()->name }} 様</p>
                                     <hr>
                                 </div>
                                 <x-dropdown-link>
-                                    <input type="button" onclick="location.href='{{ route('product.index') }}'"value="ホーム" class="cursor-pointer">
+                                    <input type="button" onclick="location.href='{{ route('product.index') }}'"value="ホーム" class="cursor-pointer text-gray-500">
                                 </x-dropdown-link>
                                 <x-dropdown-link>
-                                    <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer">
+                                    <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer text-gray-500">
                                 </x-dropdown-link>
                                 <x-dropdown-link>
-                                    <input type="button" onclick="location.href='{{ route('product_request.post') }}'"value="ジュエリーの登録依頼" class="cursor-pointer">
+                                    <input type="button" onclick="location.href='{{ route('product_request.post') }}'"value="ジュエリーの登録依頼" class="cursor-pointer text-gray-500">
                                 </x-dropdown-link>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')"
                                             onclick="event.preventDefault();
                                                         this.closest('form').submit();">
-                                        <p>{{ __('ログアウト') }}</p>
+                                        <p class="text-gray-500">{{ __('ログアウト') }}</p>
                                     </x-dropdown-link>
                                 </form>
                             </x-slot>
@@ -144,13 +187,13 @@
             <x-nav-link :active="request()->routeIs(['all', 'ring', 'necklace', 'bracelet', 'earing', 'other', 'standard', 'premium', 'luxury'])">
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
                     <p @click="open = !open" class="text-xl text-gray-400 css_fontFamily_lora">Jewelry</p>
-                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
-                        <div class="py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                            <input type="button" onclick="location.href='/category/ring'"value="Ring" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/necklace'"value="Necklace" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/bracelet'"value="Bracelet" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/earing'"value="Earing" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/other'"value="Other" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="css_header_menu_jewelry_search absolute w-full mt-2 origin-top-right shadow-lg w-40">
+                        <div class="pl-4 py-2 bg-white shadow dark-mode:bg-gray-800">
+                            <input type="button" onclick="location.href='/category/ring'"value="Ring" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <input type="button" onclick="location.href='/category/necklace'"value="Necklace" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <input type="button" onclick="location.href='/category/bracelet'"value="Bracelet" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <input type="button" onclick="location.href='/category/earing'"value="Earing" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <input type="button" onclick="location.href='/category/other'"value="Other" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                         </div>
                     </div>
                 </div>
@@ -167,3 +210,34 @@
         </div>
     </div>
 </nav>
+
+<style>
+
+
+
+
+
+</style>
+<script>
+
+// 検索ボタンをクリック → 検索モーダル表示
+    $('#product_search').on('click', function(){
+        $('#product_search_modal').fadeIn("slow");
+        $('.modal_overlay').fadeIn("slow");
+        $('html,body').addClass('css_no_scroll');
+    });
+
+// 検索モーダル閉じるボタンクリック → 検索モーダル閉じる
+    $('#search_modal_close').on('click', function(){
+        $('#product_search_modal').fadeOut("slow");
+        $('.modal_overlay').fadeOut("slow");
+        $('html,body').removeClass('css_no_scroll');
+    });
+// 検索モーダル外側くらい部分をクリック → 検索モーダル閉じる
+    $('.modal_overlay').on('click', function(){
+        $('#product_search_modal').fadeOut("slow");
+        $('.modal_overlay').fadeOut("slow");
+        $('html,body').removeClass('css_no_scroll');
+    });
+
+</script>

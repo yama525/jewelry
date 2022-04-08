@@ -1,0 +1,36 @@
+/* 検索モーダルの高さ */
+.css_product_search_modal{
+    height: 222px;
+}
+
+/* 検索モーダル内のコンテンツの位置 */
+.css_product_search_modal_inside{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+/* 検索モーダルの閉じるボタンの位置 */
+.css_search_modal_close{
+    position: absolute;
+    top: 8%;
+    right: 2%;
+}
+
+/* 外側の暗い所 */
+.modal_overlay{
+    z-index:6;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    display: none;
+}
+/* モーダル表示中はスクロールを無効にする */
+.css_no_scroll{
+    height: 100%;
+    overflow: hidden
+}
