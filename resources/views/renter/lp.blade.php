@@ -1,5 +1,5 @@
 
-    <x-app-layout>
+<x-app-layout>
 
     <!-- メインビジュアル -->
     <div class="main_visual">
@@ -27,7 +27,7 @@
     <!-- サービス紹介 -->
     <section class="pt-12 pb-12">
         <div class="service_wrapper">
-            <h1 class="text-5xl text-gray-400 mb-12">Service</h1>
+            <h1 class="service_point text-5xl text-gray-400 mb-12">Service</h1>
             {{-- 1 列目 --}}
             <div class="inline-flex justify-center px-12">
                 <div class="w-full w-1/2 md:w-1/4 xl:w-1/4 p-6 flex flex-col">
@@ -117,14 +117,14 @@
     <!-- プラン -->
     <section class="pt-12 pb-12">
         <div class="service_wrapper">
-            <h1 class="text-5xl text-gray-400 mb-12"> Plans</h1>
+            <h1 id="plans" class="text-5xl text-gray-400 mb-12"> Plans</h1>
             <div class="mx-12 space-y-12 lg:space-y-0 lg:flex lg:gap-4 lg:items-center lg:justify-center">
                 <div class="bg-white max-w-sm p-8 shadow-lg">
                     <h3 class="text-2xl text-center text-gray-600">Standard</h3>
                     <p class="text-center text-gray-500">12,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
-                            <img class="w-full" src="https://www.vancleefarpels.com/content/dam/rcq/vca/21/50/89/6/2150896.png.transform.vca-w820-1x.png" alt="">
+                            <img class="w-full" src="/dummy_img/standard.png" alt="">
                         </div>
                         <div class="flex items-center justify-center">
                             <button onclick="location.href='{{ route('standard') }}'" class="w-full px-2 py-2 text-white bg-gray-800 hover:bg-black rounded">このプランのジュエリー一覧</button>
@@ -136,7 +136,7 @@
                     <p class="text-center text-gray-500">22,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
-                            <img class="w-full" src="https://www.harrywinston.com/-/media/project/harry-winston/corporate/harry-winston-int/fine-jewelry/forget-me-not-by-harry-winston/forget-me-not-sapphire-and-diamond-earrings/forget_me_not_by_harry_winston_earrings_diamond_and_sapphire_easp1mflrfmn_ee-1.png?rev=6be86a79ada54568a5106e883fe716a1" alt="">
+                            <img class="w-full" src="/dummy_img/premium.png" alt="">
                         </div>
                         <div class="flex items-center justify-center">
                             <button onclick="location.href='{{ route('premium') }}'" class="w-full px-2 py-2 text-white bg-gray-800 hover:bg-black rounded">このプランのジュエリー一覧</button>
@@ -148,7 +148,7 @@
                     <p class="text-center text-gray-500">36,000 円</p>
                     <div>
                         <div class="flex justify-center mt-8">
-                            <img class="w-full" src="https://www.harrywinston.com/-/media/project/harry-winston/corporate/harry-winston-int/fine-jewelry/pirouette-by-harry-winston/pirouette-diamond-ring/pirouette_by_harry_winston_ring_diamond_frdprfprspir_e-1.png?rev=f969ffe3ac61418482059b8808f389c2" alt="">
+                            <img class="w-full" src="/dummy_img/luxury.png" alt="">
                         </div>
                         <div class="flex items-center justify-center">
                             <button onclick="location.href='{{ route('luxury') }}'" class="w-full px-2 py-2 text-white bg-gray-800 hover:bg-black rounded">このプランのジュエリー一覧</button>
@@ -168,5 +168,5 @@
         </div>
     </section>
     </div>
-    </x-app-layout>
+</x-app-layout>
 

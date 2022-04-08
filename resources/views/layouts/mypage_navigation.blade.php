@@ -19,16 +19,19 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <!-- Authentication -->
+                  <!-- Authentication -->
                     <div>
                         <p class="py-2 font-medium">{{ Auth::user()->name }} 様</p>
                         <hr>
                     </div>
                     <x-dropdown-link>
-                      <input type="button" onclick="location.href='{{ route('product.index') }}'"value="ホーム" class="cursor-pointer">
+                        <input type="button" onclick="location.href='{{ route('product.index') }}'"value="ホーム" class="cursor-pointer">
                     </x-dropdown-link>
                     <x-dropdown-link>
                         <input type="button" onclick="location.href='{{ route('mypage') }}'"value="マイページ" class="cursor-pointer">
+                    </x-dropdown-link>
+                    <x-dropdown-link>
+                        <input type="button" onclick="location.href='{{ route('product_request.post') }}'"value="ジュエリーの登録依頼" class="cursor-pointer">
                     </x-dropdown-link>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

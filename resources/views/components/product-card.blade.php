@@ -1,5 +1,5 @@
 
-<div class="w-full w-1/2 md:w-1/3 xl:w-1/3 p-4">
+<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4">
     <a href="/product_detail/{{ $product->id }}">
         <div class="overflow-hidden">
             <img class="hover:scale-125 duration-500 hover:duration-500 object-cover w-full h-40 lg:h-60" src="{{ asset('storage/'.$product->getThumbnail()) }}">
@@ -20,7 +20,7 @@
     {{-- いいねボタン --}}
     <div class="css_favorite_position">
         @auth
-            <!-- Review.phpに作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
+            <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
             @if (!$product->isLikedBy(Auth::user()))
                 <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <i class="fas fa-heart like-toggle" data-review-id="{{ $product->id }}"></i>
@@ -34,14 +34,22 @@
             @endif
         @endauth
         @guest
-            <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                
-                <div class="balloonoya" onclick="showBalloon()">
-                    <i class="fas fa-heart"></i>
-                    <span class="balloon1" id="makeImg">ログインしてください</span>
+            <span class="likes cursor-pointer text-gray-400 w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                                        
+                {{-- いいねクリック時の時間で消えるモーダル --}}
+                <div class="wrap">
+                    <a href="#demo1" class="modal"><i class="fas fa-heart text-xl"></i></a>
+                    <div class="modalBox" id="demo1">
+                        <div class="modalInner">
+                            お気に入り登録にはログインが必要です
+                        </div>
+                    </div>
                 </div>
-                {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
             </span><!-- /.likes -->
         @endguest
     </div>
 </div>
+
+<style>
+
+</style>

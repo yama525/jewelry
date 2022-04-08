@@ -1,5 +1,5 @@
 <x-app-layout>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
         <div  class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0 mr-2" x-data="{ open: false }">
             <nav class="flex-grow md:block  pb-4 md:pb-0 md:overflow-y-auto">
