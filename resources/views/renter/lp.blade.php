@@ -161,9 +161,10 @@
 
     <section class="bg-white pt-12 pb-12">
         <h1 class="text-5xl text-gray-400 text-center mb-12">Lend</h1>
-        <div class="flex items-end h-screen bg-contain" style="background-image: url(dummy_img/woman.jpeg)">
-            <div class="flex-auto mb-32">
-                <button onclick="location.href='{{ route('lender.index') }}'" class="w-1/2 px-2 py-8 text-2xl text-white bg-gray-800 hover:bg-black rounded">ジュエリーを貸し出す</button>
+        <div class="bg-contain">
+            <img src="/dummy_img/woman.jpeg" alt="">
+            <div>
+                <button onclick="location.href='{{ route('lender.index') }}'" class="relative bottom-40 px-40 py-8 text-2xl text-white bg-gray-800 hover:bg-black rounded">ジュエリーを貸し出す</button>
             </div>
         </div>
     </section>
