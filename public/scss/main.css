@@ -541,8 +541,8 @@ a {
 
 .css_favorite_position {
   position: relative;
-  bottom: 24%;
-  left: 40%;
+  bottom: 144%;
+  left: 320%;
 }
 
 #modalWrap {
@@ -634,13 +634,14 @@ a {
 }
 
 .css_productCard_height {
-  height: 420px;
+  height: 400px;
 }
 
 .css_product_status_tag {
   position: relative;
-  top: 8%;
-  z-index: 1000;
+  top: 12px;
+  z-index: 1;
+  margin-bottom: -16px;
 }
 
 /* 検索モーダルの高さ */

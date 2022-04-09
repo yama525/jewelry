@@ -115,9 +115,11 @@
                         </div>
 
                         @if($product_detail->status === 1000)
-                            <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="flex items-center text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-black rounded">レンタルする</button>
+                            <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="flex items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
                         @elseif($product_detail->status === 2000)
-                            <button class="cursor-default flex items-center text-gray-400 bg-gray-200 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button>
+                            <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button>
+                        @elseif($product_detail->status === 4000)
+                            <button class="cursor-default flex items-center text-gray-400 bg-gray-200 border-0 py-2 px-6 focus:outline-none rounded">この商品はすでに購入済みです</button>
                         @endif
 
                         {{-- いいねボタン --}}
