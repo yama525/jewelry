@@ -703,6 +703,24 @@ select {
 .left-16 {
   left: 4rem;
 }
+.right-5 {
+  right: 1.25rem;
+}
+.right-1\/2 {
+  right: 50%;
+}
+.top-32 {
+  top: 8rem;
+}
+.bottom-32 {
+  bottom: 8rem;
+}
+.bottom-44 {
+  bottom: 11rem;
+}
+.bottom-40 {
+  bottom: 10rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -1509,6 +1527,18 @@ select {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
+}
+.px-44 {
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 .pt-4 {
   padding-top: 1rem;

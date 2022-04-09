@@ -27,6 +27,7 @@ use App\Http\Controllers\ProductRequestController;
 // 商品一覧画面（メインのインデックスページ）表示
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 Route::get('/all-jewelries', [ProductController::class, 'all'])->name('all');
+Route::get('/search_product', [ProductController::class, 'search_product'])->name('search_product');
 
 // 商品のカテゴリ別ページ
 Route::prefix('/category')->group(function() {

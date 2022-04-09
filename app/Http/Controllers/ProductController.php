@@ -162,6 +162,74 @@ class ProductController extends Controller
         ]);
     }
 
+// 商品検索
+    public function search_product(Request $request)
+    {
+        $keyword = $request->keyword;
+        // dd($keyword);
+        // $products = Product::with('product_images', 'official_product', 'official_product.brand')
+        // ->where()
+        // ->get();
+        // \DB::enableQueryLog();	// ①ロギングを有効化する
+
+        
+
+        $products = Product::with('official_product')
+
+        // $products = DB::table('products')
+        // ->select('products.id as id', 'officials.name as name', 'product_images.', 'brands.brand_name as brand_name')
+        // ->select('products.id as id')
+        ->join('officials', 'officials.official_product_id','=', 'products.official_product_id')
+        // // ->join('brands', 'brands.id','=', 'officials.brand_id')
+        // // ->orwhere('brand_name', 'LIKE', '%'.$keyword.'%')
+        // // ->orwhere('detail', 'LIKE', '%'.$keyword.'%')
+        // // ->orwhere('description', 'LIKE', '%'.$keyword.'%')
+        ->where('color', 'LIKE', '%'.$keyword.'%')
+        // // ->orwhere('material', 'LIKE', '%'.$keyword.'%')
+        ->get();
+
+        // ->map(function($el){
+        //     return $el->id;
+        // })
+        // ->array_keys();
+
+        // $products = Product::with('official_product')
+        // ->where('id', array_values($productIds->map(function($el){
+        //     return $el->id;
+        // })))
+        // ->get();
+
+        // $products = Product::whereHas('official_product', function($official){
+        //     // $official->where('name', 'LIKE', '%'.$keyword.'%');
+        //     $official->where('name', 'LIKE', '%リング%');
+
+        // });
+
+            // dd(\DB::getQueryLog());	// ③ログを出力する
+
+        // $productIds = $rentaling_products->pluck('brand_id');
+        // // dd($productIds);
+        // $products = Product::with('product_images')
+        //     ->whereIn('id', $productIds)
+        //     ->get();
+
+        // $products = Product::with('product_images')
+        // ->join('officials', 'officials.official_product_id','=', 'products.official_product_id')
+        // ->join('brands', 'brands.id','=', 'officials.brand_id')
+        // ->orwhere('detail', 'LIKE', '%'.$keyword.'%')
+        // ->orwhere('brand_name', 'LIKE', '%'.$keyword.'%')
+        // ->orwhere('description', 'LIKE', '%'.$keyword.'%')
+        // ->orwhere('color', 'LIKE', '%'.$keyword.'%')
+        // ->orwhere('material', 'LIKE', '%'.$keyword.'%')
+        // ->get();
+
+
+        // dd($productIds);
+        return view('/renter/search_product',[
+            'products' => $products,
+        ]);
+    }
+
     public function post(Request $request)
     {
         $product_request = Product_request::with('lender_user')
