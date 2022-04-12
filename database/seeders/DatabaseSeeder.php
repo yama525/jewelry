@@ -243,10 +243,10 @@ class DatabaseSeeder extends Seeder
         // 指輪E
         Product::create([
             'lender_user_id' => '2',
-            'official_product_id' => '123A',
+            'official_product_id' => '123F',
             'subscription_plan_id' => '1',
             'type' => 'ring',
-            'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
+            'detail' => '合わせやすいシンプルなリングですが、ラグジュアリーなリングです。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
             'color' => 'シルバー',
@@ -359,6 +359,16 @@ class DatabaseSeeder extends Seeder
             'charm_length' => '2.2 x 3.0 cm',
         ]);
 
+        Official::create([
+            'official_product_id' => '123F',
+            'brand_id' => 3,
+            'name' => 'カジュアルリング',
+            'description' => 'どんな服装にもマッチするシンプルなリングです。',
+            'size' => '1.2 x 3.6 cm',
+            'motif_id' => 1,
+            'charm_length' => '2.2 x 3.0 cm',
+        ]);
+
         Brand::create([
             'brand_name' => 'Van Cleef & Arpels',
             'brand_detail' => 'アルフレッド・ヴァン クリーフとエステル・アーペルの結婚をきっかけに、1906年パリにてメゾンが誕生。宝石に包まれた、輝く未来がはじまりました。 ',
@@ -367,6 +377,11 @@ class DatabaseSeeder extends Seeder
         Brand::create([
             'brand_name' => 'Cartier',
             'brand_detail' => 'メゾンのインスピレーションとスタイルの核心に迫る「L’Odyssée de Cartier（オディセ ドゥ カルティエ）」。自由な精神の象徴であるパンテールは、カルティエの創造性のみならず、サヴォアフェールや社会的取り組み、そしてメゾンの多様な伝統に、その息吹を吹き込みます。こうした豊かさがメゾン カルティエらしさを生み出しているのです。 ',
+        ]);
+
+        Brand::create([
+            'brand_name' => 'Harry Winston',
+            'brand_detail' => '1932年、ニューヨークで創業以来、ハリー・ウィンストンはジュエリーと時計製造において常に最高峰のクリエイションを追求し続けてきました。',
         ]);
 
         Ring::create([
