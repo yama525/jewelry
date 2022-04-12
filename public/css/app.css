@@ -934,6 +934,12 @@ select {
 .ml-8 {
   margin-left: 2rem;
 }
+.mr-40 {
+  margin-right: 10rem;
+}
+.mr-60 {
+  margin-right: 15rem;
+}
 .box-border {
   box-sizing: border-box;
 }

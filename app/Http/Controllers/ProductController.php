@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Product_image;
 use App\Models\Official;
+use App\Models\Brand;
 use App\Models\Ring;
 use App\Models\Necklace;
 use App\Models\Bracelet;
@@ -165,68 +166,66 @@ class ProductController extends Controller
 // 商品検索
     public function search_product(Request $request)
     {
-        $keyword = $request->keyword;
-        // dd($keyword);
-        // $products = Product::with('product_images', 'official_product', 'official_product.brand')
-        // ->where()
-        // ->get();
-        // \DB::enableQueryLog();	// ①ロギングを有効化する
+        // キーワード取得
+            $keyword = $request->search;
 
+        // それぞれのテーブルから検索キーワードでマッチするものを取得
+            // Products テーブルの「detail」「color」「material」から検索
+            $query1 = Product::where('detail','LIKE','%'.$keyword.'%')
+                ->orWhere('color','LIKE','%'.$keyword.'%')
+                ->orWhere('material','LIKE','%'.$keyword.'%')
+                ->get();
+
+            // Officials テーブルの「name」「description」から検索
+            $query2 = Official::where('name','LIKE','%'.$keyword.'%')
+                ->orWhere('description','LIKE','%'.$keyword.'%')
+                ->get();
+
+            //  Brands テーブルの「brand_name」「brand_detail」から検索
+            $query3 = Brand::Where('brand_name','LIKE','%'.$keyword.'%')
+                ->orWhere('brand_detail','LIKE','%'.$keyword.'%')
+                ->get();
+
+        // それぞれのテーブルから id の配列を取得
+            // Products テーブル
+            $product_id_array = [];
+                foreach($query1 as $q1){
+                    if($q1){
+                $product_id_array[] = $q1->id;
+                    }
+                }
+
+            // Officials テーブル
+            $official_id_array = [];
+                foreach($query2 as $q2){ 
+                        if($q2){ 
+                    $official_id_array[] = $q2->id; 
+                    } 
+                }
+
+            // Brands テーブル
+            $brand_id_array = [];
+                foreach($query3 as $q3){
+                        if($q3){
+                    $brand_id_array[] = $q3->id;
+                    }
+                }
         
+        // Brands テーブルに関しては Products テーブルと直接つながっていないため、Officials テーブル上からマッチするデータを取得
+            $official_brand = Official::where('brand_id', $brand_id_array)->get();
+            // これで配列として official_product_id を取得
+            $brands = $official_brand->map(fn($el) => $el->official_product_id);
 
-        $products = Product::with('official_product')
+        // 合致するデータからプロダクトを取得
+            $products = Product::whereIn('id',$product_id_array)
+            ->orWhereIn('official_product_id',$official_id_array)
+            ->orWhereIn('official_product_id',$brands) // ブランドは 1 つだけの検索結果になると思うが、後々複数ワード検索のために配列で取得。
+            ->get();
 
-        // $products = DB::table('products')
-        // ->select('products.id as id', 'officials.name as name', 'product_images.', 'brands.brand_name as brand_name')
-        // ->select('products.id as id')
-        ->join('officials', 'officials.official_product_id','=', 'products.official_product_id')
-        // // ->join('brands', 'brands.id','=', 'officials.brand_id')
-        // // ->orwhere('brand_name', 'LIKE', '%'.$keyword.'%')
-        // // ->orwhere('detail', 'LIKE', '%'.$keyword.'%')
-        // // ->orwhere('description', 'LIKE', '%'.$keyword.'%')
-        ->where('color', 'LIKE', '%'.$keyword.'%')
-        // // ->orwhere('material', 'LIKE', '%'.$keyword.'%')
-        ->get();
-
-        // ->map(function($el){
-        //     return $el->id;
-        // })
-        // ->array_keys();
-
-        // $products = Product::with('official_product')
-        // ->where('id', array_values($productIds->map(function($el){
-        //     return $el->id;
-        // })))
-        // ->get();
-
-        // $products = Product::whereHas('official_product', function($official){
-        //     // $official->where('name', 'LIKE', '%'.$keyword.'%');
-        //     $official->where('name', 'LIKE', '%リング%');
-
-        // });
-
-            // dd(\DB::getQueryLog());	// ③ログを出力する
-
-        // $productIds = $rentaling_products->pluck('brand_id');
-        // // dd($productIds);
-        // $products = Product::with('product_images')
-        //     ->whereIn('id', $productIds)
-        //     ->get();
-
-        // $products = Product::with('product_images')
-        // ->join('officials', 'officials.official_product_id','=', 'products.official_product_id')
-        // ->join('brands', 'brands.id','=', 'officials.brand_id')
-        // ->orwhere('detail', 'LIKE', '%'.$keyword.'%')
-        // ->orwhere('brand_name', 'LIKE', '%'.$keyword.'%')
-        // ->orwhere('description', 'LIKE', '%'.$keyword.'%')
-        // ->orwhere('color', 'LIKE', '%'.$keyword.'%')
-        // ->orwhere('material', 'LIKE', '%'.$keyword.'%')
-        // ->get();
-
-
-        // dd($productIds);
+        // dd($products);
         return view('/renter/search_product',[
             'products' => $products,
+            'keyword' => $keyword,
         ]);
     }
 
@@ -242,6 +241,7 @@ class ProductController extends Controller
 
         return view('/admin/product_register', [
             'product_request' => $product_request,
+
         ]);
     }
 

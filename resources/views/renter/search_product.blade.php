@@ -35,12 +35,17 @@
         </div> 
         {{-- <x-product-menu /> --}}
   
-  
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-            @foreach($products as $product)
-                <x-product-card :product="$product" />
-            @endforeach
-        </div>
+        @if($products->count() == 0)
+            <div class="absolute pt-8 w-full">
+                <p class="text-gray-500">結果が見つかりません：{{ $keyword }}</p>
+            </div>
+        @else
+            <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+                @foreach($products as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
+            </div>
+        @endif
     </div>
   
   </x-app-layout>
