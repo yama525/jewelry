@@ -42,12 +42,12 @@ class ProductRequestController extends Controller
     {
         // dd($request);
         $product = Product_request::create([
-            'lender_user_id' => auth()->user()->id,
+            'lender_user_id' => $request->lender_user_id,
             'official_product_id' => $request->official_product_id,
             'brand_name' => $request->brand_name,
             'name' => $request->name,
             'type' => $request->type,
-            'image' => $request->image->store('product_request'.auth()->user()->id, 'public'),
+            'image' => $request->image->store('product_request'.$request->lender_user_id, 'public'),
             'story' => $request->story,
             'scratch_detail' => $request->scratch_detail,
             'material' => $request->material,

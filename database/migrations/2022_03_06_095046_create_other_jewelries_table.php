@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constraint();
             $table->string('type');
-            $table->integer('size')->nullable();
+            $table->string('length')->nullable();
         });
     }
 

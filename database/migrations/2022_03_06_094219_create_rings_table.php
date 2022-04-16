@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constraint();
             $table->integer('ring_size');
+            $table->float('min_width');
+            $table->float('max_width');
         });
     }
 
