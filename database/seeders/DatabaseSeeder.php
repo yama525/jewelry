@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
-            'color' => 'シルバー',
+            'stone' => 'ダイヤモンド',
             'material' => 'プラチナ',
             'weight' => '5.2',
             // 'length' => '',
@@ -88,10 +88,10 @@ class DatabaseSeeder extends Seeder
             'detail' => '合計 30 個のダイヤモンドがついたネックレスです。結婚式などの特別な日に最適です。',
             'recommended_situation' => '特別な日に最適です。',
             'recommended_matches' => 'シンプルリングA',
-            'color' => 'シルバー',
+            'stone' => 'ダイヤモンド',
             'material' => 'プラチナ',
             'weight' => '42',
-            'length' => '50',
+            // 'length' => '50',
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
@@ -111,10 +111,10 @@ class DatabaseSeeder extends Seeder
             'detail' => '合計 30 個のダイヤモンドがついたブレスレットです。結婚式などの特別な日に最適です。',
             'recommended_situation' => '特別な日に最適です。',
             'recommended_matches' => 'シンプルリングA',
-            'color' => 'ゴールド',
+            'stone' => 'ダイヤモンド',
             'material' => '18K イエローゴールド',
             'weight' => '30',
-            'length' => '20',
+            // 'length' => '20',
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
@@ -134,10 +134,10 @@ class DatabaseSeeder extends Seeder
             'detail' => 'シンプルでありながら存在感のあるピアスです。普段使いにも◎',
             'recommended_situation' => '特別な日に最適です。',
             'recommended_matches' => 'シンプルリングA',
-            'color' => 'シルバー',
+            'stone' => 'ルビー',
             'material' => 'プラチナ',
             'weight' => '3',
-            'length' => '0.8',
+            // 'length' => '0.8',
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
@@ -157,10 +157,10 @@ class DatabaseSeeder extends Seeder
             'detail' => 'さりげない優しいゴールドがどんな服装にもマッチします。',
             'recommended_situation' => '結婚式の二次会などにおすすめです。',
             'recommended_matches' => 'シンプルリングA',
-            'color' => 'ピンクゴールド',
+            'stone' => 'パール',
             'material' => '18K ピンクゴールド、パール',
             'weight' => '42',
-            'length' => '5',
+            // 'length' => '5',
             'serial_number' => 'S2JFUNBFU2',
             'scratch_level' => 1,
             'scratch_detail' => '傷などはほとんどなく、ほぼ新品です。',
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
-            'color' => 'シルバー',
+            'stone' => 'ダイアモンド',
             'material' => 'プラチナ',
             'weight' => '5.2',
             // 'length' => '',
@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
-            'color' => 'シルバー',
+            'stone' => 'ダイヤモンド',
             'material' => 'プラチナ',
             'weight' => '5.2',
             // 'length' => '',
@@ -226,7 +226,7 @@ class DatabaseSeeder extends Seeder
             'detail' => '中央に 0.5ct のダイヤモンドのついた指輪です。世代に関係なくご着用いただけるリングとなっております。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
-            'color' => 'シルバー',
+            'stone' => 'ダイヤモンド',
             'material' => 'プラチナ',
             'weight' => '5.2',
             // 'length' => '',
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
             'detail' => '合わせやすいシンプルなリングですが、ラグジュアリーなリングです。',
             'recommended_situation' => 'デートはもちろん、普段使いにも邪魔にならないシンプルなリングです。',
             'recommended_matches' => 'シンプルネックレスB',
-            'color' => 'シルバー',
+            'stone' => 'ダイアモンド',
             'material' => 'プラチナ',
             'weight' => '5.2',
             // 'length' => '',
@@ -387,45 +387,58 @@ class DatabaseSeeder extends Seeder
         Ring::create([
             'product_id' => 1,
             'ring_size' => 9,
+            'min_width' => 0.8,
+            'max_width' => 1.2,
+
         ]);
         Ring::create([
             'product_id' => 6,
             'ring_size' => 9,
+            'min_width' => 0.8,
+            'max_width' => 1.2,
         ]);
         Ring::create([
             'product_id' => 7,
             'ring_size' => 9,
+            'min_width' => 0.4,
+            'max_width' => 0.4,
         ]);
         Ring::create([
             'product_id' => 8,
             'ring_size' => 9,
+            'min_width' => 0.8,
+            'max_width' => 1.6,
         ]);
         Ring::create([
             'product_id' => 9,
             'ring_size' => 11,
+            'min_width' => 1.8,
+            'max_width' => 2.2,
         ]);
 
         Necklace::create([
             'product_id' => 2,
-            'necklace_type' => '',
-            'length' => 50,
+            'chain_length' => 55,
+            'charm_length' => '2.3, 1.5',
         ]);
 
         Bracelet::create([
             'product_id' => '3',
-            'bracelet_type' => 'バングル',
-            'length' => 22,
+            'arm_length' => 22,
+            'charm_length' => '3.0, 1.5',
         ]);
 
         Earing::create([
             'product_id' => '4',
             'earing_type' => 'ピアス',
+            'pair' => 1,
+            'length' => '4.0, 1.0',
         ]);
 
         Other_jewelry::create([
             'product_id' => '5',
             'type' => 'ブローチ',
-            // 'size' => '',
+            'length' => '6.6, 5.5',
         ]);
 
         Renter_request::create([

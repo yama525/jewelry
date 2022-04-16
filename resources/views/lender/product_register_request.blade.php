@@ -16,16 +16,6 @@
                             <div class="shadow sm:rounded-md sm:overflow-hidden">
                                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
 
-                                    {{-- ユーザーID --}}
-                                    <div class="grid grid-cols-3 gap-6">
-                                        <div class="col-span-3 sm:col-span-2">
-                                            <label for="brand_name" class="block text-sm font-medium text-gray-700">*ブランド名 </label>
-                                            <div class="mt-1 flex rounded-md shadow-sm">
-                                                <input type="text" name="brand_name" id="brand_name" class="focus:ring-green-900 focus:border-green-900 flex-1 block w-full rounded-md sm:text-sm border-gray-300" placeholder="ex) Van Cleef & Arpels">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     {{-- ブランド名 --}}
                                     <div class="grid grid-cols-3 gap-6">
                                         <div class="col-span-3 sm:col-span-2">
@@ -241,26 +231,6 @@
                                             </div>
                                         </div>
                                     </fieldset>
-                                    {{-- <fieldset>
-                                        <div>
-                                            <legend class="text-base font-medium text-gray-900">Push Notifications</legend>
-                                            <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                                        </div>
-                                        <div class="mt-4 space-y-4">
-                                            <div class="flex items-center">
-                                                <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Everything </label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input id="push-email" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Same as email </label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> No push notifications </label>
-                                            </div>
-                                        </div>
-                                    </fieldset> --}}
                                 </div>
                                 {{-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">確認画面へ</button>
@@ -271,6 +241,10 @@
                     </div>
                 </div>
             </div>
+
+            {{-- ユーザーID --}}
+            <input type="text" name="lender_user_id" value="{{ auth()->user()->id }}" class="hidden">
+
             <input type="text" name="status" value="not_checked" class="hidden">
             <button type="submit" class="inline-flex justify-center my-8 py-2 px-16 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">確認画面へ</button>
         </form>

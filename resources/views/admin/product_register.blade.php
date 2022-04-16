@@ -192,6 +192,94 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="hidden sm:block" aria-hidden="true">
+                <div class="py-5">
+                    <div class="border-t border-gray-200"></div>
+                </div>
+            </div>
+
+
+            <div class="mt-10 sm:mt-0">
+                <div class="md:grid md:grid-cols-3 md:gap-6">
+                    <div class="md:col-span-1">
+                        <div class="px-4 sm:px-0">
+                            <h3 class="text-lg font-medium leading-6 text-gray-900">自社側で登録する情報</h3>
+                        </div>
+                    </div>
+                    <div class="mt-5 md:mt-0 md:col-span-2">
+                        {{-- <form action="#" method="POST"> --}}
+                            <div class="shadow overflow-hidden sm:rounded-md">
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="px-4 py-5 bg-white sm:p-6">
+                                        <div class="grid grid-cols-1 gap-6">
+                                            {{-- 傷についての詳細説明 --}}
+                                            <div>
+                                                <label for="scratch_detail" class="block text-sm font-medium text-gray-700">*傷についての詳細 </label>
+                                                <div class="mt-1">
+                                                    <textarea id="scratch_detail" name="scratch_detail" rows="3" class="shadow-sm focus:ring-green-900 focus:border-green-900 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$product_request->scratch_detail}}</textarea>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="grid grid-cols-6 gap-6">
+                                                {{-- ケースの有無 --}}
+                                                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                    <label for="subscription_plan_id" class="block text-sm font-medium text-gray-700">サブスクの金額</label>
+                                                    {{-- <select id="subscription_plan_id" name="subscription_plan_id" autocomplete="subscription_plan_id-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-900 focus:border-green-900 sm:text-sm"> --}}
+                                                        {{ Form::select('subscription_plan_id', ['1'=> 'Standard（12,000円）', '2'=> 'Premium（24,000円）', '3'=> 'Luxury（36,000円）']) }}
+                                                    {{-- </select> --}}
+                                                </div>
+
+                                                {{-- ギャランティーカードの有無 --}}
+                                                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                    <label for="is_guarantee" class="block text-sm font-medium text-gray-700">重さ</label>
+                                                    {{-- <select id="is_guarantee" name="is_guarantee" autocomplete="is_guarantee-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-900 focus:border-green-900 sm:text-sm"> --}}
+                                                        {{ Form::select('is_guarantee', ['1'=> 'はい', '0'=> 'いいえ'], ['selected' => $product_request->is_guarantee]) }}
+                                                    {{-- </select> --}}
+                                                </div>
+                                
+                                                {{-- 販売可能かどうか --}}
+                                                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                    <label for="is_purchasable" class="block text-sm font-medium text-gray-700">長さ</label>
+                                                    {{-- <select id="is_purchasable" name="is_purchasable" autocomplete="is_purchasable-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-900 focus:border-green-900 sm:text-sm"> --}}
+                                                        {{ Form::select('is_purchasable', ['1'=> 'はい', '0'=> 'いいえ'], ['selected' => $product_request->is_purchasable]) }}
+                                                    {{-- </select> --}}
+                                                </div>
+                                            </div>
+
+                                            {{-- 商品写真 --}}
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">*ジュエリーの写真</label>
+                                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                                    <div class="space-y-1 text-center">
+                                                        <img src="{{ asset('storage/'.$product_request->image) }}" class="w-48 cursor-pointer" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- 商品とのストーリー --}}
+                                            <div>
+                                                <label for="about" class="block text-sm font-medium text-gray-700">よろしければ、お貸しいただくジュエリーの思い出や歴史について教えてください。</label>
+                                                <div class="mt-1">
+                                                    <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-green-900 focus:border-green-900 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="">{{$product_request->story}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">ここまでの情報を保存</button>
+                                </div> --}}
+                            </div>
+                        {{-- </form> --}}
+                    </div>
+                </div>
+            </div>
+
+
+
+
         
             <div class="hidden sm:block" aria-hidden="true">
                 <div class="py-5">
@@ -242,26 +330,6 @@
                                             </div>
                                         </div>
                                     </fieldset>
-                                    {{-- <fieldset>
-                                        <div>
-                                            <legend class="text-base font-medium text-gray-900">Push Notifications</legend>
-                                            <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                                        </div>
-                                        <div class="mt-4 space-y-4">
-                                            <div class="flex items-center">
-                                                <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Everything </label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input id="push-email" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Same as email </label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-green-900 h-4 w-4 text-green-800 border-gray-300">
-                                                <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> No push notifications </label>
-                                            </div>
-                                        </div>
-                                    </fieldset> --}}
                                 </div>
                                 {{-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">確認画面へ</button>

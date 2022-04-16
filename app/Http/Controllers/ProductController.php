@@ -172,7 +172,7 @@ class ProductController extends Controller
         // それぞれのテーブルから検索キーワードでマッチするものを取得
             // Products テーブルの「detail」「color」「material」から検索
             $query1 = Product::where('detail','LIKE','%'.$keyword.'%')
-                ->orWhere('color','LIKE','%'.$keyword.'%')
+                ->orWhere('stone','LIKE','%'.$keyword.'%')
                 ->orWhere('material','LIKE','%'.$keyword.'%')
                 ->get();
 
@@ -491,9 +491,9 @@ class ProductController extends Controller
         }
 
         // 決済中は他の人がこの商品を決済できないように「レンタル中」ステータスに変更する
-        $product_statusChange = Product::find($product->id);
-        $product_statusChange->status = 2000;
-        $product_statusChange->save();
+        // $product_statusChange = Product::find($product->id);
+        // $product_statusChange->status = 2000;
+        // $product_statusChange->save();
 
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
@@ -533,7 +533,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function update(Request $request, Product $product)
     {
         $product->update([

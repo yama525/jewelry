@@ -63,47 +63,84 @@
                     <p class="leading-relaxed text-left">{{$product_detail->detail}}</p>
                     <div class="flex mt-6 items-center mb-5">
                         <div class="flex">
-                            <span class="mr-3">Color</span>
-                            <p>{{$product_detail->color}}</p>
+                            <span class="mr-3 text-gray-500">宝石</span>
+                            <p>{{$product_detail->stone}}</p>
                         </div>
                         <div class="flex ml-6 items-center">
-                            <span class="mr-3">Material</span>
+                            <span class="mr-3 text-gray-500">素材</span>
                             <p>{{ $product_detail->material}}</p>
                         </div>
                     </div>
                     <div class="flex items-center">
-                        <span class="mr-3">Weight</span>
+                        <span class="mr-3 text-gray-500">重さ</span>
                         <p>{{ $product_detail->weight}} g</p>
                     </div>
                     
                     @if($product_detail->type === 'ring')
-                        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3">指輪サイズ</span>
-                            <p>{{$product_detail->getRingData()}} 号</p>
+                        <div class="flex mt-6 items-center  ">
+                            <span class="mr-3 text-gray-500">指輪サイズ</span>
+                            <p>{{$product_detail->getRingData('ring_size')}} 号</p>
                         </div>
+                        <div class="flex mt-6 items-center mb-5  border-b-2 border-gray-200 pb-5">
+                            <div class="flex">
+                                <span class="mr-3 text-gray-500">最小幅</span>
+                                <p>{{$product_detail->getRingData('min_width')}} cm</p>
+                            </div>
+                            <div class="flex ml-6 items-center">
+                                <span class="mr-3 text-gray-500">最大幅</span>
+                                <p>{{$product_detail->getRingData('max_width')}} cm</p>
+                            </div>
+                        </div>
+
                     @elseif($product_detail->type === 'necklace')
-                        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3">チェーンの長さ</span>
-                            <p>{{$product_detail->getNecklaceData()}} cm</p>
+                        <div class="flex mt-6 items-center mb-5  border-b-2 border-gray-200 pb-5">
+                            <div class="flex">
+                                <span class="mr-3 text-gray-500">チェーンの長さ</span>
+                                <p>{{$product_detail->getNecklaceData('chain_length')}} cm</p>
+                            </div>
+                            <div class="flex ml-6 items-center">
+                                <span class="mr-3 text-gray-500">チャームのサイズ</span>
+                                <p>縦横：{{$product_detail->getNecklaceData('charm_length')}} cm</p>
+                            </div>
                         </div>
+
                     @elseif($product_detail->type === 'bracelet')
                         <div class="flex mt-6 items-center">
-                            <span class="mr-3">タイプ</span>
-                            <p>{{$product_detail->getBraceletData()->bracelet_type}}</p>
+                            <span class="mr-3 text-gray-500">ブレスレットの長さ</span>
+                            <p>{{$product_detail->getBraceletData('arm_length')}} cm</p>
                         </div>
                         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3">長さ</span>
-                            <p>{{$product_detail->getBraceletData()->length}} cm</p>
+                            <span class="mr-3 text-gray-500">チャームのサイズ</span>
+                            <p>縦横：{{$product_detail->getBraceletData('charm_length')}} cm</p>
                         </div>
+
                     @elseif($product_detail->type === 'earing')
-                        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3">タイプ</span>
-                            <p>{{$product_detail->getEaringData()}}</p>
+                        <div class="flex mt-6 items-center">
+                            <span class="mr-3 text-gray-500">タイプ</span>
+                            <p>{{$product_detail->getEaringData('earing_type')}}</p>
                         </div>
-                    @elseif($product_detail->type === 'other')
+                            @if($product_detail->getEaringData('pair') == 1)
+                                <div class="flex mt-6 items-center">
+                                    <span class="mr-3 text-gray-500">ペアー（両耳分）</span>
+                                </div>
+                            @else
+                                <div class="flex mt-6 items-center">
+                                    <span class="mr-3 text-gray-500">シングル（片耳のみ）</span>
+                                </div>
+                            @endif
                         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3">タイプ</span>
-                            <p>{{$product_detail->getOtherData()->type}}</p>
+                            <span class="mr-3 text-gray-500">サイズ</span>
+                            <p>縦横：{{$product_detail->getEaringData('length')}} cm</p>
+                        </div>
+
+                    @elseif($product_detail->type === 'other')
+                        <div class="flex mt-6 items-center">
+                            <span class="mr-3 text-gray-500">タイプ</span>
+                            <p>{{$product_detail->getOtherData('type')}}</p>
+                        </div>
+                        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                            <span class="mr-3 text-gray-500">サイズ</span>
+                            <p>縦横：{{$product_detail->getOtherData('length')}} cm</p>
                         </div>
                     
                     @endif

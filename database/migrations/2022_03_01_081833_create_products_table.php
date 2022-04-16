@@ -25,10 +25,10 @@ return new class extends Migration
             $table->text('detail')->nullable();
             $table->text('recommended_situation')->nullable();
             $table->text('recommended_matches')->nullable();
-            $table->string('color', 20)->nullable();
+            $table->string('stone', 40)->nullable();
             $table->string('material', 30)->nullable();
             $table->float('weight')->nullable();
-            $table->float('length')->nullable();
+            // $table->float('length')->nullable();
             $table->string('serial_number');
             $table->integer('scratch_level')->nullable();
             $table->text('scratch_detail')->nullable();

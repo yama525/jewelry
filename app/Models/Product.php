@@ -100,9 +100,9 @@ class Product extends Model
         return $this->hasOne(Ring::class);
     }
     // リングテーブルから情報取得
-    public function getRingData()
+    public function getRingData($data)
     {
-        return $this->ring->ring_size;
+        return $this->ring->$data;
     }
 
 // ネックレステーブルとのリレーション
@@ -111,10 +111,14 @@ class Product extends Model
         return $this->hasOne(Necklace::class);
     }
     // ネックレステーブルから情報取得
-    public function getNecklaceData()
+    public function getNecklaceData($data)
     {
-        return $this->necklace->length;
+        return $this->necklace->$data;
     }
+    // public function getNecklaceCharmLength()
+    // {
+    //     return $this->necklace->charm_length;
+    // }
 
 // ブレスレットテーブルとのリレーション
     public function bracelet()
@@ -122,9 +126,9 @@ class Product extends Model
         return $this->hasOne(Bracelet::class);
     }
     // ブレスレットテーブルから情報取得
-    public function getBraceletData()
+    public function getBraceletData($data)
     {
-        return $this->bracelet;
+        return $this->bracelet->$data;
     }
 
 // イヤリングテーブルとのリレーション
@@ -133,9 +137,9 @@ class Product extends Model
         return $this->hasOne(Earing::class);
     }
     // イヤリングテーブルから情報取得
-    public function getEaringData()
+    public function getEaringData($data)
     {
-        return $this->earing->earing_type;
+        return $this->earing->$data;
     }
 
 // その他ジュエリーテーブルとのリレーション
@@ -144,9 +148,9 @@ class Product extends Model
         return $this->hasOne(Other_jewelry::class);
     }
     // その他ジュエリーテーブルから情報取得
-    public function getOtherData()
+    public function getOtherData($data)
     {
-        return $this->other_jewelry;
+        return $this->other_jewelry->$data;
     }
 }
 
