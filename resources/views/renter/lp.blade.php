@@ -159,7 +159,24 @@
         </div>
     </section>
 
+    {{-- シチュエーション --}}
+    {{-- @dd($tags) --}}
     <section class="bg-white pt-12 pb-12">
+        <h1 class="text-5xl text-gray-400 text-center mb-12">Scene</h1>
+        <div class="w-1/2 my-0 mx-auto">
+            <form action="search_product" method="GET">
+                @csrf
+                @foreach($tags as $tag)
+                    {{-- <div class="w-1/2"> --}}
+                        <button type="submit" name="search" value="{{ $tag->tag_name }}" class="mb-4 mx-2 text-green-700 border border-green-700 py-1 px-4 rounded-full">{{ $tag->tag_name }}</button>
+                    {{-- </div> --}}
+                @endforeach  
+            </form>
+        </div>
+    </section>
+
+    {{-- Lend に関して --}}
+    <section class="pt-12 pb-12">
         <h1 class="text-5xl text-gray-400 text-center mb-12">Lend</h1>
         <div class="bg-contain">
             <img src="/dummy_img/woman.jpeg" alt="">
@@ -168,6 +185,8 @@
             </div>
         </div>
     </section>
+
+    
     </div>
 </x-app-layout>
 

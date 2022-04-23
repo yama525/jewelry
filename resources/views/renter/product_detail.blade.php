@@ -186,6 +186,14 @@
                         @endguest
 
                     </div>
+
+                    
+                </div>
+                {{-- シチュエーションタグ --}}
+                <div>
+                    @foreach($product_detail->tags as $tags) 
+                        <p class="my-4 mx-2 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tags->tag_name }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>

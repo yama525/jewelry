@@ -17,6 +17,8 @@ use App\Models\Earing;
 use App\Models\Other_jewelry;
 use App\Models\Subscription_plan;
 use App\Models\Rental;
+use App\Models\Tag;
+use App\Models\Product_tag;
 
 
 
@@ -562,6 +564,23 @@ class DatabaseSeeder extends Seeder
             'return_complete_at' => '2022-03-24 07:46:50',
         ]);
 
-        // テスト
+        Tag::create([
+            'tag_name' => 'パーティ',
+        ]);
+
+        Tag::create([
+            'tag_name' => '日常使い',
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 1,
+            'product_id' => 1,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 2,
+            'product_id' => 2,
+        ]);
+
     }
 }

@@ -19,7 +19,7 @@
                 {{-- 検索アイコン --}}
                 <div id="product_search" class="hidden flex sm:flex sm:items-end sm:ml-4 sm:mr-4">
                     <button class="text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                        <i class="fa fa-search fa-lg header_search_icon" aria-hidden="true"></i>
                     </button>
                 </div>
 
@@ -47,6 +47,28 @@
                                 <li><a class="text-base text-gray-500" href="{{ route('luxury') }}">ラグジュアリー</a></li>  
                             </ul>
                         </div>
+
+                {{-- 仮 検索モーダル内にシチュエーションタグをつける --}}
+                {{-- @dd($tag) --}}
+                        {{-- <div class="w-1/3">
+                            <h3 class="text-sm text-gray-400 mb-2">シチュエーション</h3>
+                            <ul>
+                                <li><a class="text-base text-gray-500" href=""></a></li>  
+                            </ul> --}}
+                {{-- 仮 --}}
+
+                            {{-- @if (!$product_detail->isLikedBy(Auth::user()))
+                                <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                    <i class="fas fa-heart like-toggle" data-review-id="{{ $product_detail->id }}"></i>
+                                </button>
+                            @else
+                                <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                    <i class="fas fa-heart like-toggle liked" data-review-id="{{ $product_detail->id }}"></i>
+                                </span>
+                            @endif --}}
+                        {{-- </div> --}}
+
+                        
                         <div class="w-1/3">
                             <form action="search_product" method="GET">
                                 @csrf
@@ -216,16 +238,3 @@
         </div>
     </div>
 </nav>
-
-<style>
-
-
-
-
-
-</style>
-<script>
-
-
-
-</script>
