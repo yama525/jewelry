@@ -31,7 +31,7 @@
         {{-- <x-product-menu /> --}}
 
 
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <div class="bg-white container mx-auto flex flex-wrap pt-4 pb-12">
             @foreach($products as $product)
                 <x-product-card :product="$product" />
             @endforeach

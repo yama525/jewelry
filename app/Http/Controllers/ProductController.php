@@ -15,7 +15,7 @@ use App\Models\Other_jewelry;
 use App\Models\Rental;
 use App\Models\Product_request;
 use App\Models\Favorite;
-
+use App\Models\Tag;
 
 
 
@@ -25,6 +25,23 @@ use DB;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        // dd($request);
+        // return view('/renter/lp');
+
+        // $tag = Tag::with('products')
+        // ->get();
+        $tags = Tag::all()->take(10);
+        // dd($tag);
+
+        return view('/renter/lp',[
+            'tags' => $tags,
+        ]);
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -135,11 +152,6 @@ class ProductController extends Controller
         ]);
     }
 
-    public function index()
-    {
-                return view('/renter/lp');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -166,6 +178,7 @@ class ProductController extends Controller
 // 商品検索
     public function search_product(Request $request)
     {
+        // dd($request);
         // キーワード取得
             $keyword = $request->search;
 
@@ -184,6 +197,10 @@ class ProductController extends Controller
             //  Brands テーブルの「brand_name」「brand_detail」から検索
             $query3 = Brand::Where('brand_name','LIKE','%'.$keyword.'%')
                 ->orWhere('brand_detail','LIKE','%'.$keyword.'%')
+                ->get();
+
+            //  Tags テーブルの「tag_name」から検索
+            $query4 = Tag::Where('tag_name','LIKE','%'.$keyword.'%')
                 ->get();
 
         // それぞれのテーブルから id の配列を取得
@@ -210,6 +227,15 @@ class ProductController extends Controller
                     $brand_id_array[] = $q3->id;
                     }
                 }
+            
+            // Tags テーブル
+            $tag_id_array = [];
+                foreach($query4 as $q4){
+                        if($q4){
+                    $tag_id_array[] = $q4->id;
+                    }
+                }
+                // dd($tag_id_array);
         
         // Brands テーブルに関しては Products テーブルと直接つながっていないため、Officials テーブル上からマッチするデータを取得
             $official_brand = Official::where('brand_id', $brand_id_array)->get();
@@ -217,12 +243,14 @@ class ProductController extends Controller
             $brands = $official_brand->map(fn($el) => $el->official_product_id);
 
         // 合致するデータからプロダクトを取得
-            $products = Product::whereIn('id',$product_id_array)
-            ->orWhereIn('official_product_id',$official_id_array)
+            $products = Product::whereIn('id',$product_id_array)->orWhereIn('official_product_id',$official_id_array)
             ->orWhereIn('official_product_id',$brands) // ブランドは 1 つだけの検索結果になると思うが、後々複数ワード検索のために配列で取得。
+            ->orWhereHas('tags', function($query) use($tag_id_array){
+                $query->whereIn('tags.id',$tag_id_array);
+            })
             ->get();
 
-        // dd($products);
+        // dd($products[0]->tags);
         return view('/renter/search_product',[
             'products' => $products,
             'keyword' => $keyword,
@@ -303,7 +331,7 @@ class ProductController extends Controller
         
         // 2次元配列で返されるので、ここで修正
         $product_detail = $product_datas[0];
-        // dd($product_detail);
+        // dd($product_detail->tags); // OK
 
         return view('/renter/product_detail', compact('product_detail','product_images'));
             
@@ -579,6 +607,16 @@ class ProductController extends Controller
         return response()->json($param); //6.JSONデータをjQueryに返す
     }
 
+    // public function tag(Request $request)
+    // {
+    //     $tag = Tag::all(); 
+
+    //     // $product_likes_count = Product::withCount('favorites')->findOrFail($product_id)->likes_count;
+    //     $param = [
+    //         'tag' => $tag,
+    //     ];
+    //     return response()->json($param); //6.JSONデータをjQueryに返す
+    // }
 
 
 }

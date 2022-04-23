@@ -152,6 +152,12 @@ class Product extends Model
     {
         return $this->other_jewelry->$data;
     }
+
+// Tag とのリレーション
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
 
 
