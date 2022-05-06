@@ -40,7 +40,7 @@
                 <p class="text-gray-500">結果が見つかりません：{{ $keyword }}</p>
             </div>
         @else
-            <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+            <div class="bg-white container mx-auto flex flex-wrap pt-4 pb-12">
                 @foreach($products as $product)
                     <x-product-card :product="$product" />
                 @endforeach

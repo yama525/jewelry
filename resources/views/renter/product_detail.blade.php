@@ -4,10 +4,12 @@
     <section class="text-gray-700 body-font overflow-hidden bg-white">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-full mx-auto flex flex-wrap">
+
+                {{-- 商品画像 --}}
                 <div class="w-1/2 ">
                     <div class="gallery">
                         @foreach($product_images as $product_image)
-                                <img class="" src="{{ asset('storage/'.$product_image->image) }}" alt="">
+                                <img class="h-32" src="{{ asset('storage/'.$product_image->image) }}" alt="">
                         @endforeach
                     </div>
 
@@ -22,7 +24,7 @@
 
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <p class="text-sm title-font text-gray-500 tracking-widest">{{$product_detail->getBrandName()}}</p>
-                    <p class="text-gray-900 text-3xl title-font font-semibold mb-1">{{$product_detail->getOfficialName()}}</p>
+                    <p class="text-gray-900 text-3xl title-font font-semibold mb-4">{{$product_detail->getOfficialName()}}</p>
                     <div class="flex mb-4">
                         <span class="flex items-center">
                             <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
@@ -94,14 +96,18 @@
 
                     @elseif($product_detail->type === 'necklace')
                         <div class="flex mt-6 items-center mb-5  border-b-2 border-gray-200 pb-5">
-                            <div class="flex">
-                                <span class="mr-3 text-gray-500">チェーンの長さ</span>
-                                <p>{{$product_detail->getNecklaceData('chain_length')}} cm</p>
-                            </div>
-                            <div class="flex ml-6 items-center">
-                                <span class="mr-3 text-gray-500">チャームのサイズ</span>
-                                <p>縦横：{{$product_detail->getNecklaceData('charm_length')}} cm</p>
-                            </div>
+                            @if($product_detail->getNecklaceData('chain_length') !== null)
+                                <div class="flex">
+                                    <span class="mr-3 text-gray-500">チェーンの長さ</span>
+                                    <p>{{$product_detail->getNecklaceData('chain_length')}} cm</p>
+                                </div>
+                            @endif
+                            @if($product_detail->getNecklaceData('charm_length') !== null)
+                                <div class="flex ml-6 items-center">
+                                    <span class="mr-3 text-gray-500">チャームのサイズ</span>
+                                    <p>縦横：{{$product_detail->getNecklaceData('charm_length')}} cm</p>
+                                </div>
+                            @endif
                         </div>
 
                     @elseif($product_detail->type === 'bracelet')
@@ -119,19 +125,21 @@
                             <span class="mr-3 text-gray-500">タイプ</span>
                             <p>{{$product_detail->getEaringData('earing_type')}}</p>
                         </div>
-                            @if($product_detail->getEaringData('pair') == 1)
-                                <div class="flex mt-6 items-center">
-                                    <span class="mr-3 text-gray-500">ペアー（両耳分）</span>
-                                </div>
-                            @else
-                                <div class="flex mt-6 items-center">
-                                    <span class="mr-3 text-gray-500">シングル（片耳のみ）</span>
-                                </div>
-                            @endif
-                        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                            <span class="mr-3 text-gray-500">サイズ</span>
-                            <p>縦横：{{$product_detail->getEaringData('length')}} cm</p>
-                        </div>
+                        @if($product_detail->getEaringData('pair') == 1)
+                            <div class="flex mt-6 items-center">
+                                <span class="mr-3 text-gray-500">ペアー（両耳分）</span>
+                            </div>
+                        @else
+                            <div class="flex mt-6 items-center">
+                                <span class="mr-3 text-gray-500">シングル（片耳のみ）</span>
+                            </div>
+                        @endif
+                            <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                                @if($product_detail->getEaringData('length') !== null)
+                                    <span class="mr-3 text-gray-500">サイズ</span>
+                                    <p>縦横：{{$product_detail->getEaringData('length')}} cm</p>
+                                @endif
+                            </div>
 
                     @elseif($product_detail->type === 'other')
                         <div class="flex mt-6 items-center">
@@ -144,15 +152,33 @@
                         </div>
                     
                     @endif
+
+                    {{-- カレンダー --}}
+                    <div id="calendar"></div>
+
+
                     <div class="flex">
+                        {{-- 金額 --}}
                         <div class="flex-auto text-left">
                             <span class="title-font font-medium text-sm text-gray-500">{{ $product_detail->subscription_plan->name }}</span>
                             <br>
-                            <span class="title-font font-medium text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円  </span>
+                            @if($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
+                                <span class="title-font font-medium text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円（税込）</span>
+                            @else
+                                <span class="title-font font-medium text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円（税込）</span>
+                                {{-- 購入価格載せる？ --}}
+                                {{-- <div>
+                                    <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
+                                </div> --}}
+                            @endif
                         </div>
-
+                        
+                        {{-- @dd($product_detail) --}}
+                        {{-- <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button> --}}
                         @if($product_detail->status === 1000)
                             <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="flex items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                        @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
+                            <button class="css_background_gold flex items-center text-white border-0 py-2 px-6 focus:outline-none rounded">購入する</button>
                         @elseif($product_detail->status === 2000)
                             <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button>
                         @elseif($product_detail->status === 4000)
@@ -184,23 +210,48 @@
                                 {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
                             </span><!-- /.likes -->
                         @endguest
-
                     </div>
 
-                    
-                </div>
-                {{-- シチュエーションタグ --}}
-                <div>
-                    @foreach($product_detail->tags as $tags) 
-                        <p class="my-4 mx-2 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tags->tag_name }}</p>
-                    @endforeach
+                    {{-- シチュエーションタグ --}}
+                    <div class="w-fit mt-8">
+                        <form action="{{ route('search_product') }}" method="GET">
+                            @csrf
+                            @foreach($product_detail->tags as $tag) 
+                                {{-- <p class="my-4 mx-2 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tag->tag_name }}</p> --}}
+                                <button type="submit" name="search" value="{{ $tag->tag_name }}" class="mt-8 mb-4 mx-1 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tag->tag_name }}</button>
+                            @endforeach
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
 
+    <style>
+        h1 {
+            font-size: 18px;
+        }
 
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: center;
+        }
+
+        td:first-child {
+            color: red;
+        }
+
+        td:last-child {
+            color: royalblue;
+        }
+    </style>
 
 
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -234,6 +285,9 @@
             $(".choice-btn .slick-slide").removeClass("slick-current").eq(index).addClass("slick-current");
         });
 
+
+    // =========================カレンダー=========================
+    
 
 
     </script>

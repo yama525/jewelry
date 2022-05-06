@@ -55,7 +55,7 @@
                       @else
                         <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
                       @endif
-                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">ダッシュボード</span>
+                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">お気に入りジュエリー</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">

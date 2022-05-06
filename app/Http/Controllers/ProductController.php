@@ -16,6 +16,8 @@ use App\Models\Rental;
 use App\Models\Product_request;
 use App\Models\Favorite;
 use App\Models\Tag;
+use App\Models\Sold;
+
 
 
 
@@ -307,6 +309,12 @@ class ProductController extends Controller
         // dd($product);
         $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
 
+        // test
+        // $product_datas = Product::with('product_images', 'sold', 'official_product', 'official_product.brand','ring')
+        //     ->where('id', $product->id)
+        //     ->get();
+        // dd($product_datas[0]->soldable_price);
+
         if($product->type === 'ring'){
             $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','ring')
             ->where('id', $product->id)
@@ -339,23 +347,21 @@ class ProductController extends Controller
 
     public function mypage()
     {
-        $products = Product::with('lender_user')
-            ->join('product_images', 'product_images.product_id','=', 'products.id')
-            ->where('lender_user_id', auth()->user()->id)
-            ->get();
-        // $product_images = Product_image::with('product')->where('product_id', $products->id)->get();
-        
+        // お気に入り登録している商品を取得
 
-        // dd($products);
-        // $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
-        // dd($product_images);
+        // お気に入りにある user_id とログインしているユーザー id が同じものを取得
+        $favorites = Favorite::with('product')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+        $faroriteIds = $favorites->pluck('product_id');
+
+        $products = Product::with('favorites')
+            ->whereIn('id', $faroriteIds)
+            ->get();
 
         return view('/renter/mypage/mypage',[
             'products' => $products,
-            // 'product_images' => $product_images,
         ]);
-
-        // return view('mypage');
     }
 
     public function mypage_rental()
@@ -489,7 +495,6 @@ class ProductController extends Controller
 
     public function checkout(Product $product)
     {
-        // $user = auth()->user()->id;
         $product = $product->with('official_product')
         ->where('id',$product->id)
         ->get();

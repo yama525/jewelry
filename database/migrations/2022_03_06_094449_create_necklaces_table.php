@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('necklaces', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constraint();
-            $table->integer('chain_length');
-            $table->string('charm_length');
+            $table->integer('chain_length')->nullable();
+            $table->string('charm_length')->nullable();
         });
     }
 

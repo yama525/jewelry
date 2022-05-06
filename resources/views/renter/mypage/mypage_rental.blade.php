@@ -106,8 +106,6 @@
         </div>
 
 			<!--Divider-->
-			<hr class="border-b-2 border-gray-600 my-8 mx-4">
-
             <div class="flex flex-row flex-wrap flex-grow mt-2">
 
                 
