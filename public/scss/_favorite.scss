@@ -6,12 +6,9 @@
 
 // 商品一覧画面のいいねボタンの位置
     .css_favorite_position{
-        // relative bottom-1/4 left-1/3
         position: relative;
-        // bottom: 24%;
-        // left: 40%;
-        bottom: 144%;
-        left: 320%;
+        top: 340px;
+        left: 400%;
     }
 
 // ログインしていない状態で、商品一覧画面のいいねを押した時の時間差で消えるモーダル

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('purchased_user_id')->constraint();
             $table->boolean('is_sold');
             $table->integer('sold_price');
-            $table->timestamp('sold_at');
+            $table->timestamps();
         });
     }
 

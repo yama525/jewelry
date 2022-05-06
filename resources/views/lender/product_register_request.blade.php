@@ -1,6 +1,7 @@
 <x-app-layout>
-    
-    <div class="mt-16 w-11/12 block my-0 mx-auto">
+    <h2 class="text-lg my-12 text-gray-400">お手持ちのジュエリーの貸し出し申請</h2>
+
+    <div class="w-11/12 block my-0 mx-auto">
         <form action="/product_register_request" method="POST" enctype="multipart/form-data" class="card card-body shadow-2 mb-3">
             @csrf
             <div>

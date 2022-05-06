@@ -85,6 +85,13 @@
                 <a href="#" class="css_green mr-24 underline">キャッシュバックについて詳しくはこちら ＞</a>
             </div>
         </div>
+
+        <div class="bg-white pt-16 pb-20 px-8">
+            <p class="text-lg text-gray-400 mb-12">まずはお手持ちのジュエリーの情報をご申請いただき、運用が可能かについて弊社より審査をいたします。<br>審査を通過いたしましたら、運用についてのご連絡をいたします。</p>
+            <div class='cursor-pointer w-1/2 mx-auto py-8 text-2xl text-white bg-gray-700 hover:bg-gray-800 rounded'>
+                <button onclick="location.href='{{ route('product_request.post') }}'">ジュエリーの貸し出し申請をする</button>
+            </div>
+        </div>
     </x-app-layout>
     
     

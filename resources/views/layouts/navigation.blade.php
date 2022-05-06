@@ -70,14 +70,14 @@
 
                         
                         <div class="w-1/3">
-                            <form action="search_product" method="GET">
+                            <form action="{{ route('search_product') }}" method="GET">
                                 @csrf
                                 {{-- <div class="pt-2 relative mx-auto text-gray-600 mb-4"> --}}
                                     {{-- <input class="border-1 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400" type="search" name="search" placeholder="Search"> --}}
                                 <div class="pt-2 relative mx-auto text-gray-600">
                                     <input class="border-1 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400" type="search" name="search" placeholder="Search" required>
                                 </div>
-                                <button type="submit" class="mb-4 inline-flex justify-center px-16 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">検索</button>
+                                <button type="submit" class="mt-2 mb-4 inline-flex justify-center px-16 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">検索</button>
                             </form>
                             <ul>
                                 <li><a class="text-base text-gray-500" href="{{ route('all') }}">全てのジュエリー</a></li>    

@@ -35,6 +35,14 @@ body .css_gold {
   color: #d7bc7e;
 }
 
+body .css_background_gold {
+  background-color: #d7bc7e;
+}
+
+body .css_background_gold:hover {
+  background-color: #b39d68;
+}
+
 body .css_green {
   color: #33442F;
 }
@@ -541,8 +549,8 @@ a {
 
 .css_favorite_position {
   position: relative;
-  bottom: 144%;
-  left: 320%;
+  top: 340px;
+  left: 400%;
 }
 
 #modalWrap {

@@ -1,5 +1,36 @@
 
-<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4">
+<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-4">
+        {{-- いいねボタン --}}
+        <div class="">
+            @auth
+                <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
+                @if (!$product->isLikedBy(Auth::user()))
+                    <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                        <i class="fas fa-heart like-toggle css_favorite_position" data-review-id="{{ $product->id }}"></i>
+                        {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
+                    </button><!-- /.likes -->
+                @else   
+                    <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                        <i class="fas fa-heart like-toggle css_favorite_position liked" data-review-id="{{ $product->id }}"></i>
+                        {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
+                    </span><!-- /.likes -->
+                @endif
+            @endauth
+            @guest
+                <span class="likes cursor-pointer text-gray-400 w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                                            
+                    {{-- いいねクリック時の時間で消えるモーダル --}}
+                    <div class="wrap css_favorite_position">
+                        <a href="#demo1" class="modal"><i class="fas fa-heart text-xl"></i></a>
+                        <div class="modalBox" id="demo1">
+                            <div class="modalInner">
+                                お気に入り登録にはログインが必要です
+                            </div>
+                        </div>
+                    </div>
+                </span><!-- /.likes -->
+            @endguest
+        </div>
     <a href="/product_detail/{{ $product->id }}">
 
         {{-- 商品のステータスタグ（「レンタル中」「購入済み」） --}}
@@ -26,39 +57,5 @@
         <p class="pt-1 text-gray-500 text-sm text-left">{{ number_format($product->subscription_plan->price) }} 円 / 日</p>
     </a>
     
-    {{-- いいねボタン --}}
-    <div class="">
-        @auth
-            <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
-            @if (!$product->isLikedBy(Auth::user()))
-                <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                    <i class="fas fa-heart like-toggle css_favorite_position" data-review-id="{{ $product->id }}"></i>
-                    {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
-                </button><!-- /.likes -->
-            @else   
-                <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                    <i class="fas fa-heart like-toggle css_favorite_position liked" data-review-id="{{ $product->id }}"></i>
-                    {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
-                </span><!-- /.likes -->
-            @endif
-        @endauth
-        @guest
-            <span class="likes cursor-pointer text-gray-400 w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                                                        
-                {{-- いいねクリック時の時間で消えるモーダル --}}
-                <div class="wrap css_favorite_position">
-                    <a href="#demo1" class="modal"><i class="fas fa-heart text-xl"></i></a>
-                    <div class="modalBox" id="demo1">
-                        <div class="modalInner">
-                            お気に入り登録にはログインが必要です
-                        </div>
-                    </div>
-                </div>
-            </span><!-- /.likes -->
-        @endguest
-    </div>
+
 </div>
-
-<style>
-
-</style>
