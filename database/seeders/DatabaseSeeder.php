@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'VCARD31500',
             'scratch_level' => 1,
             'scratch_detail' => '新品同様',
-            'status' => '2000',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -772,15 +772,15 @@ class DatabaseSeeder extends Seeder
             'is_lost' => 0,
         ]);
 
-        Rental::create([
-            'renter_user_id' => 1,
-            'lender_user_id' => 2,
-            'product_id' => 2,
-            'on_where'=> 'lender',
-            'is_cleaning' => 0,
-            'is_fixing' => 0,
-            'is_lost' => 0,
-        ]);
+        // Rental::create([
+        //     'renter_user_id' => 1,
+        //     'lender_user_id' => 2,
+        //     'product_id' => 2,
+        //     'on_where'=> 'lender',
+        //     'is_cleaning' => 0,
+        //     'is_fixing' => 0,
+        //     'is_lost' => 0,
+        // ]);
 
         // Rental::create([
         //     'renter_user_id' => 1,
