@@ -5,11 +5,12 @@
             
     <div class="">
         
-        <div class="h-44 pt-4">
+        <div class="h-24 md:h-32 lg:h-44 pt-4">
             <!-- Logo -->
-            <div class="absolute top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="absolute top-12 md:top-16 lg:top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <a href="{{ route('product.index') }}">
-                    <img src="/dummy_img/logo5.png" class="w-44" alt="">
+                    <img src="/dummy_img/logo7.png" class=" w-32 md:w-48 lg:w-64" alt="">
+                    {{-- <img src="/dummy_img/logo6.png" class="w-32" alt=""> --}}
                 </a>
             </div>
 

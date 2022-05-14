@@ -549,8 +549,44 @@ a {
 
 .css_favorite_position {
   position: relative;
-  top: 340px;
-  left: 400%;
+  top: 250px;
+  left: 220%;
+}
+
+@media screen and (min-width: 640px) {
+  /* 481px以上に適用されるCSS（タブレット用） */
+  .css_favorite_position {
+    position: relative;
+    top: 250px;
+    left: 250%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* 481px以上に適用されるCSS（タブレット用） */
+  .css_favorite_position {
+    position: relative;
+    top: 280px;
+    left: 160%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* 960px以上に適用されるCSS（PC用） */
+  .css_favorite_position {
+    position: relative;
+    top: 340px;
+    left: 270%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  /* 960px以上に適用されるCSS（PC用） */
+  .css_favorite_position {
+    position: relative;
+    top: 340px;
+    left: 360%;
+  }
 }
 
 #modalWrap {
@@ -641,10 +677,6 @@ a {
   /* 親要素を基準 */
 }
 
-.css_productCard_height {
-  height: 400px;
-}
-
 .css_product_status_tag {
   position: relative;
   top: 12px;
@@ -696,11 +728,52 @@ a {
 }
 
 .css_lenderLp_aboutLend_img {
-  width: 548px;
-  position: relative;
-  top: 54px;
-  left: 684px;
+  width: 300px;
   -webkit-transform: rotate(13.4deg);
           transform: rotate(13.4deg);
+  padding-top: 8px;
+  padding-bottom: 92px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .css_lenderLp_aboutLend_img {
+    width: 428px;
+    -webkit-transform: rotate(13.4deg);
+            transform: rotate(13.4deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .css_lenderLp_aboutLend_img {
+    width: 512px;
+    -webkit-transform: rotate(13.4deg);
+            transform: rotate(13.4deg);
+    padding-bottom: 108px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .css_lenderLp_aboutLend_img {
+    width: 420px;
+    position: relative;
+    top: 0px;
+    left: 244px;
+    -webkit-transform: rotate(13.4deg);
+            transform: rotate(13.4deg);
+    padding-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .css_lenderLp_aboutLend_img {
+    width: 548px;
+    position: relative;
+    top: 0px;
+    left: 380px;
+    -webkit-transform: rotate(13.4deg);
+            transform: rotate(13.4deg);
+    padding-bottom: 0px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
