@@ -1,7 +1,6 @@
 
 <div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-4">
         {{-- いいねボタン --}}
-        <div class="">
             @auth
                 <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
                 @if (!$product->isLikedBy(Auth::user()))
@@ -30,7 +29,6 @@
                     </div>
                 </span><!-- /.likes -->
             @endguest
-        </div>
     <a href="/product_detail/{{ $product->id }}">
 
         {{-- 商品のステータスタグ（「レンタル中」「購入済み」） --}}
@@ -47,14 +45,14 @@
 
         {{-- 商品の公式名 --}}
         <div class="pt-3 flex items-center justify-between">
-          <p class="text-gray-700">{{ $product->getOfficialName() }}</p>
+          <p class="text-sm lg:text-base text-gray-700">{{ $product->getOfficialName() }}</p>
         </div>
 
         {{-- 商品のブランド名 --}}
-        <p class="pt-1 text-gray-500 text-sm text-left">{{ $product->getBrandName() }}</p>
+        <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">{{ $product->getBrandName() }}</p>
 
         {{-- 商品のレンタル価格 --}}
-        <p class="pt-1 text-gray-500 text-sm text-left">{{ number_format($product->subscription_plan->price) }} 円 / 日</p>
+        <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">{{ number_format($product->subscription_plan->price) }} 円 / 日</p>
     </a>
     
 
