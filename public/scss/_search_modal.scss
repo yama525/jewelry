@@ -1,16 +1,3 @@
-/* 検索モーダルの高さ */
-.css_product_search_modal{
-    height: 222px;
-}
-
-/* 検索モーダル内のコンテンツの位置 */
-.css_product_search_modal_inside{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-}
-
 /* 検索モーダルの閉じるボタンの位置 */
 .css_search_modal_close{
     position: absolute;
@@ -33,4 +20,12 @@
 .css_no_scroll{
     height: 100%;
     overflow: hidden
+}
+
+.css_search_bar{
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    // -webkit- transform: translateY(-50%) translateX(-50%);
 }

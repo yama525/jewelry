@@ -9,7 +9,7 @@
                 <p class="text-xl font-bold text-gray-600">My Page</p>
             </div>
 
-            <div class="flex">
+            <div class="flex mr-6">
               <x-dropdown align="right" width="48">
 
                 <x-slot name="trigger">

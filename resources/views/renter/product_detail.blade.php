@@ -63,15 +63,14 @@
                         </span>
                     </div>
                     <p class="text-sm md:text-base leading-relaxed text-left">{{$product_detail->detail}}</p>
-                    <div class="flex mt-6 items-center mb-2 md:mb-4 lg:mb-5">
-                        <div class="flex">
-                            <span class="text-sm md:text-base mr-3 text-gray-500">宝石</span>
-                            <p class="text-sm md:text-base">{{$product_detail->stone}}</p>
-                        </div>
-                        <div class="flex ml-6 items-center">
-                            <span class="text-sm md:text-base mr-3 text-gray-500">素材</span>
-                            <p class="text-sm md:text-base">{{ $product_detail->material}}</p>
-                        </div>
+                    
+                    <div class="mt-6 flex items-center mb-2 md:mb-4 lg:mb-5">
+                        <span class="text-sm md:text-base mr-3 text-gray-500">宝石</span>
+                        <p class="text-sm md:text-base">{{ $product_detail->stone}}</p>
+                    </div>
+                    <div class="flex items-center mb-2 md:mb-4 lg:mb-5">
+                        <span class="text-sm md:text-base mr-3 text-gray-500">素材</span>
+                        <p class="text-sm md:text-base">{{ $product_detail->material}}</p>
                     </div>
                     <div class="flex items-center mb-2 md:mb-4 lg:mb-5">
                         <span class="text-sm md:text-base mr-3 text-gray-500">重さ</span>
@@ -176,13 +175,21 @@
                         {{-- @dd($product_detail) --}}
                         {{-- <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button> --}}
                         @if($product_detail->status === 1000)
-                            <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-base flex items-center text-white bg-green-800 px-6 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                            <div class="flex items-center">
+                                <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                            </div>
                         @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
-                            <button class="css_background_gold flex items-center text-white border-0 px-6 focus:outline-none rounded">購入する</button>
+                            <div class="flex items-center">
+                                <button class="css_background_gold text-sm sm:text-base flex items-center text-white border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">購入する</button>
+                            </div>
                         @elseif($product_detail->status === 2000)
-                            <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 px-6 focus:outline-none rounded">現在レンタル中</button>
+                            <div class="flex items-center">
+                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</button>
+                            </div>
                         @elseif($product_detail->status === 4000)
-                            <button class="cursor-default flex items-center text-gray-400 bg-gray-200 border-0 px-6 focus:outline-none rounded">この商品はすでに購入済みです</button>
+                            <div class="flex items-center">
+                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入済みです</button>
+                            </div>
                         @endif
 
                         {{-- いいねボタン --}}
@@ -218,7 +225,7 @@
                             @csrf
                             @foreach($product_detail->tags as $tag) 
                                 {{-- <p class="my-4 mx-2 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tag->tag_name }}</p> --}}
-                                <button type="submit" name="search" value="{{ $tag->tag_name }}" class="text-sm lg:text-base  mb-4 mx-1 text-green-700 border border-green-700 py-1 px-4 rounded-full">#{{ $tag->tag_name }}</button>
+                                <button type="submit" name="search" value="{{ $tag->tag_name }}" class="text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 mx-1 text-green-700 border border-green-700 py-1 px-2 sm:px-4 rounded-full">#{{ $tag->tag_name }}</button>
                             @endforeach
                         </form>
                     </div>

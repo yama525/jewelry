@@ -1,7 +1,7 @@
 <footer class="text-center bg-white text-white border-t border-gray-300">
-  <div class="container px-6 pt-6 justify-center inline-flex">
+  <div class="container px-2 sm:px-6 pt-6 justify-center inline-flex">
     <div class="mb-6 flex text-gray-600">
-      <div class="text-left mx-8 md:mx-16">
+      <div class="text-left mx-2 sm:mx-8 md:mx-16">
         <div>
           <a class="text-xs md:text-sm" href="">会社概要</a>
         </div>
@@ -21,7 +21,7 @@
           <a class="text-xs md:text-sm" href="">SDGs</a>
         </div>
       </div>
-      <div class="text-left mx-8 md:mx-16">
+      <div class="text-left mx-2 sm:mx-8 md:mx-16">
         <div>
           <a class="text-xs md:text-sm" href="">取扱ブランド一覧</a>
         </div>

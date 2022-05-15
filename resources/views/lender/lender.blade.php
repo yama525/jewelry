@@ -19,15 +19,15 @@
         </div>
     
         <!-- Cash Back -->
-        <div class="pt-8 md:pt-10 lg:pt-16 pb-10 md:pb-12 lg:pb-20 px-8">
-            <h1 class="text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-6 md:mb-8 lg:mb-12">Cash Back</h1>
-            <div class="flex justify-center mb-8 lg:mb-20">
+        <div class="pt-8 md:pt-10 lg:pt-16 pb-10 md:pb-12 lg:pb-20 ">
+            <h1 class="px-8 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-6 md:mb-8 lg:mb-12">Cash Back</h1>
+            <div class="px-8 flex justify-center mb-8 lg:mb-20">
                 <p class="text-left text-gray-400 text-sm md:text-lg leading-6 md:leading-10">お貸し頂くジュエリーによって、運用で得られるキャッシュバック金額が変わります。<br>
                     ※運用プランは弊社により振り分けいたします</p>
             </div>
-            <div class="inline-flex mb-16">
+            <div class="inline-flex mb-16 px-2">
                 <div>
-                    <div class="bg-white w-32 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 lg:mx-6 border border-solid">
+                    <div class="bg-white w-28 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 lg:mx-6 border border-solid">
                         <div class="py-4 md:py-8">
                             <h3 class="text-lg md:text-xl text-gray-500 mb-6 md:mb-8">Standard</h3>
                             <div class="flex justify-center mb-4">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="bg-white w-32 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 md:mx-6 border border-solid">
+                    <div class="bg-white w-28 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 md:mx-6 border border-solid">
                         <div class="py-4 md:py-8">
                             <h3 class="text-lg md:text-xl text-gray-500 mb-6 md:mb-8">Premium</h3>
                             <div class="flex justify-center mb-4">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="bg-white w-32 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 md:mx-6 border border-solid">
+                    <div class="bg-white w-28 sm:w-40 md:w-56 lg:w-72 h-88 mx-1 sm:mx-2 md:mx-4 md:mx-6 border border-solid">
                         <div class="py-4 md:py-8">
                             <h3 class="text-lg md:text-xl text-gray-500 mb-6 md:mb-8">Luxury</h3>
                             <div class="flex justify-center mb-4">
@@ -82,13 +82,13 @@
                 </div>
             </div>
             <div class="text-right">
-                <a href="#" class="css_green text-sm md:text-base mr-0 lg:mr-24 underline">キャッシュバックについて詳しくはこちら ＞</a>
+                <a href="#" class="css_green px-8 text-sm md:text-base mr-0 lg:mr-24 underline">キャッシュバックについて詳しくはこちら ＞</a>
             </div>
         </div>
 
         <div class="bg-white pt-16 pb-12 md:pb-20 px-8">
             <p class="text-sm md:text-lg text-gray-400 mb-12">まずはお手持ちのジュエリーの情報をご申請いただき、運用が可能かについて弊社より審査をいたします。<br>審査を通過いたしましたら、運用についてのご連絡をいたします。</p>
-            <div class='cursor-pointer w-4/5 md:w-1/2 mx-auto py-6 md:py-8 text-lg md:text-2xl text-white bg-gray-700 hover:bg-gray-800 rounded'>
+            <div class='cursor-pointer w-5/6 md:w-1/2 mx-auto py-4 sm:py-6 md:py-8 text-base sm:text-lg md:text-2xl text-white bg-gray-700 hover:bg-gray-800 rounded'>
                 <button onclick="location.href='{{ route('product_request.post') }}'">ジュエリーの貸し出し申請をする</button>
             </div>
         </div>

@@ -10,7 +10,7 @@
     <!-- メッセージ -->
     <section class="bg-white py-4 md:py-8 lg:py-12">
         <div class="">
-            <h1 class="text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12">Message</h1>
+            <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12">Message</h1>
                 <div class="text-left mb-8 w-4/5 md:w-3/4 lg:w-1/2 my-0 mx-auto">
                     <h2 class="css_fontFamily_notoSerif700 text-base md:text-xl lg:text-2xl text-gray-500 mb-4 leading-6 md:leading-8 lg:leading-10">『所有する』ではなく『シェアする』<br>歴史ある上質なブランドジュエリーをあなたに。</h2>
                     <p class="text-gray-500 text-xs md:text-base lg:text-lg leading-6 lg:leading-8">ブランドジュエリー、それは女性の永遠の憧れ。<br>
@@ -26,12 +26,12 @@
 
 
     <!-- サービス紹介 -->
-    <section class="py-4 md:py-8 lg:py-12">
+    <section class="pt-4 pb-6 md:pb-0 md:py-8 lg:py-12">
         <div class="service_wrapper">
-            <h1 class="text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12">Service</h1>
+            <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12">Service</h1>
             {{-- 1 列目 --}}
             <div class="inline-flex justify-center px-8 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-2 md:p-4 lg:p-6 flex flex-col">
+                <div class="p-0 md:p-2 md:p-4 lg:p-6 flex flex-col">
                     <h3 class="text-sm md:text-base lg:text-lg text-gray-400">Step 1</h3>
                     <p class="text-base md:text-lg lg:text-xl text-gray-500 py-2">ジュエリーを選ぶ</p>
                     <div class="py-2 md:py-8 flex items-center justify-center">
@@ -40,7 +40,7 @@
                     </div>
                     <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">商品一覧の中から色々なジュエリーを確認して、レンタルしたいジュエリーをお選びください。</p>
                 </div>
-                    <div class="p-2 md:p-4 lg:p-6 flex flex-col">
+                    <div class="p-0 md:p-2 md:p-4 lg:p-6 flex flex-col">
                     <h3 class="text-sm md:text-base lg:text-lg text-gray-400">Step 2</h3>
                     <p class="text-base md:text-lg lg:text-xl text-gray-500 py-2">会員登録</p>
                     <div class="py-2 md:py-8 flex items-center justify-center">
@@ -49,7 +49,7 @@
                     </div>
                     <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">無料会員登録をすると全ての商品が閲覧できるようになります。<br>※初めてのレンタルでは別途審査が必要です</p>
                 </div>
-                    <div class="p-2 md:p-4 lg:p-6 flex flex-col">
+                    <div class="p-0 md:p-2 md:p-4 lg:p-6 flex flex-col">
                     <h3 class="text-sm md:text-base lg:text-lg text-gray-400">Step 3</h3>
                     <p class="text-base md:text-lg lg:text-xl text-gray-500 py-2">お支払い</p>
                     <div class="py-2 md:py-8 flex items-center justify-center">
@@ -58,7 +58,7 @@
                     </div>
                     <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">審査が完了しているお客様は、商品ページよりお支払いいただき次第、ジュエリーをお送りいたします。</p>
                 </div>
-                    <div class="p-2 md:p-4 lg:p-6 flex flex-col">
+                    <div class="p-0 md:p-2 md:p-4 lg:p-6 flex flex-col">
                     <h3 class="text-sm md:text-base lg:text-lg text-gray-400">Step 4</h3>
                     <p class="text-base md:text-lg lg:text-xl text-gray-500 py-2">ご自宅に届く</p>
                     <div class="py-2 md:py-8 flex items-center justify-center">
@@ -73,9 +73,9 @@
     
     <!-- レンタル可能なジュエリー -->
     <section class="bg-white py-4 md:py-8 lg:py-12">
-        <h1 class="text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-4 md:mb-8 lg:mb-12">Jewelry</h1>
-        <div class="flex flex-wrap justify-center px-8 css_img_list">
-            <div class="bg-white hover:shadow-lg w-5/12 md:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-1 md:px-2 m-4 flex justify-center border rounded">
+        <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-0 md:mb-4 lg:mb-8">Jewelry</h1>
+        <div class="flex flex-wrap justify-center px-0 md:px-8 css_img_list">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/ring">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -83,7 +83,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-1 md:px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/necklace">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -91,7 +91,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-1 md:px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/bracelet">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -99,7 +99,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-1 md:px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/earing">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/earing.png">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -107,7 +107,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-1 md:px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
                 <a href="/category/other">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -122,7 +122,7 @@
     <!-- プラン -->
     <section class="py-4 md:py-8 lg:py-12">
         <div class="service_wrapper">
-            <h1 id="plans" class="text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12"> Plans</h1>
+            <h1 id="plans" class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12"> Plans</h1>
             {{-- <div class="mx-12 space-y-12 lg:space-y-0 lg:flex lg:gap-4 lg:items-center lg:justify-center"> --}}
             <div class="mx-12  grid grid-cols-1 md:grid-cols-3 gap-4 place-items-center">
 
@@ -170,7 +170,7 @@
     {{-- シチュエーション --}}
     {{-- @dd($tags) --}}
     <section class="bg-white py-4 md:py-8 lg:py-12">
-        <h1 class="text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-4 md:mb-8 lg:mb-12">Scene</h1>
+        <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-4 md:mb-8 lg:mb-12">Scene</h1>
         <p class="text-xs md:text-base text-gray-600 mb-8">さまざまなシーンに合わせ、ジュエリーをお選びいただきます。</p>
         <div class="w-3/4 md:w-2/3 lg:w-1/2 my-0 mx-auto">
             <form action="search_product" method="GET">
@@ -186,7 +186,7 @@
 
     {{-- Lend に関して --}}
     <section class="py-4 md:py-8 lg:py-12">
-        <h1 class="text-2xl md:text-3xl lg:text-5xl  text-gray-400 text-center mb-4 md:mb-8 lg:mb-12">Lend</h1>
+        <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl  text-gray-400 text-center mb-4 md:mb-8 lg:mb-12">Lend</h1>
         <p class="text-xs md:text-base text-gray-600 mb-8">ご自宅に眠っているジュエリーを貸し出して、運用してみませんか。</p>
         <div class="">
             <img src="/dummy_img/lenderPage.jpeg" class="w-3/4 md:w-2/3 lg:w-1/2 mx-auto rounded-t" alt="">

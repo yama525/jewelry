@@ -1,5 +1,5 @@
 
-<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-4">
+<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-0 md:mt-4">
         {{-- いいねボタン --}}
             @auth
                 <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
