@@ -1,5 +1,5 @@
 <div  class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0 mr-2" x-data="{ open: false }">
-    <nav class="flex-grow md:block  pb-4 md:pb-0 md:overflow-y-auto">
+    <nav class="flex-grow md:block  pb-4 md:pb-0 md:overflow-y-auto border-b md:border-b-0 md:border-gray-200">
 
         {{-- カテゴリ --}}
         <div class="flex-shrink-0 px-8 py-2 md:py-4 flex flex-row items-center justify-between">
