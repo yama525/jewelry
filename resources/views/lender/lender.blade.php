@@ -52,8 +52,8 @@
                                 <img src="/dummy_img/lend_img_premium.JPG" class="w-5/6 h-auto object-cover" alt="">
                             </div>
                             <div class="">
-                                <p class="text-gray-500 text-xs md:text-sm">Van Cleef & Arpels</p>
-                                <p class="text-gray-400 text-xs md:text-sm">Alhambra など</p>
+                                <p class="text-gray-500 text-xs md:text-sm">Harry Winston</p>
+                                <p class="text-gray-400 text-xs md:text-sm">Lily Cluster など</p>
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                                 <img src="/dummy_img/lend_img_luxury.JPG" class="w-5/6 h-auto object-cover" alt="">
                             </div>
                             <div class="">
-                                <p class="text-gray-500 text-xs md:text-sm">Van Cleef & Arpels</p>
-                                <p class="text-gray-400 text-xs md:text-sm">Alhambra など</p>
+                                <p class="text-gray-500 text-xs md:text-sm">Harry Winston</p>
+                                <p class="text-gray-400 text-xs md:text-sm">Pirouette など</p>
                             </div>
                         </div>
                     </div>
