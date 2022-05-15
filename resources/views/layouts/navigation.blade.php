@@ -132,7 +132,7 @@
                     </div>
 
                 @else
-                    <a href="{{ route('login') }}" class="text-gray-500 hover:text-gray-700 flex items-end font-medium px-4 mr-6 mt-1">ログイン</a>
+                    <a href="{{ route('login') }}" class="text-sm sm:text-base text-gray-500 hover:text-gray-700 flex items-end font-medium mx-4 mr-3 sm:mr-6 mt-1">ログイン</a>
 
 
                 @endauth

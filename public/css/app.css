@@ -925,6 +925,9 @@ select {
 .mr-8 {
   margin-right: 2rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .block {
   display: block;
 }
@@ -2290,6 +2293,10 @@ select {
 
   .sm\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .sm\:mr-6 {
+    margin-right: 1.5rem;
   }
 
   .sm\:block {
