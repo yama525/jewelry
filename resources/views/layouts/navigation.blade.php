@@ -19,7 +19,7 @@
             {{-- ================ 検索 ================ --}}
                 {{-- 検索アイコン --}}
                 <div id="product_search" class="flex sm:flex sm:items-end sm:ml-4 sm:mr-4">
-                    <button class="text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    <button class="text-xs sm:text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                         <i class="fa fa-search fa-lg header_search_icon" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -99,7 +99,7 @@
 
                             {{-- ユーザーアイコン --}}
                             <x-slot name="trigger">
-                                <button class="text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <button class="text-xs sm:text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                     <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </x-slot>
@@ -132,7 +132,7 @@
                     </div>
 
                 @else
-                    <a href="{{ route('login') }}" class="text-gray-500 hover:text-gray-700 flex items-end font-medium px-4 mr-6 mt-1">ログイン</a>
+                    <a href="{{ route('login') }}" class="text-xs sm:text-base text-gray-500 hover:text-gray-700 flex items-end font-medium mx-4 mr-3 sm:mr-6 mt-1">ログイン</a>
 
 
                 @endauth

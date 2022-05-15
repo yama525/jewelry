@@ -4,12 +4,12 @@
             @auth
                 <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
                 @if (!$product->isLikedBy(Auth::user()))
-                    <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                    <button class="likes cursor-pointer text-gray-400 text-base sm:text-lg lg:text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                         <i class="fas fa-heart like-toggle css_favorite_position" data-review-id="{{ $product->id }}"></i>
                         {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
                     </button><!-- /.likes -->
                 @else   
-                    <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                    <span class="likes cursor-pointer text-gray-400 text-base sm:text-lg lg:text-xl w-10 h-2 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                         <i class="fas fa-heart like-toggle css_favorite_position liked" data-review-id="{{ $product->id }}"></i>
                         {{-- <span class="like-counter">{{$product->favorite_count}}</span> --}}
                     </span><!-- /.likes -->
