@@ -75,7 +75,7 @@
     <section class="bg-white py-4 md:py-8 lg:py-12">
         <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-0 md:mb-4 lg:mb-8">Jewelry</h1>
         <div class="flex flex-wrap justify-center px-0 md:px-8 css_img_list">
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/ring">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -83,7 +83,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/necklace">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -91,7 +91,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/bracelet">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -99,7 +99,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/earing">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/earing.png">
                     <div class="pt-2 md:pt-3 flex items-center">
@@ -107,7 +107,7 @@
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/other">
                     <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">

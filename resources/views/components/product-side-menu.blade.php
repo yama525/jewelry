@@ -43,21 +43,21 @@
         </div>
 
         @if(\Route::is(['standard']))
-            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/standard">Standard</a>
+            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/standard">Standard（12,000円〜）</a>
         @else
-            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/standard">Standard</a>
+            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/standard">Standard（12,000円〜）</a>
         @endif
 
         @if(\Route::is(['premium']))
             <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/premium">Premium</a>
         @else
-            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/premium">Premium</a>
+            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/premium">Premium（12,000円〜）</a>
         @endif
 
         @if(\Route::is(['luxury']))
             <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/luxury">Luxury</a>
         @else
-            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/luxury">Luxury</a>
+            <a class="block px-4 py-1 md:py-2 mt-1 md:mt-2 text-xs md:text-sm font-semibold text-gray-700 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/plan/luxury">Luxury（12,000円〜）</a>
         @endif
   
         @if(\Route::is(['all']))

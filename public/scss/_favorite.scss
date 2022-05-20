@@ -14,8 +14,8 @@
         /* 481px以上に適用されるCSS（タブレット用） */
         .css_favorite_position{
             position: relative;
-            top: 252px;
-            left: 216%;
+            top: 280px;
+            left: 212%;
         }
     }
     @media screen and (min-width: 640px) {
@@ -31,23 +31,23 @@
         .css_favorite_position{
             position: relative;
             top: 280px;
-            left: 160%;
+            left: 212%;
         }
     }
     @media screen and (min-width: 1024px) {
         /* 960px以上に適用されるCSS（PC用） */
         .css_favorite_position{
             position: relative;
-            top: 340px;
-            left: 270%;
+            top: 380px;
+            left: 220%;
         }
     }
     @media screen and (min-width: 1280px) {
         /* 960px以上に適用されるCSS（PC用） */
         .css_favorite_position{
             position: relative;
-            top: 340px;
-            left: 360%;
+            top: 360px;
+            left: 142px;
         }
     }
 

@@ -2266,6 +2266,10 @@ select {
     grid-column: span 6 / span 6;
   }
 
+  .sm\:m-4 {
+    margin: 1rem;
+  }
+
   .sm\:-my-px {
     margin-top: -1px;
     margin-bottom: -1px;
