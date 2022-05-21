@@ -153,71 +153,95 @@
                     @endif
 
                     {{-- カレンダー --}}
-                    <div id="calendar"></div>
+                    {{-- @dd(route('product.show',1)) --}}
+                    {{-- <input class="flatpickr calendar" type="text" placeholder="Select Date.." readonly="readonly" data-calendar-review-id="{{ $product_detail->id }}">
+                    <p class="rental_price"></p> --}}
+                    
 
+                        <div class="flex mb-12">
+                            <form action="{{ route('checkout', $product_detail->id) }}" method="GET">
+                                <div class="flex-none sm:flex">
+                                    
+                                    {{-- 金額 --}}
+                                    <div class="flex-auto text-left">
+                                        <span class="title-font font-medium text-base text-gray-500">{{ $product_detail->subscription_plan->name }}</span>
+                                        
+                                        @if($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
+                                            <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円（税込）</span>
+                                        @else
+                                            <div class="my-4">
+                                                <div class="mb-4">
+                                                    <p class="text-sm">3 泊 4 日レンタル</p>
+                                                    <input type="radio" class="mr-1 mb-1" id="contactChoice1" name="contact" value="{{ number_format($product_detail->subscription_plan->rental_price) }}" checked>
+                                                    <label for="contactChoice1"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->rental_price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm">1 ヶ月レンタル</p>
+                                                    <input type="radio" class="mr-1 mb-1" id="contactChoice2" name="contact" value="{{ number_format($product_detail->subscription_plan->price) }}">
+                                                    <label for="contactChoice2"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                </div>
+                                            </div>
 
-                    <div class="flex mb-12">
-                        {{-- 金額 --}}
-                        <div class="flex-auto text-left">
-                            <span class="title-font font-medium text-sm text-gray-500">{{ $product_detail->subscription_plan->name }}</span>
-                            <br>
-                            @if($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
-                                <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円（税込）</span>
-                            @else
-                                <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円（税込）</span>
-                                {{-- 購入価格載せる？ --}}
-                                {{-- <div>
-                                    <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
-                                </div> --}}
-                            @endif
-                        </div>
-                        
-                        {{-- @dd($product_detail) --}}
-                        {{-- <button class="cursor-default flex items-center text-gray-200 bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded">現在レンタル中</button> --}}
-                        @if($product_detail->status === 1000)
-                            <div class="flex items-center">
-                                <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
-                            </div>
-                        @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
-                            <div class="flex items-center">
-                                <button class="css_background_gold text-sm sm:text-base flex items-center text-white border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">購入する</button>
-                            </div>
-                        @elseif($product_detail->status === 2000)
-                            <div class="flex items-center">
-                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</button>
-                            </div>
-                        @elseif($product_detail->status === 4000)
-                            <div class="flex items-center">
-                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-2 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入済みです</button>
-                            </div>
-                        @endif
-
-                        {{-- いいねボタン --}}
-                        @auth
-                            <!-- Review.phpに作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
-                            @if (!$product_detail->isLikedBy(Auth::user()))
-                                <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                                    <i class="fas fa-heart like-toggle" data-review-id="{{ $product_detail->id }}"></i>
-                                    {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
-                                </button><!-- /.likes -->
-                            @else
-                                <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                                    <i class="fas fa-heart like-toggle liked" data-review-id="{{ $product_detail->id }}"></i>
-                                    {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
-                                </span><!-- /.likes -->
-                            @endif
-                        @endauth
-                        @guest
-                            <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-16 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                            <div>
+                                                <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
+                                            </div>
+                                        @endif
+                                    </div>
                                 
-                                <div class="balloonoya" onclick="showBalloon()">
-                                    <i class="fas fa-heart"></i>
-                                    <span class="balloon1" id="makeImg">ログインしてください</span>
+                                    <div class="flex mt-12 sm:mt-0 sm:ml-12 md:ml-24 lg:ml-12 xl:ml-40">
+                                        @if($product_detail->status === 1000)
+                                            <div class="flex items-end">
+                                                <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                                            </div>
+                                        @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
+                                            <div class="flex items-end">
+                                                <button class="css_background_gold text-sm sm:text-base flex items-center text-white border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">購入する</button>
+                                            </div>
+                                        @elseif($product_detail->status === 2000)
+                                            <div class="flex items-end">
+                                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</button>
+                                            </div>
+                                        @elseif($product_detail->status === 4000)
+                                            <div class="flex items-end">
+                                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入済みです</button>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
-                                {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
-                            </span><!-- /.likes -->
-                        @endguest
-                    </div>
+
+                            </form>
+                                
+                            {{-- いいねボタン --}}
+                            <div class="flex items-end">
+                                @auth
+                                    <!-- Review.phpに作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
+                                    @if (!$product_detail->isLikedBy(Auth::user()))
+                                        <button class="likes cursor-pointer text-gray-400 text-xl w-10 h-8 sm:h-12 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                            <i class="fas fa-heart like-toggle" data-review-id="{{ $product_detail->id }}"></i>
+                                            {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                                        </button><!-- /.likes -->
+                                    @else
+                                        <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-8 sm:h-12 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                            <i class="fas fa-heart like-toggle liked" data-review-id="{{ $product_detail->id }}"></i>
+                                            {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                                        </span><!-- /.likes -->
+                                    @endif
+                                @endauth
+                                @guest
+                                    <span class="likes cursor-pointer text-gray-400 text-xl w-10 h-8 sm:h-12 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                        
+                                        <div class="balloonoya" onclick="showBalloon()">
+                                            <i class="fas fa-heart"></i>
+                                            <span class="balloon1" id="makeImg">ログインしてください</span>
+                                        </div>
+                                        {{-- <span class="like-counter">{{$product_detail->favorite_count}}</span> --}}
+                                    </span><!-- /.likes -->
+                                @endguest
+                            </div>
+
+                        </div>
+                    
+
 
                     {{-- シチュエーションタグ --}}
                     <div class="w-fit mt-8">
@@ -292,11 +316,6 @@
             //サムネイルのslick-currentを削除し次のスライド要素にslick-currentを追加
             $(".choice-btn .slick-slide").removeClass("slick-current").eq(index).addClass("slick-current");
         });
-
-
-    // =========================カレンダー=========================
-    
-
 
     </script>
 </x-app-layout>

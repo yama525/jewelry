@@ -727,17 +727,20 @@ class DatabaseSeeder extends Seeder
 
         Subscription_plan::create([
             'name' => 'Standard',
-            'price' => 12000,
+            'price' => 24000,
+            'rental_price' => 12000
         ]);
 
         Subscription_plan::create([
             'name' => 'Premium',
-            'price' => 24000,
+            'price' => 48000,
+            'rental_price' => 24000
         ]);
 
         Subscription_plan::create([
             'name' => 'Luxury',
-            'price' => 36000,
+            'price' => 72000,
+            'rental_price' => 36000
         ]);
 
 

@@ -54,6 +54,10 @@ Route::get('/lender', function () {
 // 商品詳細ページ表示
 Route::get('/product_detail/{product}', [ProductController::class, 'show'])->name('product.show');
 
+// カレンダー ajax
+// Route::get('/product_detail/{product}', [ProductController::class, 'calendar'])->name('product.calendar');
+
+
 // ログイン済みの人のみアクセス可能
 Route::group(['middleware' => ['auth']], function() {
     // 商品登録リクエストページ表示
@@ -84,6 +88,7 @@ Route::group(['middleware' => ['auth']], function() {
     // Route::delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 });
+
 
 // マイページ
 Route::prefix('mypage')->middleware('auth')->group(function() {
