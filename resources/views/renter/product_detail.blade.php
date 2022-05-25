@@ -63,7 +63,6 @@
                         </span>
                     </div>
                     <p class="text-sm md:text-base leading-relaxed text-left">{{$product_detail->detail}}</p>
-                    
                     <div class="mt-6 flex items-center mb-2 md:mb-4 lg:mb-5">
                         <span class="text-sm md:text-base mr-3 text-gray-500">宝石</span>
                         <p class="text-sm md:text-base">{{ $product_detail->stone}}</p>
@@ -161,51 +160,98 @@
                         <div class="flex mb-12">
                             <form action="{{ route('checkout', $product_detail->id) }}" method="GET">
                                 <div class="flex-none sm:flex">
-                                    
+
                                     {{-- 金額 --}}
                                     <div class="flex-auto text-left">
                                         <span class="title-font font-medium text-base text-gray-500">{{ $product_detail->subscription_plan->name }}</span>
-                                        
-                                        @if($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
-                                            <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円（税込）</span>
-                                        @else
-                                            <div class="my-4">
-                                                <div class="mb-4">
-                                                    <p class="text-sm">3 泊 4 日レンタル</p>
-                                                    <input type="radio" class="mr-1 mb-1" id="contactChoice1" name="contact" value="{{ number_format($product_detail->subscription_plan->rental_price) }}" checked>
-                                                    <label for="contactChoice1"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->rental_price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
-                                                </div>
+                                        {{-- @dd($product_detail->rentals[0]->renter_user_id); --}}
+                                        @auth
+                                            @if($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
                                                 <div>
-                                                    <p class="text-sm">1 ヶ月レンタル</p>
-                                                    <input type="radio" class="mr-1 mb-1" id="contactChoice2" name="contact" value="{{ number_format($product_detail->subscription_plan->price) }}">
-                                                    <label for="contactChoice2"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                    <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円</span><span class="text-sm md:text-base">（税込）</span>
                                                 </div>
-                                            </div>
+                                            @else
+                                                <div class="my-4">
+                                                    <div class="mb-4">
+                                                        <p class="text-sm">3 泊 4 日レンタル</p>
+                                                        <input type="radio" class="mr-1 mb-1" id="contactChoice1" name="contact" value="{{ number_format($product_detail->subscription_plan->rental_price) }}" checked>
+                                                        <label for="contactChoice1"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->rental_price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                    </div>
+                                                    <div>
+                                                        <p class="text-sm">1 ヶ月レンタル</p>
+                                                        <input type="radio" class="mr-1 mb-1" id="contactChoice2" name="contact" value="{{ number_format($product_detail->subscription_plan->price) }}">
+                                                        <label for="contactChoice2"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                    </div>
+                                                </div>
 
-                                            <div>
-                                                <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
-                                            </div>
-                                        @endif
+                                                <div>
+                                                    <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
+                                                </div>
+                                            @endif
+                                        @endauth
+
+                                        @guest
+                                            @if($product_detail->status === 2000)
+                                                <div>
+                                                    <span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->soldable_price) }} 円</span><span class="text-sm md:text-base">（税込）</span>
+                                                </div>
+                                            @else
+                                                <div class="my-4">
+                                                    <div class="mb-4">
+                                                        <p class="text-sm">3 泊 4 日レンタル</p>
+                                                        <input type="radio" class="mr-1 mb-1" id="contactChoice1" name="contact" value="{{ number_format($product_detail->subscription_plan->rental_price) }}" checked>
+                                                        <label for="contactChoice1"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->rental_price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                    </div>
+                                                    <div>
+                                                        <p class="text-sm">1 ヶ月レンタル</p>
+                                                        <input type="radio" class="mr-1 mb-1" id="contactChoice2" name="contact" value="{{ number_format($product_detail->subscription_plan->price) }}">
+                                                        <label for="contactChoice2"><span class="title-font font-medium text-xl md:text-2xl text-gray-900">{{ number_format($product_detail->subscription_plan->price) }} 円</span><span class="text-sm md:text-base">（税込）</span></label>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <p class="text-sm text-gray-400">購入価格 {{number_format($product_detail->soldable_price)}}円（税込）</p>
+                                                </div>
+                                            @endif
+                                        @endguest
                                     </div>
                                 
                                     <div class="flex mt-12 sm:mt-0 sm:ml-12 md:ml-24 lg:ml-12 xl:ml-40">
-                                        @if($product_detail->status === 1000)
-                                            <div class="flex items-end">
-                                                <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
-                                            </div>
-                                        @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
-                                            <div class="flex items-end">
-                                                <button class="css_background_gold text-sm sm:text-base flex items-center text-white border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">購入する</button>
-                                            </div>
-                                        @elseif($product_detail->status === 2000)
-                                            <div class="flex items-end">
-                                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</button>
-                                            </div>
-                                        @elseif($product_detail->status === 4000)
-                                            <div class="flex items-end">
-                                                <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入済みです</button>
-                                            </div>
-                                        @endif
+                                        @auth
+                                            @if($product_detail->status === 1000)
+                                                <div class="flex items-end">
+                                                    <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                                                </div>
+                                            @elseif($product_detail->status === 2000 && $product_detail->rentals[0]->renter_user_id === auth()->user()->id)
+                                                <div class="flex items-end">
+                                                    <button class="css_background_gold text-sm sm:text-base flex items-center text-white px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">購入する</button>
+                                                </div>
+                                            @elseif($product_detail->status === 2000)
+                                                <div class="flex items-end">
+                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
+                                                </div>
+                                            @elseif($product_detail->status === 4000)
+                                                <div class="flex items-end">
+                                                    <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入されています</button>
+                                                </div>
+                                            @endif
+                                        @endauth
+
+                                        @guest
+                                            @if($product_detail->status === 1000)
+                                                <div class="flex items-end">
+                                                    <button onclick="location.href='/checkout/{{ $product_detail->id }}'" class="text-sm sm:text-base flex items-center text-white bg-green-800 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none hover:bg-green-900 rounded">レンタルする</button>
+                                                </div>
+                                            @elseif($product_detail->status === 2000)
+                                                <div class="flex items-end">
+                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
+                                                </div>
+                                            @elseif($product_detail->status === 4000)
+                                                <div class="flex items-end">
+                                                    <button class="cursor-default text-sm sm:text-base flex items-center text-gray-400 bg-gray-200 border-0 px-24 sm:px-6 py-2 sm:py-4 focus:outline-none rounded">この商品はすでに購入されています</button>
+                                                </div>
+                                            @endif
+                                        @endguest
                                     </div>
                                 </div>
 

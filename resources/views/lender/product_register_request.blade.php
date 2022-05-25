@@ -131,17 +131,18 @@
                                             </div>
 
                                             {{-- ギャランティーカードの写真 --}}
-                                            <div class="grid grid-cols-2 gap-6">
+                                            <div class="grid grid-cols-2 gap-6 items-center">
                                                 {{-- ギャランティーカードの有無 --}}
                                                 <div class="">
-                                                    <label for="is_guarantee" class="block text-sm font-medium text-gray-700">*ギャランティーカードの有無</label>
+                                                    <label for="is_guarantee" class="block text-sm font-medium text-gray-700">*ギャランティカードの有無</label>
                                                     <select id="is_guarantee" name="is_guarantee" autocomplete="is_guarantee-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-900 focus:border-green-900 sm:text-sm">
                                                         <option value="1">はい</option>
                                                         <option value="0">いいえ</option>
                                                     </select>
+                                                    <p class="text-xs text-gray-400 mt-2">※「はい」と答えた方はギャランティカードの写真をお送りください。</p>
                                                 </div>
                                                 <div class="">
-                                                    <label class="block text-sm font-medium text-gray-700">ギャランティーカードの写真</label>
+                                                    <label class="block text-sm font-medium text-gray-700">ギャランティカードの写真</label>
                                                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                                         <div class="guarantee_img_wrap space-y-1 text-center">
                                                             <div class="flex text-sm text-gray-600 justify-center">

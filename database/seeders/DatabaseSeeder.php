@@ -50,10 +50,20 @@ class DatabaseSeeder extends Seeder
             // 'address' => '東京都中央区2-2-2',
             // 'lender_flg' => 0,
         ]);
+        User::create([
+            'name' => '武田 エリカ',
+            // 'furigana' => 'たけだえりか',
+            'email' => 'test3@a.com',
+            'password'=> bcrypt('password'),
+            // 'phone' => '090-3333-3333',
+            // 'birthday' => '1999/03/03',
+            // 'address' => '東京都中央区3-3-3',
+            // 'lender_flg' => 0,
+        ]);
 
         // Necklace 1
         Product::create([
-            'lender_user_id' => '2',
+            'lender_user_id' => '1',
             'official_product_id' => 'VCARP2R800',
             'subscription_plan_id' => '3',
             'type' => 'necklace',
@@ -66,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'VCARP2R800',
             'scratch_level' => 1,
             'scratch_detail' => '新品同様',
-            'status' => '1000',
+            'status' => '2000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -216,7 +226,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'RGP746',
             'scratch_level' => 1,
             'scratch_detail' => '新品同様',
-            'status' => '2000',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -539,7 +549,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'RGP255',
             'scratch_level' => 1,
             'scratch_detail' => '新品同様',
-            'status' => '4000',
+            'status' => '1000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -583,7 +593,7 @@ class DatabaseSeeder extends Seeder
             'serial_number' => 'VCARP2R200',
             'scratch_level' => 1,
             'scratch_detail' => '新品同様',
-            'status' => '1000',
+            'status' => '4000',
             'is_case' => 1,
             'is_guarantee' => 1,
             'is_purchasable' => 1,
@@ -660,7 +670,543 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        // Bracelet 1
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'BRDRRD1MWG',
+            'subscription_plan_id' => '2',
+            'type' => 'bracelet',
+            'detail' => '世界中のハリー・ウィンストン サロンの荘厳なゲートを飾る、エレガントかつアイコニックなロゼットモチーフが、モダンなジュエリー・コレクションへと生まれ変わりました。好機、新たな始まり、幸運の象徴であるこのモチーフは、身に着ける人々に豊かな未来への前向きなメッセージを伝えます。ハリー・ウィンストンのジュエリーで輝かしい未来への扉を開いてください。',
+            'stone' => 'ホワイトダイヤモンド(計1.10カラット)',
+            'material' => 'ローズゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'BRDRRD1MWG',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 836000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 15,
+            'image' => 'bracelet1-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 15,
+            'image' => 'bracelet1-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'BRDRRD1MWG',
+            'brand_id' => 3,
+            'name' => 'ウィンストン・ゲート・ブレスレット',
+            'description' => '世界中のハリー・ウィンストン サロンの荘厳なゲートを飾る、エレガントかつアイコニックなロゼットモチーフが、モダンなジュエリー・コレクションへと生まれ変わりました。好機、新たな始まり、幸運の象徴であるこのモチーフは、身に着ける人々に豊かな未来への前向きなメッセージを伝えます。ハリー・ウィンストンのジュエリーで輝かしい未来への扉を開いてください。',
+        ]);
+        Bracelet::create([
+            'product_id' => 15,
+            'arm_length' => 18,
+            'charm_length' => "1.4 x 1.4",
+        ]);
+
+        // ring 1
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'FRDRRD1MWG',
+            'subscription_plan_id' => '2',
+            'type' => 'ring',
+            'detail' => '世界中のハリー・ウィンストン サロンの荘厳なゲートを飾る、エレガントかつアイコニックなロゼットモチーフが、モダンなジュエリー・コレクションへと生まれ変わりました。好機、新たな始まり、幸運の象徴であるこのモチーフは、身に着ける人々に豊かな未来への前向きなメッセージを伝えます。ハリー・ウィンストンのジュエリーで輝かしい未来への扉を開いてください。',
+            'stone' => '31個のラウンド・ダイヤモンド（計約0.40カラット）',
+            'material' => 'ローズゴールド',
+            'weight' => '7.0',
+            'serial_number' => 'FRDRRD1MWG',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 1012000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 16,
+            'image' => 'ring1-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 16,
+            'image' => 'ring1-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'FRDRRD1MWG',
+            'brand_id' => 3,
+            'name' => 'ウィンストン・ゲート・リング',
+            'description' => '世界中のハリー・ウィンストン サロンの荘厳なゲートを飾る、エレガントかつアイコニックなロゼットモチーフが、モダンなジュエリー・コレクションへと生まれ変わりました。好機、新たな始まり、幸運の象徴であるこのモチーフは、身に着ける人々に豊かな未来への前向きなメッセージを伝えます。ハリー・ウィンストンのジュエリーで輝かしい未来への扉を開いてください。',
+        ]);
+        Ring::create([
+            'product_id' => 16,
+            'ring_size' => 10,
+            'min_width' => 0.3,
+            'max_width' => 1.4,
+        ]);
+
+        // Bracelet 2
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'RGB487',
+            'subscription_plan_id' => '1',
+            'type' => 'bracelet',
+            'detail' => 'ファセットを模したフレームにベゼルセッティングを施されたラウンド ソリテール ダイヤモンドがこのミニマルなデザインの中で美しい輝きを放つローレンスグラフ シグネチャー ミニブレスレット。毎日の中にさり気ないエレガンスを添えてくれるファセットセッティングのデザインが、ハウス オブ グラフの代名詞とも言えるダイヤモンドの美しさを称えています。ローレンスグラフ シグネチャー コレクションのジュエリーは、重ね付けいただけるバングルやスタイリッシュなフープピアス、指の周りを回転する遊び心のあふれるリングなど豊富なバリエーションをご用意しています。',
+            'stone' => '0.5ctのラウンドダイヤモンド',
+            'material' => 'ホワイトゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'RGB487',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '4000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 575000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 17,
+            'image' => 'bracelet2-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 17,
+            'image' => 'bracelet2-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'RGB487',
+            'brand_id' => 4,
+            'name' => 'ローレンスグラフ シグネチャー ダイヤモンド ミニ ブレスレット',
+            'description' => 'ファセットを模したフレームにベゼルセッティングを施されたラウンド ソリテール ダイヤモンドがこのミニマルなデザインの中で美しい輝きを放つローレンスグラフ シグネチャー ミニブレスレット。毎日の中にさり気ないエレガンスを添えてくれるファセットセッティングのデザインが、ハウス オブ グラフの代名詞とも言えるダイヤモンドの美しさを称えています。ローレンスグラフ シグネチャー コレクションのジュエリーは、重ね付けいただけるバングルやスタイリッシュなフープピアス、指の周りを回転する遊び心のあふれるリングなど豊富なバリエーションをご用意しています。',
+        ]);
+        Bracelet::create([
+            'product_id' => 17,
+            'arm_length' => 18,
+            'charm_length' => "0.8 x 0.8",
+        ]);
+
+        // ring 2
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'FRDRRD1MWG',
+            'subscription_plan_id' => '3',
+            'type' => 'ring',
+            'detail' => '繊細な輝きを放つパヴェダイヤモンドでバタフライの羽のシルエットを表現した、トリプル バタフライ シルエット リング。大小のバタフライが指の上をひらひらと舞い、指を包み込むような愛らしいデザインです。この魅惑的なオープンリングのデザインは、数十年の長きに渡りハウス オブ グラフのインスピレーションの源であり続けたグラフのアイコニックなバタフライをコンテンポラリーに表現しています。バタフライ シルエット コレクションではロングネックレスを始め、シンプルなイヤリング、ペンダント、ブレスレット、リングなどスタイリッシュなデザインの様々なアイテムをお楽しみ頂けます。',
+            'stone' => 'ホワイトダイヤモンド',
+            'material' => 'ホワイトゴールド',
+            'weight' => '9.0',
+            'serial_number' => 'FRDRRD1MWG',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '2000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 1050000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 18,
+            'image' => 'ring2-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 18,
+            'image' => 'ring2-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'FRDRRD1MWG',
+            'brand_id' => 4,
+            'name' => 'トリプル バタフライ シルエット ダイヤモンド リング',
+            'description' => '繊細な輝きを放つパヴェダイヤモンドでバタフライの羽のシルエットを表現した、トリプル バタフライ シルエット リング。大小のバタフライが指の上をひらひらと舞い、指を包み込むような愛らしいデザインです。この魅惑的なオープンリングのデザインは、数十年の長きに渡りハウス オブ グラフのインスピレーションの源であり続けたグラフのアイコニックなバタフライをコンテンポラリーに表現しています。バタフライ シルエット コレクションではロングネックレスを始め、シンプルなイヤリング、ペンダント、ブレスレット、リングなどスタイリッシュなデザインの様々なアイテムをお楽しみ頂けます。',
+        ]);
+        Ring::create([
+            'product_id' => 18,
+            'ring_size' => 9,
+            'min_width' => 0.3,
+            'max_width' => 2.2,
+        ]);
+
+        // ring 3
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARN05500',
+            'subscription_plan_id' => '2',
+            'type' => 'ring',
+            'detail' => '2006年、ヴァン クリーフ＆アーペルが新たに制作したマジック アルハンブラ。四つ葉のクローバーから着想を得た、さまざまなサイズのアルハンブラ モチーフが作品に輝きと色彩をもたらし、楽しげなハーモニーを奏でます。アシンメトリックなデザインと素材の組み合わせが魅力的なコレクションです。',
+            'stone' => 'マザー オブ パール',
+            'material' => 'イエローゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARN05500',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 819500,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 19,
+            'image' => 'ring3-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 19,
+            'image' => 'ring3-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARN05500',
+            'brand_id' => 1,
+            'name' => 'マジック アルハンブラ アントレ レ ドア リング',
+            'description' => '2006年、ヴァン クリーフ＆アーペルが新たに制作したマジック アルハンブラ。四つ葉のクローバーから着想を得た、さまざまなサイズのアルハンブラ モチーフが作品に輝きと色彩をもたらし、楽しげなハーモニーを奏でます。アシンメトリックなデザインと素材の組み合わせが魅力的なコレクションです。',
+        ]);
+        Ring::create([
+            'product_id' => 19,
+            'ring_size' => 9,
+            'min_width' => 0.3,
+            'max_width' => 2.0,
+        ]);
         
+        // ring 4
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARO3QM00',
+            'subscription_plan_id' => '2',
+            'type' => 'ring',
+            'detail' => '1968年に初めて誕生したアルハンブラの特徴を受け継ぎ、ヴァン クリーフ＆アーペルならではの独創性と時を超えるエレガンスを湛えるヴィンテージ アルハンブラ。ゴールドビーズによる縁取りが美しい、四つ葉のクローバーに着想を得た幸運のシンボルです。',
+            'stone' => 'ダイヤモンド, マラカイト',
+            'material' => 'イエローゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARO3QM00',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '4000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 819500,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 20,
+            'image' => 'ring4-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 20,
+            'image' => 'ring4-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARO3QM00',
+            'brand_id' => 1,
+            'name' => 'ヴィンテージ アルハンブラ リング',
+            'description' => '1968年に初めて誕生したアルハンブラの特徴を受け継ぎ、ヴァン クリーフ＆アーペルならではの独創性と時を超えるエレガンスを湛えるヴィンテージ アルハンブラ。ゴールドビーズによる縁取りが美しい、四つ葉のクローバーに着想を得た幸運のシンボルです。',
+        ]);
+        Ring::create([
+            'product_id' => 20,
+            'ring_size' => 12,
+            'min_width' => 0.3,
+            'max_width' => 2.0,
+        ]);
+
+        // other 1
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARP7RS00',
+            'subscription_plan_id' => '2',
+            'type' => 'other',
+            'detail' => 'てんとう虫と花のモチーフが楽しげに連なる「ラッキー スプリング」は、ヴァン クリーフ＆アーペルにとってかけがけのない再生の季節、春に捧げられたコレクションです。ローズゴールド、カーネリアン、オニキスが優美に輝き、慈愛あふれるメゾンの世界をさらに豊かにしてくれます。',
+            'stone' => 'オニキス, カーネリアン, マザー オブ パール',
+            'material' => 'ローズ ゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARP7RS00',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '2000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 940500,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 21,
+            'image' => 'other1-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 21,
+            'image' => 'other1-2.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 21,
+            'image' => 'other1-3.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARP7RS00',
+            'brand_id' => 1,
+            'name' => 'ラッキー スプリング クリップ',
+            'description' => 'てんとう虫と花のモチーフが楽しげに連なる「ラッキー スプリング」は、ヴァン クリーフ＆アーペルにとってかけがけのない再生の季節、春に捧げられたコレクションです。ローズゴールド、カーネリアン、オニキスが優美に輝き、慈愛あふれるメゾンの世界をさらに豊かにしてくれます。',
+        ]);
+        Other_jewelry::create([
+            'product_id' => 21,
+            'type' => 'クリップ',
+            'length' => '6.0 x 2.5',
+        ]);
+
+        // other 2
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARP7UM00',
+            'subscription_plan_id' => '2',
+            'type' => 'other',
+            'detail' => '大らかな自然にインスピレーションを得た「ラッキー アニマルズ」は、愛らしい動物たちの姿をいきいきと描き出したクリップのコレクションです。ヴァン クリーフ＆アーペルは1950年代に、動物を遊び心たっぷりに表現した「ラ ブティック」コレクションを発表し一世を風靡しました。この流れを汲む「ラッキー アニマルズ」もまた、大空や大地を駆けめぐる動物たちの姿をメゾン独自の表現で楽しげな形にしています。 ゴールドとマザーオブパール、オーナメンタルストーンからなるクリップたち。メゾンのシグネチャーである、ゴールドビーズの縁取りが優美なシルエットを際立たせます。',
+            'stone' => 'オニキス, オブシディアン',
+            'material' => 'イエローゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARP7UM00',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 819500,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 22,
+            'image' => 'other2-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 22,
+            'image' => 'other2-2.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 22,
+            'image' => 'other2-3.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARP7UM00',
+            'brand_id' => 1,
+            'name' => 'ラッキー アニマルズ キャット クリップ',
+            'description' => '大らかな自然にインスピレーションを得た「ラッキー アニマルズ」は、愛らしい動物たちの姿をいきいきと描き出したクリップのコレクションです。ヴァン クリーフ＆アーペルは1950年代に、動物を遊び心たっぷりに表現した「ラ ブティック」コレクションを発表し一世を風靡しました。この流れを汲む「ラッキー アニマルズ」もまた、大空や大地を駆けめぐる動物たちの姿をメゾン独自の表現で楽しげな形にしています。 ゴールドとマザーオブパール、オーナメンタルストーンからなるクリップたち。メゾンのシグネチャーである、ゴールドビーズの縁取りが優美なシルエットを際立たせます。',
+        ]);
+        Other_jewelry::create([
+            'product_id' => 22,
+            'type' => 'クリップ',
+            'length' => '4.0 x 2.2',
+        ]);
+
+
+        // other 3
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARO29A00',
+            'subscription_plan_id' => '2',
+            'type' => 'other',
+            'detail' => '遊び心とエレガンスがひとつになったチャーム コレクションは、ヴァン クリーフ＆アーペルを象徴するシグネチャーのひとつ。丸みを帯びたシルエットにラッキーチャームがあしらわれ、手首の動きに合わせてくるくると回転します。さまざまなカラーのゴールドを用いたこのコレクションは、ジュエリー制作に捧げるメゾンのサヴォアフェールを反映しています。',
+            'stone' => 'ダイヤモンド',
+            'material' => 'ホワイトゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARO29A00',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 1874400,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 23,
+            'image' => 'other3-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 23,
+            'image' => 'other3-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARO29A00',
+            'brand_id' => 1,
+            'name' => 'チャーム ミニ（25mm）',
+            'description' => '遊び心とエレガンスがひとつになったチャーム コレクションは、ヴァン クリーフ＆アーペルを象徴するシグネチャーのひとつ。丸みを帯びたシルエットにラッキーチャームがあしらわれ、手首の動きに合わせてくるくると回転します。さまざまなカラーのゴールドを用いたこのコレクションは、ジュエリー制作に捧げるメゾンのサヴォアフェールを反映しています。',
+        ]);
+        Other_jewelry::create([
+            'product_id' => 23,
+            'type' => 'ウォッチ',
+            'length' => '4 x 4',
+        ]);
+
+        // Bracelet 3
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARP4KN00',
+            'subscription_plan_id' => '3',
+            'type' => 'bracelet',
+            'detail' => '1968年に初めて誕生したアルハンブラの特徴を受け継ぎ、ヴァン クリーフ＆アーペルならではの独創性と時を超えるエレガンスを湛えるヴィンテージ アルハンブラ。ゴールドビーズによる縁取りが美しい、四つ葉のクローバーに着想を得た幸運のシンボルです。',
+            'stone' => 'ダイヤモンド',
+            'material' => 'イエローゴールド',
+            'weight' => '15.0',
+            'serial_number' => 'VCARP4KN00',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 1821600,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 24,
+            'image' => 'bracelet3-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 24,
+            'image' => 'bracelet3-2.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 24,
+            'image' => 'bracelet3-3.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARP4KN00',
+            'brand_id' => 1,
+            'name' => 'ヴィンテージ アルハンブラ ブレスレット、5モチーフ',
+            'description' => '1968年に初めて誕生したアルハンブラの特徴を受け継ぎ、ヴァン クリーフ＆アーペルならではの独創性と時を超えるエレガンスを湛えるヴィンテージ アルハンブラ。ゴールドビーズによる縁取りが美しい、四つ葉のクローバーに着想を得た幸運のシンボルです。',
+        ]);
+        Bracelet::create([
+            'product_id' => 24,
+            'arm_length' => 18,
+            'charm_length' => "2.0 x 2.0",
+        ]);
+
+        // Bracelet 4
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'BRDPSM1MLC',
+            'subscription_plan_id' => '1',
+            'type' => 'bracelet',
+            'detail' => 'ハリー・ウィンストンのアーカイブに保管された1940年代のスケッチに、斬新かつモダンなエッセンスを加えたリリークラスター・コレクションは、咲き誇るユリの花の自然な美しさを表現しています。この優美でフェミニンなファインジュエリーのデザインは、ユリの花びらが織りなす流麗なラインを構築的に捉えています。',
+            'stone' => '47個のラウンド・ダイヤモンド（計約0.31カラット）',
+            'material' => 'プラチナ',
+            'weight' => '15.0',
+            'serial_number' => 'BRDPSM1MLC',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '2000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 825000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 25,
+            'image' => 'bracelet4-1.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'BRDPSM1MLC',
+            'brand_id' => 3,
+            'name' => 'リリークラスター・ミニ・ブレスレット',
+            'description' => 'ハリー・ウィンストンのアーカイブに保管された1940年代のスケッチに、斬新かつモダンなエッセンスを加えたリリークラスター・コレクションは、咲き誇るユリの花の自然な美しさを表現しています。この優美でフェミニンなファインジュエリーのデザインは、ユリの花びらが織りなす流麗なラインを構築的に捉えています。',
+        ]);
+        Bracelet::create([
+            'product_id' => 25,
+            'arm_length' => 18,
+            'charm_length' => "2.2 x 2.2",
+        ]);
+
+        // ring 5
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'FRDYSM1MLC',
+            'subscription_plan_id' => '1',
+            'type' => 'ring',
+            'detail' => 'ハリー・ウィンストンのアーカイブに保管された1940年代のスケッチに、斬新かつモダンなエッセンスを加えたリリークラスター・コレクションは、咲き誇るユリの花の自然な美しさを表現しています。この優美でフェミニンなファインジュエリーのデザインは、ユリの花びらが織りなす流麗なラインを構築的に捉えています。',
+            'stone' => '37個のラウンド・ダイヤモンド（計約0.18カラット）',
+            'material' => 'イエローゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'FRDYSM1MLC',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '1000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 627000,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 26,
+            'image' => 'ring5-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 26,
+            'image' => 'ring5-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'FRDYSM1MLC',
+            'brand_id' => 1,
+            'name' => 'リリークラスター・ミニ・リング',
+            'description' => 'ハリー・ウィンストンのアーカイブに保管された1940年代のスケッチに、斬新かつモダンなエッセンスを加えたリリークラスター・コレクションは、咲き誇るユリの花の自然な美しさを表現しています。この優美でフェミニンなファインジュエリーのデザインは、ユリの花びらが織りなす流麗なラインを構築的に捉えています。',
+        ]);
+        Ring::create([
+            'product_id' => 26,
+            'ring_size' => 8,
+            'min_width' => 0.3,
+            'max_width' => 2.2,
+        ]);
+
+        // other 4
+        Product::create([
+            'lender_user_id' => '2',
+            'official_product_id' => 'VCARO9B300',
+            'subscription_plan_id' => '3',
+            'type' => 'other',
+            'detail' => '1970年代から、ヴァン クリーフ＆アーペルは真冬に花を咲かせ、幸運をもたらすとされるクリスマス ローズを称えるコレクションを創りつづけています。ダイヤモンドの輝きとオーナメンタルストーンの艶やかな光沢を組み合わせたローズ ド ノエル コレクションは、美しさとロマンスを象徴する作品です。',
+            'stone' => 'オニキス, ダイヤモンド',
+            'material' => 'イエローゴールド',
+            'weight' => '10.0',
+            'serial_number' => 'VCARO9B300',
+            'scratch_level' => 1,
+            'scratch_detail' => '新品同様',
+            'status' => '2000',
+            'is_case' => 1,
+            'is_guarantee' => 1,
+            'is_purchasable' => 1,
+            'soldable_price' => 2257200,
+            'favorite_count' => 0,
+        ]);
+        Product_image::create([
+            'product_id' => 27,
+            'image' => 'other4-1.png', 
+        ]);
+        Product_image::create([
+            'product_id' => 27,
+            'image' => 'other4-2.png', 
+        ]);
+        Official::create([
+            'official_product_id' => 'VCARO9B300',
+            'brand_id' => 1,
+            'name' => 'ローズ ド ノエル クリップ、ミディアムモデル',
+            'description' => '1970年代から、ヴァン クリーフ＆アーペルは真冬に花を咲かせ、幸運をもたらすとされるクリスマス ローズを称えるコレクションを創りつづけています。ダイヤモンドの輝きとオーナメンタルストーンの艶やかな光沢を組み合わせたローズ ド ノエル コレクションは、美しさとロマンスを象徴する作品です。',
+        ]);
+        Other_jewelry::create([
+            'product_id' => 27,
+            'type' => 'クリップ',
+            'length' => '3.8 x 3.8',
+        ]);
+
+
+
+
         Brand::create([
             'brand_name' => 'Van Cleef & Arpels',
             'brand_detail' => 'アルフレッド・ヴァン クリーフとエステル・アーペルの結婚をきっかけに、1906年パリにてメゾンが誕生。宝石に包まれた、輝く未来がはじまりました。 ',
@@ -744,14 +1290,35 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        // Rental::create([
+        //     'renter_user_id' => 2,
+        //     'lender_user_id' => 1,
+        //     'product_id' => 4,
+        //     'on_where'=> 'lender',
+        //     'is_cleaning' => 0,
+        //     'is_fixing' => 0,
+        //     // 'fix_detail' => '',
+        //     'is_lost' => 0,
+        // ]);
+
+// デモ用でここはコメントアウトする
+        // Rental::create([
+        //     'renter_user_id' => 1,
+        //     'lender_user_id' => 2,
+        //     'product_id' => 2,
+        //     'on_where'=> 'lender',
+        //     'is_cleaning' => 0,
+        //     'is_fixing' => 0,
+        //     'is_lost' => 0,
+        // ]);
+
         Rental::create([
-            'renter_user_id' => 1,
-            'lender_user_id' => 2,
-            'product_id' => 4,
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
+            'product_id' => 1,
             'on_where'=> 'lender',
             'is_cleaning' => 0,
             'is_fixing' => 0,
-            // 'fix_detail' => '',
             'is_lost' => 0,
         ]);
 
@@ -766,9 +1333,49 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Rental::create([
-            'renter_user_id' => 1,
-            'lender_user_id' => 2,
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
             'product_id' => 10,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 3,
+            'lender_user_id' => 2,
+            'product_id' => 18,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
+            'product_id' => 21,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
+            'product_id' => 25,
+            'on_where'=> 'lender',
+            'is_cleaning' => 0,
+            'is_fixing' => 0,
+            'is_lost' => 0,
+        ]);
+
+        Rental::create([
+            'renter_user_id' => 2,
+            'lender_user_id' => 1,
+            'product_id' => 27,
             'on_where'=> 'lender',
             'is_cleaning' => 0,
             'is_fixing' => 0,
@@ -969,6 +1576,301 @@ class DatabaseSeeder extends Seeder
         Product_tag::create([
             'tag_id' => 6,
             'product_id' => 8,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 9,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 9,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 9,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 9,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 9,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 10,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 10,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 11,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 11,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 12,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 12,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 12,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 12,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 12,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 13,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 13,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 13,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 13,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 1,
+            'product_id' => 14,
+        ]);
+        Product_tag::create([
+            'tag_id' => 2,
+            'product_id' => 14,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 14,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 14,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 1,
+            'product_id' => 15,
+        ]);
+        Product_tag::create([
+            'tag_id' => 2,
+            'product_id' => 15,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 15,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 15,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 16,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 16,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 16,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 16,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 16,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 17,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 17,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 17,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 17,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 18,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 18,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 18,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 19,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 19,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 19,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 20,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 20,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 20,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 20,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 21,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 21,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 21,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 22,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 22,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 22,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 1,
+            'product_id' => 23,
+        ]);
+        Product_tag::create([
+            'tag_id' => 2,
+            'product_id' => 23,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 23,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 23,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 24,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 24,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 24,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 25,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 25,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 25,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 3,
+            'product_id' => 26,
+        ]);
+        Product_tag::create([
+            'tag_id' => 4,
+            'product_id' => 26,
+        ]);
+        Product_tag::create([
+            'tag_id' => 7,
+            'product_id' => 26,
+        ]);
+        Product_tag::create([
+            'tag_id' => 8,
+            'product_id' => 26,
+        ]);
+
+        Product_tag::create([
+            'tag_id' => 1,
+            'product_id' => 27,
+        ]);
+        Product_tag::create([
+            'tag_id' => 2,
+            'product_id' => 27,
+        ]);
+        Product_tag::create([
+            'tag_id' => 5,
+            'product_id' => 27,
+        ]);
+        Product_tag::create([
+            'tag_id' => 6,
+            'product_id' => 27,
         ]);
 
     }

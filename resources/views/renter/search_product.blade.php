@@ -10,6 +10,10 @@
             </div>
         @else
             <div class="bg-white container mx-auto flex flex-wrap pt-4 pb-12">
+
+                {{-- レンタル可能な商品のみ表示チェックボックス --}}
+                <x-filter_rentable />
+
                 @foreach($products as $product)
                     <x-product-card :product="$product" />
                 @endforeach
@@ -18,4 +22,3 @@
     </div>
   
   </x-app-layout>
-  

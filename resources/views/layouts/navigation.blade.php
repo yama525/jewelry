@@ -34,7 +34,7 @@
                             <form action="{{ route('search_product') }}" method="GET">
                                 @csrf
                                 <div class="mx-auto text-gray-600">
-                                    <input class="border-1 border-gray-300 bg-white h-8 sm:h-10 pl-5 pr-16 sm:pr-52 rounded-lg text-sm md:text-base focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400" type="search" name="search" placeholder="Search" required>
+                                    <input class="border-1 border-gray-300 bg-white h-8 sm:h-10 pl-5 w-60 sm:w-96 rounded-lg text-sm md:text-base focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400" type="search" name="search" placeholder="ブランド、マテリアル、キーワード など" required>
                                     <button type="submit" class="h-8 sm:h-10 px-4 sm:px-8 border border-transparent shadow-sm text-base md:text-lg font-medium rounded-lg text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-900">検索</button>
                                 </div>
                             </form>
@@ -193,49 +193,41 @@
             </div>
         </div>
 
-        
-
-        
-            
-                
-
-        
-
-
-
 
     
 
         <!-- Navigation Links -->
         {{-- <div id="global-nav" class="hidden sm:-my-px sm:flex flex justify-center border-b z-50"> --}}
-        <div class="grid grid-cols-5 gap-4 mx-4 md:mx-36 lg:mx-48 xl:mx-80">
-            <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
-                <p class="text-base sm:text:lg md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Home') }}</p>
-            </x-nav-link>
-            <x-nav-link :active="request()->routeIs(['all', 'ring', 'necklace', 'bracelet', 'earing', 'other', 'standard', 'premium', 'luxury'])">
-                <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                    <p @click="open = !open" class="text-base md:text-xl text-gray-400 css_fontFamily_lora">Jewelry</p>
-                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="css_header_menu_jewelry_search absolute w-full mt-2 origin-top-right shadow-lg w-40">
-                        <div class="pl-4 py-2 bg-white shadow dark-mode:bg-gray-800">
-                            <input type="button" onclick="location.href='/category/ring'"value="Ring" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/necklace'"value="Necklace" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/bracelet'"value="Bracelet" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/earing'"value="Earing" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <input type="button" onclick="location.href='/category/other'"value="Other" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+        <div id="global-nav" class="z-50">
+
+            <div class="grid grid-cols-5 gap-4 mx-4 md:mx-36 lg:mx-48 xl:mx-80">
+                <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                    <p class="text-base sm:text:lg md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Home') }}</p>
+                </x-nav-link>
+                <x-nav-link :active="request()->routeIs(['all', 'ring', 'necklace', 'bracelet', 'earing', 'other', 'standard', 'premium', 'luxury'])">
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <p @click="open = !open" class="text-base md:text-xl text-gray-400 css_fontFamily_lora">Jewelry</p>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="css_header_menu_jewelry_search absolute w-full mt-2 origin-top-right shadow-lg w-40 z-50">
+                            <div class="pl-4 py-2 bg-white shadow dark-mode:bg-gray-800">
+                                <input type="button" onclick="location.href='/category/ring'"value="Ring" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <input type="button" onclick="location.href='/category/necklace'"value="Necklace" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <input type="button" onclick="location.href='/category/bracelet'"value="Bracelet" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <input type="button" onclick="location.href='/category/earing'"value="Earing" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <input type="button" onclick="location.href='/category/other'"value="Other" class="cursor-pointer block px-2 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 text-gray-400 hover:text-gray-400 focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </x-nav-link>
-            <x-nav-link :href="route('product.index')">
-                <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Service') }}</p>
-            </x-nav-link>
-            <x-nav-link :href="route('product.index')">
-                <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Plan') }}</p>
-            </x-nav-link>
-            <x-nav-link :href="route('lender.index')" :active="request()->routeIs('lender.index')">
-                <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Lend') }}</p>
-            </x-nav-link>
+                </x-nav-link>
+                <x-nav-link :href="route('product.index', '#service')">
+                    <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Service') }}</p>
+                </x-nav-link>
+                <x-nav-link :href="route('product.index', '#plans')">
+                    <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Plan') }}</p>
+                </x-nav-link>
+                <x-nav-link :href="route('lender.index')" :active="request()->routeIs('lender.index')">
+                    <p class="text-base md:text-xl text-gray-400 css_fontFamily_lora">{{ __('Lend') }}</p>
+                </x-nav-link>
+            </div>
         </div>
-        {{-- </div> --}}
     </div>
 </nav>

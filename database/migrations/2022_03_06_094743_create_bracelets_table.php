@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constraint();
             $table->integer('arm_length');
-            $table->string('charm_length');
+            $table->string('charm_length')->nullable();
         });
     }
 

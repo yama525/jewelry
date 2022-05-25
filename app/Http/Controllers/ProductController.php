@@ -314,7 +314,7 @@ class ProductController extends Controller
             ->where('id', $product->id)
             ->get();
         }elseif($product->type === 'necklace'){
-            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','necklace')
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand', 'necklace')
             ->where('id', $product->id)
             ->get();
         }elseif($product->type === 'bracelet'){
@@ -333,6 +333,7 @@ class ProductController extends Controller
         
         // 2次元配列で返されるので、ここで修正
         $product_detail = $product_datas[0];
+
         // dd($product_detail->tags); // OK
             
             // カレンダー

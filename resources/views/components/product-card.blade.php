@@ -1,5 +1,5 @@
 
-<div class="css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-0 md:mt-4">
+<div data-rentalable_status="{{ $product->status }}" class="product_cards css_productCard_height w-full w-1/2 md:w-1/3 xl:w-1/3 p-4 mt-0 md:mt-4">
         {{-- いいねボタン --}}
             @auth
                 <!-- Product.php（model）に作ったisLikedByメソッドをここで使用、いいねの色は like.scss で管理 -->
@@ -33,9 +33,9 @@
 
         {{-- 商品のステータスタグ（「レンタル中」「購入済み」） --}}
         @if($product->status === 2000)
-            <div class="css_product_status_tag bg-gray-800 w-20 h-4 text-gray-200 text-xs rounded-r-full">レンタル中</div>
+            <div class="css_product_status_tag bg-gray-800 w-20 h-4 text-gray-200 text-xs rounded-r-full rentaling_now">レンタル中</div>
         @elseif($product->status === 4000)
-            <div class="css_product_status_tag bg-gray-300 w-20 h-4 text-gray-500 text-xs rounded-r-full">購入済み</div>
+            <div class="css_product_status_tag bg-gray-300 w-20 h-4 text-gray-500 text-xs rounded-r-full already_sold">購入済み</div>
         @endif
 
         {{-- サムネイル --}}
@@ -52,8 +52,7 @@
         <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">{{ $product->getBrandName() }}</p>
 
         {{-- 商品のレンタル価格 --}}
-        <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">{{ number_format($product->subscription_plan->price) }} 円 / 日</p>
+        <p class="pt-1 text-gray-500 text-xs md:text-sm text-left">{{ number_format($product->subscription_plan->rental_price) }} 円 〜</p>
     </a>
     
-
 </div>
