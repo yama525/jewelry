@@ -17,7 +17,7 @@ use App\Models\Product_request;
 use App\Models\Favorite;
 use App\Models\Tag;
 use App\Models\Sold;
-
+use App\Models\Subscription_plan;
 
 
 
@@ -309,18 +309,12 @@ class ProductController extends Controller
         // dd($product);
         $product_images = Product_image::with('product')->where('product_id', $product->id)->get();
 
-        // test
-        // $product_datas = Product::with('product_images', 'sold', 'official_product', 'official_product.brand','ring')
-        //     ->where('id', $product->id)
-        //     ->get();
-        // dd($product_datas[0]->soldable_price);
-
         if($product->type === 'ring'){
             $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','ring')
             ->where('id', $product->id)
             ->get();
         }elseif($product->type === 'necklace'){
-            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand','necklace')
+            $product_datas = Product::with('product_images', 'official_product', 'official_product.brand', 'necklace')
             ->where('id', $product->id)
             ->get();
         }elseif($product->type === 'bracelet'){
@@ -339,11 +333,29 @@ class ProductController extends Controller
         
         // 2次元配列で返されるので、ここで修正
         $product_detail = $product_datas[0];
-        // dd($product_detail->tags); // OK
 
-        return view('/renter/product_detail', compact('product_detail','product_images'));
+        // dd($product_detail->tags); // OK
             
+            // カレンダー
+            // $subscription_plan = $product->subscription_plan_id;
+            // // dd($subscription_plan);
+  
+            // $product_subscription = Subscription_plan::where('id', $subscription_plan)
+            // ->get();
+            // $product_subscription = $product_subscription[0];
+            // $param = [
+            //     'price' => $product_subscription->price,
+            // ];
+            
+            // return response()->json($param); //6.JSONデータをjQueryに返す
+
+
+
+        // return [view('/renter/product_detail', compact('product_detail','product_images')), response()->json($param)];
+        return view('/renter/product_detail', compact('product_detail','product_images'));
+
     }
+
 
     public function mypage()
     {
@@ -493,13 +505,19 @@ class ProductController extends Controller
     }
 
 
-    public function checkout(Product $product)
+    public function checkout(Product $product, Request $request)
     {
         $product = $product->with('official_product')
         ->where('id',$product->id)
         ->get();
 
         $product = $product[0];
+        $price = str_replace(',', '', $request->contact);
+        // if () { 
+        // } else { 
+            
+        // }  
+
 
         // ステータスが「レンタル可能(1000)」の場合のみ決済画面に進めるようにする
         if($product->status > 1000){
@@ -514,7 +532,7 @@ class ProductController extends Controller
                         'name' => $product->getOfficialName(),
                         'description' => $product->detail,
                     ],  
-                    'unit_amount' => $product->subscription_plan->price,
+                    'unit_amount' => $price,
                     'recurring' => [
                         'interval' => 'month',
                     ],
@@ -612,16 +630,30 @@ class ProductController extends Controller
         return response()->json($param); //6.JSONデータをjQueryに返す
     }
 
-    // public function tag(Request $request)
-    // {
-    //     $tag = Tag::all(); 
 
-    //     // $product_likes_count = Product::withCount('favorites')->findOrFail($product_id)->likes_count;
+    // public function calendar(Request $request)
+    // {
+    //     // dd($request);
+    //     $user_id = auth()->user()->id; //1.ログインユーザーのid取得
+    //     $product_id = $request->product_id; //2.投稿idの取得
+    //     $already_liked = Favorite::where('user_id', $user_id)->where('product_id', $product_id)->first(); //3.
+
+    //     if (!$already_liked) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
+    //         $like = new Favorite; //4.Likeクラスのインスタンスを作成
+    //         $like->product_id = $product_id; //Likeインスタンスにproduct_id,user_idをセット
+    //         $like->user_id = $user_id;
+    //         $like->save();
+    //     } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
+    //         Favorite::where('product_id', $product_id)->where('user_id', $user_id)->delete();
+    //     }  
+    //     //5.この投稿の最新の総いいね数を取得
+    //     $product_likes_count = Product::withCount('favorites')->findOrFail($product_id)->likes_count;
     //     $param = [
-    //         'tag' => $tag,
+    //         'product_likes_count' => $product_likes_count,
     //     ];
     //     return response()->json($param); //6.JSONデータをjQueryに返す
     // }
+
 
 
 }

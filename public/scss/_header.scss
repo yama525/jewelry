@@ -1,8 +1,28 @@
 // Header 特定の位置で固定させる
     #global-nav {
-        background-position: 0px -176px;
+        background-position: 0px -95px;
         width: 100%;
         background-image:url('/dummy_img/marble.jpg');
+    }
+    @media screen and (min-width: 768px) {
+        /* 481px以上に適用されるCSS（タブレット用） */
+        #global-nav{
+            background-position: 0px -127px;
+            width: 100%;
+            background-image:url('/dummy_img/marble.jpg');
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        /* 960px以上に適用されるCSS（PC用） */
+        #global-nav{
+            background-position: 0px -176px;
+            width: 100%;
+            background-image:url('/dummy_img/marble.jpg');
+        }
+    }
+
+    #global-nav{
+        box-shadow: 0px 8px 5px 0px rgba(163, 163, 163, 0.5)
     }
 
     #global-nav.m_fixed {

@@ -5,6 +5,7 @@
             <div class="inline-flex w-1/2 pl-2 md:pl-0 items-end">
                 <a href="{{ route('product.index') }}">    
                     <img src="/dummy_img/logo.png" class="w-12 pr-3">
+                    {{-- <i class="fas fa-home fa-fw mr-3"></i> --}}
                 </a>
                 <p class="text-xl font-bold text-gray-600">My Page</p>
             </div>
@@ -55,7 +56,7 @@
                       @else
                         <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
                       @endif
-                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">お気に入りジュエリー</span>
+                            <i class="fas fa-heart fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">お気に入りジュエリー</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
@@ -64,7 +65,7 @@
                       @else
                         <a href="{{ route('mypage.rental') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
                       @endif
-                            <i class="fas fa-handshake fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">レンタル</span>
+                            <i class="fas fa-gift fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">レンタル</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">

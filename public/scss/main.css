@@ -377,9 +377,32 @@ a {
 }
 
 #global-nav {
-  background-position: 0px -176px;
+  background-position: 0px -95px;
   width: 100%;
   background-image: url("/dummy_img/marble.jpg");
+}
+
+@media screen and (min-width: 768px) {
+  /* 481px以上に適用されるCSS（タブレット用） */
+  #global-nav {
+    background-position: 0px -127px;
+    width: 100%;
+    background-image: url("/dummy_img/marble.jpg");
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* 960px以上に適用されるCSS（PC用） */
+  #global-nav {
+    background-position: 0px -176px;
+    width: 100%;
+    background-image: url("/dummy_img/marble.jpg");
+  }
+}
+
+#global-nav {
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(163, 163, 163, 0.5);
+          box-shadow: 0px 8px 5px 0px rgba(163, 163, 163, 0.5);
 }
 
 #global-nav.m_fixed {
@@ -557,8 +580,8 @@ a {
   /* 481px以上に適用されるCSS（タブレット用） */
   .css_favorite_position {
     position: relative;
-    top: 252px;
-    left: 216%;
+    top: 280px;
+    left: 212%;
   }
 }
 
@@ -576,7 +599,7 @@ a {
   .css_favorite_position {
     position: relative;
     top: 280px;
-    left: 160%;
+    left: 212%;
   }
 }
 
@@ -584,8 +607,8 @@ a {
   /* 960px以上に適用されるCSS（PC用） */
   .css_favorite_position {
     position: relative;
-    top: 340px;
-    left: 270%;
+    top: 380px;
+    left: 220%;
   }
 }
 
@@ -593,8 +616,8 @@ a {
   /* 960px以上に適用されるCSS（PC用） */
   .css_favorite_position {
     position: relative;
-    top: 340px;
-    left: 360%;
+    top: 360px;
+    left: 142px;
   }
 }
 
@@ -724,6 +747,55 @@ a {
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
           transform: translateY(-50%) translateX(-50%);
+}
+
+/*Page styles*/
+/*Checkboxes styles*/
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child {
+  margin-bottom: 0;
+}
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #33442F;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .css_message {

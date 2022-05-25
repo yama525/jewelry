@@ -4,7 +4,7 @@
     <!-- メインビジュアル -->
     <div class="main_visual">
         {{-- <img src="dummy_img/main_visual4.png" alt="" class="w-full object-cover" style="height: 550px"> --}}
-        <img src="dummy_img/top4.jpeg" alt="" class="w-full h-auto object-cover">
+        <img src="dummy_img/main_visual2.jpeg" alt="" class="w-full h-auto object-cover">
     </div>
 
     <!-- メッセージ -->
@@ -26,7 +26,7 @@
 
 
     <!-- サービス紹介 -->
-    <section class="pt-4 pb-6 md:pb-0 md:py-8 lg:py-12">
+    <section id="service" class="service pt-4 pb-6 md:pb-0 md:py-8 lg:py-12">
         <div class="service_wrapper">
             <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12">Service</h1>
             {{-- 1 列目 --}}
@@ -75,41 +75,41 @@
     <section class="bg-white py-4 md:py-8 lg:py-12">
         <h1 class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 text-center mb-0 md:mb-4 lg:mb-8">Jewelry</h1>
         <div class="flex flex-wrap justify-center px-0 md:px-8 css_img_list">
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/ring">
-                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/rings.jpeg">
+                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/ring02.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
                         <p class="text-base md:text-xl text-gray-600 flex css_fontFamily_lora">Ring</p>
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/necklace">
-                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/necklace.jpeg">
+                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/necklace01.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
                         <p class="text-base md:text-xl text-gray-600 flex css_fontFamily_lora">Necklace</p>
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/bracelet">
-                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet.png">
+                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/bracelet01.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
                         <p class="text-base md:text-xl text-gray-600 flex css_fontFamily_lora">Bracelet</p>
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/earing">
-                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/earing.png">
+                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/earing01.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
                         <p class="text-base md:text-xl text-gray-600 flex css_fontFamily_lora">Earing</p>
                     </div>
                 </a>
             </div>
-            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-4 flex justify-center border rounded">
+            <div class="bg-white hover:shadow-lg w-5/12 lg:w-1/3 pt-2 md:pt-6 pb-2 md:pb-4 px-2 m-2 sm:m-4 flex justify-center border rounded">
                 <a href="/category/other">
-                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/brooch.jpeg">
+                    <img class="object-cover h-28 md:h-40 lg:h-60 lg:w-96" src="dummy_img/other01.jpeg">
                     <div class="pt-2 md:pt-3 flex items-center">
                         <p class="text-base md:text-xl text-gray-600 flex css_fontFamily_lora">Other</p>
                     </div>
@@ -120,7 +120,7 @@
 
 
     <!-- プラン -->
-    <section class="py-4 md:py-8 lg:py-12">
+    <section id="plans" class="py-4 md:py-8 lg:py-12">
         <div class="service_wrapper">
             <h1 id="plans" class="py-4 text-2xl md:text-3xl lg:text-5xl text-gray-400 mb-4 md:mb-8 lg:mb-12"> Plans</h1>
             {{-- <div class="mx-12 space-y-12 lg:space-y-0 lg:flex lg:gap-4 lg:items-center lg:justify-center"> --}}
@@ -128,7 +128,7 @@
 
                 <div class="bg-white max-w-sm p-4 md:p-8 shadow-lg rounded">
                     <h3 class="text-lg md:text-xl lg:text-2xl text-center text-gray-600">Standard</h3>
-                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">12,000 円</p>
+                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">12,000 円 〜</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="/dummy_img/standard.png" alt="">
@@ -140,7 +140,7 @@
                 </div>
                 <div class="bg-white max-w-sm p-4 md:p-8 shadow-lg rounded">
                     <h3 class="text-lg md:text-xl lg:text-2xl text-center text-gray-600"> Premium</h3>
-                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">22,000 円</p>
+                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">24,000 円 〜</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="/dummy_img/premium.png" alt="">
@@ -152,7 +152,7 @@
                 </div>
                 <div class="bg-white max-w-sm p-4 md:p-8 shadow-lg rounded">
                     <h3 class="text-lg md:text-xl lg:text-2xl text-center text-gray-600">Luxury</h3>
-                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">36,000 円</p>
+                    <p class="text-sm md:text-base lg:text-lg text-center text-gray-500">36,000 円 〜</p>
                     <div>
                         <div class="flex justify-center mt-8">
                             <img class="w-full" src="/dummy_img/luxury.png" alt="">
