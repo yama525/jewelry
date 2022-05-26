@@ -45,59 +45,64 @@
                 </x-slot>
               </x-dropdown>
             </div>
+
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 z-20">
+              
+              {{-- メニュー部分 --}}
+              <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
+                  <li class="mr-6 my-2 md:my-0">
+                    @if(\Route::is('mypage'))
+                      <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
+                    @else
+                      <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
+                    @endif
+                          <i class="fas fa-heart fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">お気に入りジュエリー</span>
+                      </a>
+                  </li>
+                  <li class="mr-6 my-2 md:my-0">
+                    @if(\Route::is(['*.rental', '*.rentaled']))
+                      <a href="{{ route('mypage.rental') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
+                    @else
+                      <a href="{{ route('mypage.rental') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
+                    @endif
+                          <i class="fas fa-gift fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">レンタル</span>
+                      </a>
+                  </li>
+                  <li class="mr-6 my-2 md:my-0">
+                    @if(\Route::is(['*.lending', '*.rentaling']))
+                    <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
+                  @else
+                    <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
+                  @endif
+                        <i class="fas fa-handshake fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">貸し出し</span>
+                    </a>
+                  </li>
+                  <li class="mr-6 my-2 md:my-0">
+                      <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300 hidden lg:block">
+                          <i class="fas fa-user fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">アカウント</span>
+                      </a>
+                  </li>
+                  <li class="mr-6 my-2 md:my-0">
+                      <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300 hidden lg:block">
+                          <i class="	fas fa-cog fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">設定</span>
+                      </a>
+                  </li>
+              </ul>
+            </div>
     
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20" id="nav-content">
-
-                {{-- メニュー部分 --}}
-                <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                    <li class="mr-6 my-2 md:my-0">
-                      @if(\Route::is('mypage'))
-                        <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
-                      @else
-                        <a href="{{ route('mypage') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
-                      @endif
-                            <i class="fas fa-heart fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">お気に入りジュエリー</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                      @if(\Route::is(['*.rental', '*.rentaled']))
-                        <a href="{{ route('mypage.rental') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
-                      @else
-                        <a href="{{ route('mypage.rental') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
-                      @endif
-                            <i class="fas fa-gift fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">レンタル</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                      @if(\Route::is(['*.lending', '*.rentaling']))
-                      <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-green-700 no-underline border-b-2 border-green-700 hover:border-green-700">
-                    @else
-                      <a href="{{ route('mypage.lending') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:hover:border-b-2 hover:border-gray-300">
-                    @endif
-                          <i class="fas fa-handshake fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">貸し出し</span>
-                      </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300">
-                            <i class="fas fa-user fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">アカウント</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:border-b-2  hover:border-gray-300">
-                            <i class="	fas fa-cog fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">設定</span>
-                        </a>
-                    </li>
-                </ul>
+              
+                
                 
                 {{-- 検索バー --}}
-                <div class="relative pull-right pl-4 pr-4 md:pr-0">
+                {{-- <div class="relative pull-right pl-4 pr-4 md:pr-0">
                     <input type="search" placeholder="Search" class="w-full bg-white text-sm text-gray-400 transition border border-gray-400 focus:outline-none focus:border-gray-600 rounded py-1 px-2 pl-10 appearance-none leading-normal">
                     <div class="absolute search-icon" style="top: 0.375rem;left: 1.75rem;">
                         <svg class="fill-current pointer-events-none text-gray-500 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
                         </svg>
                     </div>
-                </div>
+                </div> --}}
                 
             </div>
             

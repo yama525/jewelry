@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="bg-white font-sans leading-normal tracking-normal">
+    <div class="bg-white font-sans leading-normal tracking-normal mt-28 md:mt-20 lg:mt-0">
 
         <!--Container-->
         <div class="container w-full mx-auto pt-28">
