@@ -228,7 +228,7 @@
                                                 </div>
                                             @elseif($product_detail->status === 2000)
                                                 <div class="flex items-end">
-                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
+                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-20 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
                                                 </div>
                                             @elseif($product_detail->status === 4000)
                                                 <div class="flex items-end">
@@ -244,7 +244,7 @@
                                                 </div>
                                             @elseif($product_detail->status === 2000)
                                                 <div class="flex items-end">
-                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-24 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
+                                                    <p class="cursor-default text-sm sm:text-base flex items-center text-gray-200 bg-gray-800 border-0 px-20 sm:px-4 py-2 sm:py-4 focus:outline-none rounded">現在レンタル中</p>
                                                 </div>
                                             @elseif($product_detail->status === 4000)
                                                 <div class="flex items-end">
