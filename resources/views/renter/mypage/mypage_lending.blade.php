@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="bg-white font-sans leading-normal tracking-normal">
+    <div class="bg-white font-sans leading-normal tracking-normal mt-28 md:mt-20 lg:mt-0">
         <div class="container w-full mx-auto pt-28">
             <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
                 <div class=" text-right">

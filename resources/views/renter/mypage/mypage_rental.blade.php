@@ -2,7 +2,7 @@
 
 
 
-<div class="bg-white font-sans leading-normal tracking-normal">
+<div class="bg-white font-sans leading-normal tracking-normal mt-28 md:mt-20 lg:mt-0">
 
     {{-- Header --}}
 	{{-- <x-mypage-header /> --}}
